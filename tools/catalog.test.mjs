@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { validateCatalog, mergeRelease } from './catalog.mjs';
+const catalog=()=>JSON.parse(fs.readFileSync(new URL('../catalog/index.json',import.meta.url),'utf8'));
+const release={versionCode:1000,versionName:'0.1.0',minSdk:26,architectures:['universal'],url:'https://github.com/owner/app/releases/download/v0.1.0/app.apk',size:1024,sha256:'a'.repeat(64),certificateSha256:'b'.repeat(64),changelog:'First release'};
+test('accepts the shipped catalog',()=>assert.equal(validateCatalog(catalog()).apps.length,3));
+test('rejects duplicate identities',()=>{const c=catalog();c.apps.push(c.apps[0]);assert.throws(()=>validateCatalog(c),/Duplicate/);});
+test('rejects unsupported schema',()=>assert.throws(()=>validateCatalog({...catalog(),schemaVersion:2}),/schemaVersion/));
+test('rejects HTTP downloads and malformed hashes',()=>{for(const patch of [{url:'http://example.com/a.apk'},{sha256:'a'},{certificateSha256:''},{size:-1},{versionCode:1.5}]){const c=catalog();c.apps[0].release={...release,...patch};assert.throws(()=>validateCatalog(c));}});
+test('rejects release for another package',()=>assert.throws(()=>mergeRelease(catalog().apps[0],{schemaVersion:1,packageName:'other.app',release}),/mismatch/));
+test('accepts a valid initial release',()=>{const app=catalog().apps[0];assert.equal(mergeRelease(app,{schemaVersion:1,packageName:app.packageName,release}).release.versionCode,1000);});
+test('rejects regression, key substitution and replacement of published bytes',()=>{const app={...catalog().apps[0],release};for(const patch of [{versionCode:999},{versionCode:1001,certificateSha256:'c'.repeat(64)},{sha256:'c'.repeat(64)}])assert.throws(()=>mergeRelease(app,{schemaVersion:1,packageName:app.packageName,release:{...release,...patch}}));});

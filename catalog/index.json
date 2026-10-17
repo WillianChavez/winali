@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "apps": [
+    {
+      "id": "apk",
+      "packageName": "io.github.willianchavez.apk",
+      "name": "APK",
+      "summary": "Extrae, guarda y comparte tus aplicaciones.",
+      "description": "Tus aplicaciones, en tus manos. Busca apps instaladas, consulta sus permisos, extrae una o varias y compártelas. Los paquetes divididos se exportan con todos sus componentes. Funciona sin conexión, anuncios ni cuenta.",
+      "category": "Utilidades",
+      "repository": "https://github.com/WillianChavez/apk",
+      "screenshots": [],
+      "permissions": [
+        "Consultar las aplicaciones instaladas",
+        "Guardar archivos en la carpeta que elijas"
+      ],
+      "release": null
+    },
+    {
+      "id": "focus",
+      "packageName": "io.github.willianchavez.focus",
+      "name": "Focus",
+      "summary": "Organiza tus tareas y encuentra tu ritmo.",
+      "description": "Un lugar tranquilo para organizar tus proyectos, concentrarte y ver tu progreso. Tareas, Pomodoros, descansos, calendario, estadísticas y un bosque que crece contigo. Tus datos permanecen en tu dispositivo.",
+      "category": "Productividad",
+      "repository": "https://github.com/WillianChavez/focus",
+      "screenshots": [],
+      "permissions": [
+        "Notificaciones y recordatorios opcionales",
+        "Accesos de concentración solo al activarlos"
+      ],
+      "release": null
+    },
+    {
+      "id": "winali",
+      "packageName": "io.github.willianchavez.winali",
+      "name": "Winali",
+      "summary": "Tu tienda de aplicaciones sencilla.",
+      "description": "Descubre, instala y actualiza aplicaciones publicadas en GitHub. Sin cuenta ni anuncios.",
+      "category": "Tienda",
+      "repository": "https://github.com/WillianChavez/winali",
+      "screenshots": [],
+      "permissions": [
+        "Internet para catálogo y descargas",
+        "Instalar aplicaciones con tu confirmación",
+        "Consultar versiones instaladas",
+        "Notificaciones opcionales"
+      ],
+      "release": null
+    }
+  ]
+}

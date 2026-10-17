@@ -1,0 +1,27 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+
+const [apk,repository,tag,changelogFile]=process.argv.slice(2);
+if(!apk || !/^https:\/\/github\.com\/[^/]+\/[^/]+$/.test(repository??'') || !/^v\d+\.\d+\.\d+$/.test(tag??''))throw new Error('Usage: node tools/release-manifest.mjs APK https://github.com/owner/repo v0.1.0 CHANGELOG.md');
+const sdk=process.env.ANDROID_HOME??process.env.ANDROID_SDK_ROOT;
+if(!sdk)throw new Error('ANDROID_HOME must point to Android SDK');
+const executable=name=>process.platform==='win32'?`${name}.exe`:name;
+const buildTools=path.join(sdk,'build-tools','36.0.0');
+const java=process.env.JAVA_HOME?path.join(process.env.JAVA_HOME,'bin',executable('java')):executable('java');
+const badging=execFileSync(path.join(buildTools,executable('aapt2')),['dump','badging',apk],{encoding:'utf8'});
+const packageName=badging.match(/package: name='([^']+)'/)?.[1];
+const versionCode=Number(badging.match(/versionCode='(\d+)'/)?.[1]);
+const versionName=badging.match(/versionName='([^']+)'/)?.[1];
+const minSdk=Number(badging.match(/sdkVersion:'(\d+)'/)?.[1]);
+if(!packageName || !versionCode || !versionName || !minSdk)throw new Error('Cannot read APK identity');
+const signatures=execFileSync(java,['-jar',path.join(buildTools,'lib','apksigner.jar'),'verify','--verbose','--print-certs',apk],{encoding:'utf8'});
+const matches=[...signatures.matchAll(/Signer #\d+ certificate SHA-256 digest: ([a-f0-9]{64})/gi)];
+if(matches.length!==1)throw new Error('Expected one verified APK signer');
+const file=fs.readFileSync(apk);const name=path.basename(apk);
+const native=badging.match(/native-code: (.+)/)?.[1];
+const architectures=native?[...native.matchAll(/'([^']+)'/g)].map(m=>m[1]):['universal'];
+const manifest={schemaVersion:1,packageName,release:{versionCode,versionName,minSdk,architectures,url:`${repository}/releases/download/${tag}/${name}`,size:file.length,sha256:crypto.createHash('sha256').update(file).digest('hex'),certificateSha256:matches[0][1].toLowerCase(),changelog:changelogFile?fs.readFileSync(changelogFile,'utf8').trim():`Release ${versionName}`}};
+fs.writeFileSync(path.join(path.dirname(apk),'release.json'),JSON.stringify(manifest,null,2)+'\n');
+console.log(`Verified ${packageName} ${versionName} (${versionCode}); release.json generated.`);
