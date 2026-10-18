@@ -64,8 +64,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1001,
-        "versionName": "0.1.1",
+        "versionCode": 1002,
+        "versionName": "0.1.2",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -73,11 +73,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/focus/releases/download/v0.1.1/focus.apk",
-        "size": 1530233,
-        "sha256": "9d6924b0d803047439be1b4573115e3684c79aee7f73b7db81dd828e95332e90",
+        "url": "https://github.com/WillianChavez/focus/releases/download/v0.1.2/focus.apk",
+        "size": 1530237,
+        "sha256": "1d420e4fb63bed6ccefa5469daf8559bc509fca46449fb141f354994d30e66a5",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "El temporizador refleja los cambios de duración antes de comenzar y recupera sesiones activas sin alterar su estado de pausa. El objetivo diario se actualiza inmediatamente al cambiar los ajustes.\n\n## 0.1.1\n\n- Bosque: un árbol por sesión (marchito si se interrumpió), nueve logros y luz diaria.\n- Sonidos originales: ruido blanco, rosa, marrón, lluvia y olas, y tres tonos de finalización.\n- Widgets con nombres distintos en el selector, contador en vivo en el del temporizador y apertura correcta aunque Focus ya esté abierto.\n- Ajustes muestra si cada acceso especial está concedido y explica qué pasa si no lo está.\n- Calendario con mes y días de la semana localizados; resumen compartible; pantallas pequeñas y texto ampliado.\n- Versión de lanzamiento reducida con R8 (de 12,3 MB a 1,5 MB) y perfil base para un arranque más rápido."
+        "changelog": "- Modo boca abajo: durante la concentración, si el teléfono no está boca abajo, Focus muestra «Pon el teléfono boca abajo» y suena un aviso hasta que lo voltees. Hay 10 segundos para dejarlo al empezar. Se puede desactivar en Ajustes.\n- Pantalla del temporizador rediseñada: todo cabe sin desplazarse, también con texto ampliado.\n- Ajustes: el sonido ambiente y el tono de finalización marcan la opción elegida al tocarla."
       },
       "locales": {
         "en": {
@@ -186,5 +186,5 @@
       }
     }
   ],
-  "revision": 6
+  "revision": 7
 }
