@@ -121,7 +121,7 @@ fun secureUrl(value: String, allowLoopback: Boolean = false): Boolean = runCatch
 }
     .getOrDefault(false)
 
-fun parseApp(value: JSONObject, allowLoopback: Boolean = BuildConfig.DEBUG): CatalogApp {
+fun parseApp(value: JSONObject, allowLoopback: Boolean = BuildConfig.ALLOW_LOOPBACK): CatalogApp {
     val release =
         value.optJSONObject("release")?.let { r ->
             require(r.getLong("versionCode") > 0 && r.getLong("size") in 1..1_073_741_824L)
@@ -176,7 +176,7 @@ fun parseApp(value: JSONObject, allowLoopback: Boolean = BuildConfig.DEBUG): Cat
     )
 }
 
-fun parseCatalog(text: String, allowLoopback: Boolean = BuildConfig.DEBUG): List<CatalogApp> {
+fun parseCatalog(text: String, allowLoopback: Boolean = BuildConfig.ALLOW_LOOPBACK): List<CatalogApp> {
     val root = JSONObject(text)
     require(root.getInt("schemaVersion") == 1) { "Unsupported catalog version" }
     require(!root.has("revision") || root.getLong("revision") > 0) { "Invalid catalog revision" }

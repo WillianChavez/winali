@@ -101,7 +101,7 @@ fun StoreScreen(
                             w("Actualizaciones", "Updates"),
                             w("Ajustes", "Settings"),
                         )
-                    listOf(Icons.Rounded.Explore, Icons.Rounded.SystemUpdate, Icons.Rounded.Settings)
+                    listOf(WinaliIcons.Explore, WinaliIcons.SystemUpdate, Icons.Rounded.Settings)
                         .forEachIndexed { i, icon ->
                             NavigationBarItem(
                                 selected = tab == i,
@@ -494,7 +494,7 @@ fun DetailScreen(app: CatalogApp, state: StoreState, actions: StoreActions, open
         }
         item {
             OutlinedButton(onClick = { openUrl(app.repository) }, modifier = Modifier.testTag("repository")) {
-                Icon(Icons.Rounded.Code, null)
+                Icon(WinaliIcons.Code, null)
                 Spacer(Modifier.width(8.dp))
                 Text(w("Ver código en GitHub", "View source on GitHub"))
             }

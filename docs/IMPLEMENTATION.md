@@ -58,3 +58,36 @@ Not verified, still open:
 - Installing several different apps at once through "Actualizar todo" on a real device (APK and Focus were not installed on the test emulator); the ordering and action selection are unit tested and the button wiring is UI tested.
 - The Android 13+ notification permission prompt (granted through `pm grant` in tests) and Play Protect warnings on a real phone.
 - Split bundles/AABs are not installable by Winali.
+
+## Winali size and startup optimization (2026-10-18)
+
+Release now builds with R8 (`isMinifyEnabled`, `isShrinkResources`, rules in `app/proguard-rules.pro`), the Material extended icon library is gone (three glyphs are own vectors in `Icons.kt`, the rest come from the core set), unused dependencies were removed (`documentfile`, `lifecycle-viewmodel-compose`, `lifecycle-runtime-ktx`, `ui-tooling`, `ui-tooling-preview`), locales are limited to `en`/`es`, the unused Room invalidation service and the EmojiCompat start-up initializer are removed from the merged manifest, and a generated Baseline Profile (`baselineprofile` module, `app/src/release/generated/baselineProfiles`) ships with the release together with `profileinstaller`. The enum `Failure` is kept by name because its names are persisted. Regenerate the profile with `./gradlew :app:generateReleaseBaselineProfile` on a device or emulator.
+
+Measured on the API 36 emulator, release APKs signed with the debug key (the real key is not available here):
+
+| | Before | After |
+|---|---|---|
+| APK size | 12,306,056 bytes (12.3 MB) | 1,410,110 bytes (1.41 MB), -88.5% |
+| Classes (REA, JADX) | 18,404 | 3,008 |
+| Resources / decoded files | 136 / 234 | 93 / 102 |
+| Resource locales | 85 | 1 (`en`, `es` project strings) |
+| Manifest components | 17 | 16 |
+| Permissions | 10 | 10, unchanged |
+
+Intermediate step, R8 + resource shrinking + icons without locale/manifest trimming: 1,514,378 bytes, 3,014 classes.
+
+Cold start (`am start -W` TotalTime, median of 15-20 runs, force-stopped and sent Home before each): this emulator shares the host with other emulators and the numbers are noisy, ±0.3 s between identical runs, so only the size result is reliable. Observed medians: before (installed state, `verify`) 1229 ms and, in an interleaved A/B pass, 1486 and 1447 ms; after R8 only 1080 ms (first pass), 1499 and 1719 ms (A/B pass); after with the profile compiled (`speed-profile`) 937 ms, 1106 ms and, in the A/B pass, 1137 and 1698 ms. In the A/B rounds the profile run was faster in one round and equal in the other, so a startup gain is plausible but is not demonstrated here; measure on a quiet physical device before claiming it. The "before" APK already carried the Compose libraries' own profile; the app-specific profile adds 713 app-class rules.
+
+Behaviour of the minified release was tested, not only the debug build:
+
+- Release APK (`app-release`, live catalog): catalog loaded from GitHub, "Instalar" on APK showed the real Android 13+ notification prompt and the unknown-sources screen, downloaded the 11.8 MB release from GitHub, verified it, Android asked to install, and afterwards `installerPackageName` was `io.github.willianchavez.winali` and the button read "Abrir".
+- `stage` build type (same R8/shrinking as release, not debuggable, debug-signed, loopback HTTP allowed, local catalog URL; never published): installed 0.1.0 (1000), chose the dark theme, updated through the store from a local server to 0.1.1 (1001): `firstInstallTime` unchanged, `versionName` 0.1.1, dark theme kept, the listing then showed no pending update. The 150 ms-per-256 KB local server and the unknown-sources prompt behaved as with the debug build.
+
+REA evidence (`rea` 6.4.0: `decode-android-resources`, `inspect-android-package`, `search-android-classes`, `inspect-artifact`; JADX 0.7.1 provider; JSON outputs kept in `.local/optimize`, not committed):
+
+- Manifest (apktool): only the declared permissions above. Each has a use: Internet and network state (catalog, downloads, WorkManager constraints), install packages, query all packages (installed versions of catalog apps), notifications, foreground service and data sync (downloads), wake lock and boot completed (WorkManager rescheduling), and AndroidX's signature-level `DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION`. Exported components: the launcher activity, WorkManager's job service and two DUMP-protected diagnostic receivers. The final manifest has no Room service and no EmojiCompat initializer.
+- Classes: before, 11,417 of 18,404 were `androidx.compose.material` (the extended icons); after, none. Searches for `firebase`, `crashlytics`, `okhttp`, `retrofit`, `coil`, `sentry`, `analytics` and `facebook` find nothing in either APK; `com.google` had one class before and none after. Our own classes surviving by name are the activity, the two workers, the install receiver, `Failure` and `R`.
+- Strings: the only URLs in the dex files are Android/Compose documentation links, Winali's repository and catalog URL, and a Kotlin issue link; no third-party endpoints. `assets/` holds only the bundled catalog and the baseline profile.
+- The reference apps (`Apk Extractor.apk`, `Focus To-Do.apk`) were not needed to justify these decisions and were not opened.
+
+Not verified: startup improvement on a physical device; the signed production release (see above); the release APK installing over the real 0.1.0 release (different signing key from the debug-signed builds used here).

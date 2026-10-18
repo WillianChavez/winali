@@ -2,7 +2,7 @@ plugins {
  id("com.android.application")
  id("org.jetbrains.kotlin.android")
  id("org.jetbrains.kotlin.plugin.compose")
- 
+ id("androidx.baselineprofile")
 }
 android {
  namespace = "io.github.willianchavez.winali"
@@ -14,6 +14,7 @@ android {
  versionCode = (System.getenv("VERSION_CODE") ?: "1001").toInt()
  versionName = System.getenv("VERSION_NAME") ?: "0.1.1"
  buildConfigField("String", "CATALOG_URL", "\"https://raw.githubusercontent.com/WillianChavez/winali/main/catalog/index.json\"")
+ buildConfigField("boolean", "ALLOW_LOOPBACK", "false")
  testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
  }
  signingConfigs { create("distribution") {
@@ -21,10 +22,29 @@ android {
  if (keyPath != null) { storeFile = file(keyPath); storePassword = System.getenv("SIGNING_STORE_PASSWORD"); keyAlias = System.getenv("SIGNING_KEY_ALIAS"); keyPassword = System.getenv("SIGNING_KEY_PASSWORD") }
  } }
  buildTypes {
-  // Debug builds can read a local catalog for end-to-end update tests; release builds always use the public one.
-  debug { System.getenv("WINALI_CATALOG_URL")?.let { buildConfigField("String", "CATALOG_URL", "\"$it\"") } }
-  release { isMinifyEnabled = false; if (System.getenv("SIGNING_KEYSTORE") != null) signingConfig = signingConfigs.getByName("distribution") }
+  // Debug and the unpublished "stage" type may read a local catalog over loopback HTTP for end-to-end
+  // update tests; the published release always uses the public catalog over HTTPS.
+  debug {
+   buildConfigField("boolean", "ALLOW_LOOPBACK", "true")
+   System.getenv("WINALI_CATALOG_URL")?.let { buildConfigField("String", "CATALOG_URL", "\"$it\"") }
+  }
+  release {
+   isMinifyEnabled = true
+   isShrinkResources = true
+   proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+   if (System.getenv("SIGNING_KEYSTORE") != null) signingConfig = signingConfigs.getByName("distribution")
+  }
+  // The exact release code (same R8 and resource shrinking), debug-signed and pointed at a local server.
+  create("stage") {
+   initWith(getByName("release"))
+   matchingFallbacks += "release"
+   signingConfig = signingConfigs.getByName("debug")
+   buildConfigField("boolean", "ALLOW_LOOPBACK", "true")
+   System.getenv("WINALI_CATALOG_URL")?.let { buildConfigField("String", "CATALOG_URL", "\"$it\"") }
+  }
  }
+ // The interface is Spanish and English only; drop the other languages libraries bring along.
+ androidResources { localeFilters += listOf("en", "es") }
  buildFeatures { compose = true; buildConfig = true }
  compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
  kotlinOptions { jvmTarget = "17" }
@@ -33,15 +53,13 @@ dependencies {
  implementation(platform("androidx.compose:compose-bom:2025.10.00"))
  implementation("androidx.activity:activity-compose:1.11.0")
  implementation("androidx.compose.material3:material3")
- implementation("androidx.compose.material:material-icons-extended")
- implementation("androidx.compose.ui:ui-tooling-preview")
- debugImplementation("androidx.compose.ui:ui-tooling")
- implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.4")
- implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
+ implementation("androidx.compose.material:material-icons-core")
  implementation("androidx.work:work-runtime-ktx:2.10.5")
- implementation("androidx.documentfile:documentfile:1.1.0")
  implementation("androidx.core:core-ktx:1.17.0")
- 
+ // Installs the packaged baseline profile on devices where Play does not (side-loaded, store-installed).
+ implementation("androidx.profileinstaller:profileinstaller:1.4.1")
+ baselineProfile(project(":baselineprofile"))
+
  testImplementation("junit:junit:4.13.2")
  testImplementation("org.json:json:20240303")
  androidTestImplementation("androidx.test.ext:junit:1.3.0")

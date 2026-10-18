@@ -183,7 +183,7 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
                 if (code != 200 && code != 206) return failure(Failure.Server, "HTTP $code")
                 if (
                     connection.url.protocol != "https" &&
-                        !loopbackAllowed(BuildConfig.DEBUG, connection.url.protocol, connection.url.host)
+                        !loopbackAllowed(BuildConfig.ALLOW_LOOPBACK, connection.url.protocol, connection.url.host)
                 )
                     return failure(Failure.Server, "HTTPS")
                 if (code == 200) offset = 0
