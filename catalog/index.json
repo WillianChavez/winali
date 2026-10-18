@@ -18,8 +18,8 @@
         "Guardar archivos en la carpeta que elijas"
       ],
       "release": {
-        "versionCode": 1000,
-        "versionName": "0.1.0",
+        "versionCode": 1001,
+        "versionName": "0.1.1",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -27,11 +27,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/apk/releases/download/v0.1.0/apk.apk",
-        "size": 11872934,
-        "sha256": "1b1f9462306bb2d48b036aca9012b7d815fa4bae60d06fcf818f47fc4a0e041f",
+        "url": "https://github.com/WillianChavez/apk/releases/download/v0.1.1/apk.apk",
+        "size": 1360227,
+        "sha256": "238cb6a7f12297e6847fe9d42180f5b6a47a0e89308bd32924c974cee483bb3b",
         "certificateSha256": "1eaecbe9d84ef2571b66bad83e3d1bc1cf13f7215351d5615b7c24d737fffaf5",
-        "changelog": "Primera versión de APK. Aplicación Android local, sin anuncios ni cuentas."
+        "changelog": "Optimización: R8 y reducción de recursos en release (APK firmado de 11,9 MB a 1,3 MB), iconos propios en lugar de la biblioteca extendida, Baseline Profile, UID y botón para abrir la app en el detalle.\n\nNovedades: pantalla de detalle completa (origen de instalación, SDK mínimo y objetivo, permisos concedidos), orden por nombre, tamaño, fecha de instalación y de actualización, extracción por lote con progreso y cancelación, exportación de iconos a carpeta o por compartir, vista previa del formato de nombre, nombres únicos dentro de un lote, ajustes en pantalla propia, idioma por defecto según el sistema.\n\nMejoras de exportación: conserva la extensión .apks, admite nombres largos con caracteres internacionales y evita que dos apps compartidas con el mismo nombre sobrescriban sus archivos."
       },
       "locales": {
         "en": {
@@ -64,8 +64,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1000,
-        "versionName": "0.1.0",
+        "versionCode": 1001,
+        "versionName": "0.1.1",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -73,11 +73,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/focus/releases/download/v0.1.0/focus.apk",
-        "size": 12243942,
-        "sha256": "84fd401e16245f227b96fd730fb3afbb017904cb108e1cd740d8cb9bf014207f",
+        "url": "https://github.com/WillianChavez/focus/releases/download/v0.1.1/focus.apk",
+        "size": 1530233,
+        "sha256": "9d6924b0d803047439be1b4573115e3684c79aee7f73b7db81dd828e95332e90",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "Primera versión de Focus. Aplicación Android local, sin anuncios ni cuentas."
+        "changelog": "El temporizador refleja los cambios de duración antes de comenzar y recupera sesiones activas sin alterar su estado de pausa. El objetivo diario se actualiza inmediatamente al cambiar los ajustes.\n\n## 0.1.1\n\n- Bosque: un árbol por sesión (marchito si se interrumpió), nueve logros y luz diaria.\n- Sonidos originales: ruido blanco, rosa, marrón, lluvia y olas, y tres tonos de finalización.\n- Widgets con nombres distintos en el selector, contador en vivo en el del temporizador y apertura correcta aunque Focus ya esté abierto.\n- Ajustes muestra si cada acceso especial está concedido y explica qué pasa si no lo está.\n- Calendario con mes y días de la semana localizados; resumen compartible; pantallas pequeñas y texto ampliado.\n- Versión de lanzamiento reducida con R8 (de 12,3 MB a 1,5 MB) y perfil base para un arranque más rápido."
       },
       "locales": {
         "en": {
@@ -111,8 +111,8 @@
         "Notificaciones opcionales"
       ],
       "release": {
-        "versionCode": 1000,
-        "versionName": "0.1.0",
+        "versionCode": 1001,
+        "versionName": "0.1.1",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -120,11 +120,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/v0.1.0/winali.apk",
-        "size": 12256676,
-        "sha256": "2c228e18e1574d65cf4f4ad246f10b48200d67a6e6db5f529d49edfad828cc0f",
+        "url": "https://github.com/WillianChavez/winali/releases/download/v0.1.1/winali.apk",
+        "size": 1410110,
+        "sha256": "1c40572c050eec6f94937d21e3e6018f1866f26a1aaf47e92e6463cf21d40f39",
         "certificateSha256": "9f497c6ba4e2838e0a472a9b9c99ffc12692777b221c84209f2e2c367b45072d",
-        "changelog": "Primera versión de Winali: catálogo con APK y Focus, búsqueda, fichas, cola de descargas independiente por app, verificación de APK y actualizaciones con confirmación de Android. Temas claro/oscuro, español/inglés y catálogo local protegido frente a respuestas antiguas de la red."
+        "changelog": "Ficha completa con capturas, permisos, novedades, tamaño y compatibilidad. Cola de descargas con progreso, cancelación, reintento y reanudación tras cerrar la app. Mensajes claros ante firma distinta, poco espacio, descarga dañada o permiso denegado, sin desinstalar nada. Búsqueda de actualizaciones cada 12 horas con aviso, instalación individual y \"Actualizar todo\". Winali se actualiza a sí misma conservando tus datos."
       },
       "locales": {
         "en": {
@@ -141,5 +141,5 @@
       }
     }
   ],
-  "revision": 3
+  "revision": 5
 }
