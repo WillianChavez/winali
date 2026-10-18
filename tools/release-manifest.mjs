@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {execFileSync} from 'node:child_process';
+import {releaseNotes} from './release-notes.mjs';
 
 const [apk,repository,tag,changelogFile]=process.argv.slice(2);
 if(!apk || !/^https:\/\/github\.com\/[^/]+\/[^/]+$/.test(repository??'') || !/^v\d+\.\d+\.\d+$/.test(tag??''))throw new Error('Usage: node tools/release-manifest.mjs APK https://github.com/owner/repo v0.1.0 CHANGELOG.md');
@@ -22,6 +23,6 @@ if(matches.length!==1)throw new Error('Expected one verified APK signer');
 const file=fs.readFileSync(apk);const name=path.basename(apk);
 const native=badging.match(/native-code: (.+)/)?.[1];
 const architectures=native?[...native.matchAll(/'([^']+)'/g)].map(m=>m[1]):['universal'];
-const manifest={schemaVersion:1,packageName,release:{versionCode,versionName,minSdk,architectures,url:`${repository}/releases/download/${tag}/${name}`,size:file.length,sha256:crypto.createHash('sha256').update(file).digest('hex'),certificateSha256:matches[0][1].toLowerCase(),changelog:changelogFile?fs.readFileSync(changelogFile,'utf8').trim():`Release ${versionName}`}};
+const manifest={schemaVersion:1,packageName,release:{versionCode,versionName,minSdk,architectures,url:`${repository}/releases/download/${tag}/${name}`,size:file.length,sha256:crypto.createHash('sha256').update(file).digest('hex'),certificateSha256:matches[0][1].toLowerCase(),changelog:changelogFile?releaseNotes(fs.readFileSync(changelogFile,'utf8'),versionName):`Release ${versionName}`}};
 fs.writeFileSync(path.join(path.dirname(apk),'release.json'),JSON.stringify(manifest,null,2)+'\n');
 console.log(`Verified ${packageName} ${versionName} (${versionCode}); release.json generated.`);

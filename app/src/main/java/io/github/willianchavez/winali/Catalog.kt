@@ -98,28 +98,34 @@ data class CatalogApp(
                 permissions = english.permissions,
             )
 
-    fun compatible() =
+    fun compatible(
+        sdk: Int = Build.VERSION.SDK_INT,
+        abis: Array<String> = Build.SUPPORTED_ABIS,
+    ) =
         release?.let {
-            it.minSdk <= Build.VERSION.SDK_INT &&
+            it.minSdk <= sdk &&
                 (it.architectures.isEmpty() ||
                     it.architectures.contains("universal") ||
-                    it.architectures.any { abi -> abi in Build.SUPPORTED_ABIS })
+                    it.architectures.any { abi -> abi in abis })
         } ?: true
 }
 
 private fun JSONArray.strings() = (0 until length()).map { getString(it) }
 
-fun secureUrl(value: String): Boolean = runCatching {
+/** HTTPS only; debug builds may also use http on the loopback interface for local test servers. */
+fun secureUrl(value: String, allowLoopback: Boolean = false): Boolean = runCatching {
     val uri = URI(value)
-    uri.scheme == "https" && !uri.host.isNullOrBlank() && uri.userInfo == null
+    !uri.host.isNullOrBlank() &&
+        uri.userInfo == null &&
+        (uri.scheme == "https" || loopbackAllowed(allowLoopback, uri.scheme, uri.host))
 }
     .getOrDefault(false)
 
-fun parseApp(value: JSONObject): CatalogApp {
+fun parseApp(value: JSONObject, allowLoopback: Boolean = BuildConfig.DEBUG): CatalogApp {
     val release =
         value.optJSONObject("release")?.let { r ->
             require(r.getLong("versionCode") > 0 && r.getLong("size") in 1..1_073_741_824L)
-            require(secureUrl(r.getString("url")))
+            require(secureUrl(r.getString("url"), allowLoopback))
             for (field in listOf("sha256", "certificateSha256")) require(
                 Regex("[a-fA-F0-9]{64}").matches(r.getString(field)),
             ) {
@@ -170,13 +176,13 @@ fun parseApp(value: JSONObject): CatalogApp {
     )
 }
 
-fun parseCatalog(text: String): List<CatalogApp> {
+fun parseCatalog(text: String, allowLoopback: Boolean = BuildConfig.DEBUG): List<CatalogApp> {
     val root = JSONObject(text)
     require(root.getInt("schemaVersion") == 1) { "Unsupported catalog version" }
     require(!root.has("revision") || root.getLong("revision") > 0) { "Invalid catalog revision" }
     val array = root.getJSONArray("apps")
     require(array.length() <= 1000)
-    val apps = (0 until array.length()).map { parseApp(array.getJSONObject(it)) }
+    val apps = (0 until array.length()).map { parseApp(array.getJSONObject(it), allowLoopback) }
     require(
         apps.map { it.id }.distinct().size == apps.size &&
             apps.map { it.packageName }.distinct().size == apps.size,
@@ -186,15 +192,25 @@ fun parseCatalog(text: String): List<CatalogApp> {
     return apps
 }
 
-class CatalogStore(private val context: Context) {
+/**
+ * The catalog source and its on-disk cache. [namespace] separates cache files and bookkeeping so
+ * tests and alternative sources never touch the real cache.
+ */
+class CatalogStore(
+    private val context: Context,
+    private val url: String = BuildConfig.CATALOG_URL,
+    private val namespace: String = "catalog",
+) {
     companion object {
         private val cacheLock = Any()
-        const val URL =
-            "https://raw.githubusercontent.com/WillianChavez/winali/main/catalog/index.json"
+        const val URL = "https://raw.githubusercontent.com/WillianChavez/winali/main/catalog/index.json"
     }
 
-    private val file = File(context.filesDir, "catalog.json")
-    private val prefs = context.getSharedPreferences("catalog", 0)
+    private val file = File(context.filesDir, "$namespace.json")
+    private val prefs = context.getSharedPreferences(namespace, 0)
+
+    /** Epoch millis of the last successful network check, or 0. */
+    fun lastCheck(): Long = prefs.getLong("lastCheck", 0)
 
     private fun cachedText(): String {
         val bundled = context.assets.open("catalog.json").bufferedReader().use { it.readText() }
@@ -216,7 +232,7 @@ class CatalogStore(private val context: Context) {
     private fun refreshLocked(force: Boolean): List<CatalogApp> {
         if (!force && System.currentTimeMillis() - prefs.getLong("lastCheck", 0) < 900_000)
             return cached()
-        val connection = URL(URL).openConnection() as HttpURLConnection
+        val connection = URL(url).openConnection() as HttpURLConnection
         connection.connectTimeout = 15_000
         connection.readTimeout = 20_000
         if (file.exists())
@@ -232,13 +248,18 @@ class CatalogStore(private val context: Context) {
             check(connection.responseCode == 200) { "HTTP ${connection.responseCode}" }
             val data = connection.inputStream.use { it.boundedBytes(2_000_000) }
             val text = data.toString(Charsets.UTF_8)
-            val parsed = parseCatalog(text)
+            val parsed =
+                try {
+                    parseCatalog(text)
+                } catch (e: Exception) {
+                    throw DistributionException(Failure.InvalidCatalog)
+                }
             if (
                 JSONObject(text).optLong("revision", 0) <
                     JSONObject(cachedText()).optLong("revision", 0)
             )
                 return cached()
-            val temp = File(context.filesDir, "catalog.tmp")
+            val temp = File(context.filesDir, "$namespace.tmp")
             temp.writeText(text)
             java.nio.file.Files.move(
                 temp.toPath(),

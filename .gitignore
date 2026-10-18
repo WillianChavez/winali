@@ -10,3 +10,5 @@ apps/
 .idea/
 captures/
 .kotlin/
+
+!app/src/androidTest/assets/*.apk

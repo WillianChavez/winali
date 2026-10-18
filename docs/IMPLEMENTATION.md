@@ -7,10 +7,10 @@ The agreed target is three public, independently signed Android apps: Winali, AP
 - [x] Toolchain: apktool resources through REA; JDK; SDK; Gradle; signing; emulator
 - [ ] REA feature inventory, evidence and reference resource mapping (static evidence is not runtime proof)
 - [x] Three independently buildable public repositories and original adaptive icons
-- [ ] Winali explore/search/categories/detail/screenshots/permissions/changelog/source
+- [x] Winali explore/search/categories/detail/screenshots/permissions/changelog/source
 - [x] Catalog v1 schema, validation, synchronization, examples and publishing documentation
-- [ ] Persistent download queue, integrity/package/version/signature checks, PackageInstaller results and recovery
-- [ ] Installed state, updates, 12-hour checks, notifications, self-update and offline catalog
+- [x] Persistent download queue, integrity/package/version/signature checks, PackageInstaller results and recovery
+- [x] Installed state, updates, 12-hour checks, notifications, self-update and offline catalog (verified with debug-signed builds; the signed 0.1.1 Release is still pending, see below)
 - [ ] APK list/search/sort/system filters/details/selection/batch extraction/share/icons/naming/SAF/split bundles
 - [ ] Focus tasks/subtasks/notes/priority/dates/recurrence/reminders/estimates
 - [ ] Focus projects/folders/tags/search/filters/completed/calendar
@@ -29,7 +29,7 @@ Reference artifacts stay outside version control. Do not mark a delivery gate co
 - Public repositories: `WillianChavez/winali`, `WillianChavez/apk`, `WillianChavez/focus`; initial GitHub build/test/lint jobs succeeded in all three.
 - Local tools: Apktool 3.0.3 through the REA CLI (resource decode succeeded), REA 6.4.0, existing JDK 21, Gradle 8.13, SDK/platform 36, Build Tools 35/36, ADB, accelerated headless Android 16 emulator.
 - Catalog: nine Node tests pass; JSON Schema and sync/publishing tools are present. Revision publishing is idempotent and changes monotonically; English catalog text is supported.
-- Winali: six device tests pass, including verification of an actual installed APK, independent queued download cancellation, catalog cache precedence/corruption recovery, and English identity preservation. Build and lint pass. The earlier four-test store suite also passed in GitHub emulators on API 26, 31, 34 and 36.
+- Winali (superseded by the 2026-10-18 section below): six device tests pass, including verification of an actual installed APK, independent queued download cancellation, catalog cache precedence/corruption recovery, and English identity preservation. Build and lint pass. The earlier four-test store suite also passed in GitHub emulators on API 26, 31, 34 and 36.
 - APK: three device tests pass: byte-preserving standalone extraction, complete split archive export, and safe file names. Build and lint pass. WorkManager was removed to avoid unrelated background/network-state permissions.
 - Focus: eight recurrence/timer unit tests and six device tests pass. Device coverage includes backup round-trip, invalid-backup preservation, recurring parent/subtask creation, task creation through Compose, countdown completion in background, and stable pause. Build and lint pass. Weekly weekday selection and daily-goal/project report presentation were added afterward and still require final UI acceptance.
 - Three separate signing keys are retained outside the repositories with private filesystem permissions; GitHub signing secrets are configured. Local APK and Focus release builds and signature/metadata generation succeeded.
@@ -38,3 +38,23 @@ Reference artifacts stay outside version control. Do not mark a delivery gate co
 - Focus's API 26/31 matrix exposed a test scrolling issue: the save button is virtualized on smaller screens. The test now scrolls the task editor to compose that button before clicking; the latest local six-device-test suite passes. That matrix must be repeated on the corrected commit.
 
 Still required: complete behavior review against the reference feature inventory; visual/accessibility review; device matrix; public signed Releases and catalog population; store-driven installation/update/self-update and failure-recovery acceptance. These remain real delivery gates, not assumed complete from compilation.
+
+## Winali store verification (2026-10-18)
+
+Verified on a dedicated API 36 emulator (`winali_selfupdate`, port 5560; the shared `winali36` was not touched): `assembleDebug`, `lintDebug`, `testDebugUnitTest` (40 tests) and `connectedDebugAndroidTest` (71 tests) all pass. `connectedDebugAndroidTest` first runs the Gradle task `allowInstallSource`, because granting the "install unknown apps" app-op from inside a running instrumentation kills the process.
+
+- Listing: the detail page shows screenshots (loaded over the network, with a retry placeholder), description, release notes with version, permissions, size, minimum Android, architectures, a compatible/incompatible verdict, the installed version and the repository link. UI tests cover every field in Spanish and English, light and dark, and 2.0 font scale; the same were inspected on screen.
+- Button states (Install, Update, Open, Install download, Retry, Downloading/Queued with Cancel, Installing, Confirm installation, Incompatible, Coming soon) come from one pure function covered by unit tests and rendered by UI tests.
+- Queue: the real worker against a loopback server. Progress, byte-range resume of a partial file, restart when the server ignores ranges, reuse of an already verified file, corruption and oversize rejection (partial file discarded), HTTP errors, an incompatible release, a dropped connection (partial kept, three automatic retries, then a final failure), cancellation (partial file discarded), and manual retry. Recovery after closing the app was also exercised by hand: force-stopping Winali mid-download and reopening it resumed with `Range: bytes=15728640-` and the hash verified.
+- Installation: real `PackageInstaller` sessions with tiny fixture APKs (`tools/make-test-fixtures.mjs`), driving Android's own confirmation dialog: install, update that keeps `firstInstallTime`, user cancel (installed version untouched), a different signing key (refused before any session, and Android's own verdict maps to the same message), downgrade, permission denied, damaged download (discarded), pending confirmation while the store is closed (notification), stale sessions, every status code through the receiver, and download-then-install as one action. Nothing in the code uninstalls an app; the signature message tells the user so.
+- Updates: a local catalog server exercises detection, one notification per distinct update set, rejection of a malformed catalog or an older revision (cache kept), offline failure, the 12-hour periodic request with a network constraint, and idempotent scheduling. The Updates tab shows versions, notes, per-app update, "Actualizar todo" (Winali last) and the download queue.
+- Self-update by hand on the emulator, debug-signed 0.1.0 (1000) to 0.1.1 (1001) with a local catalog and APK (`tools/local-update-server.mjs`; the debug build alone accepts the local URL): the installed 0.1.0 listed the update, declining the unknown-sources permission showed the clear message, the download resumed after a force-stop, the hash/package/version/certificate checks passed, Android's dialog asked "Do you want to update this app?", and afterwards `versionName` was 0.1.1, `firstInstallTime` unchanged, a marker file and the chosen dark theme preserved, and Winali announced the update. With the clock moved forward 13 hours the real periodic job ran, fetched the catalog and posted "1 actualización disponible / Winali 0.1.1"; tapping it opened the Updates tab.
+- Version: `versionCode`/`versionName` default to 1001/0.1.1, matching the release workflow's `major*1000000 + minor*1000 + patch`. `CHANGELOG.md` has a section per version and `tools/release-manifest.mjs` publishes only the section of the tagged version.
+
+Not verified, still open:
+
+- The signed 0.1.1 Release. The private signing key was not available on this machine (the secrets live in GitHub Actions only), so no signed APK was built. To publish: tag `v0.1.1` (the workflow signs, creates `winali.apk` and `release.json`), then run `node tools/catalog.mjs sync apk focus winali`, review and commit the catalog. The public catalog still lists Winali 0.1.0 until then, so the demonstration above used debug-signed builds, not the production key.
+- The new device tests on API 26, 31 and 34 (only API 36 was run). The installation tests depend on the system dialog's wording and Play Protect behaviour on each image.
+- Installing several different apps at once through "Actualizar todo" on a real device (APK and Focus were not installed on the test emulator); the ordering and action selection are unit tested and the button wiring is UI tested.
+- The Android 13+ notification permission prompt (granted through `pm grant` in tests) and Play Protect warnings on a real phone.
+- Split bundles/AABs are not installable by Winali.

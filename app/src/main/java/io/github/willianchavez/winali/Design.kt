@@ -1,16 +1,29 @@
 package io.github.willianchavez.winali
 
+import android.app.Activity
 import android.content.Context
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 
 @Composable
 fun FamilyTheme(context: Context, content: @Composable () -> Unit) {
     val prefs = context.getSharedPreferences("appearance", Context.MODE_PRIVATE)
     val mode = prefs.getString("theme", "system")
     val dark = mode == "dark" || (mode == "system" && isSystemInDarkTheme())
+    // The system bars follow the in-app theme, not only the system one, so their icons stay legible.
+    val view = LocalView.current
+    if (!view.isInEditMode)
+        SideEffect {
+            val window = (view.context as? Activity)?.window ?: return@SideEffect
+            WindowCompat.getInsetsController(window, view).apply {
+                isAppearanceLightStatusBars = !dark
+                isAppearanceLightNavigationBars = !dark
+            }
+        }
     MaterialTheme(
         colorScheme =
             if (dark)

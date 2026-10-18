@@ -27,7 +27,7 @@ jobs:
       - name: Validate catalog when present
         run: |
           if [ -f tools/catalog.test.mjs ]; then
-            node --test tools/catalog.test.mjs
+            node --test tools/catalog.test.mjs tools/release-notes.test.mjs
             node tools/catalog.mjs validate
           fi
       - uses: actions/upload-artifact@v4
