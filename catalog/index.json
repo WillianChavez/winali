@@ -92,6 +92,36 @@
       }
     },
     {
+      "id": "read",
+      "packageName": "io.github.willianchavez.read",
+      "name": "Read",
+      "summary": "Lee, edita y convierte PDF y documentos.",
+      "description": "Abre PDF, Word, Excel, PowerPoint, texto e imágenes. Anota y firma PDF, únelos, divídelos, organízalos, comprímelos y conviértelos. Escanea documentos con la cámara. Los formatos de Office se muestran de forma simplificada.",
+      "category": "Productividad",
+      "repository": "https://github.com/WillianChavez/read",
+      "screenshots": [
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/read-1.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/read-2.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/read-3.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/read-4.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/read-5.png"
+      ],
+      "permissions": [
+        "Archivos y carpetas que tú elijas"
+      ],
+      "release": null,
+      "locales": {
+        "en": {
+          "summary": "Read, edit and convert PDFs and documents.",
+          "description": "Open PDF, Word, Excel, PowerPoint, text and images. Annotate and sign PDFs, merge, split, organize, compress and convert them. Scan documents with the camera. Office formats are shown in a simplified form.",
+          "category": "Productivity",
+          "permissions": [
+            "Files and folders you choose"
+          ]
+        }
+      }
+    },
+    {
       "id": "winali",
       "packageName": "io.github.willianchavez.winali",
       "name": "Winali",
