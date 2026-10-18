@@ -47,6 +47,20 @@ data class Release(
             .put("changelog", changelog)
 }
 
+data class CatalogText(
+    val summary: String,
+    val description: String,
+    val category: String,
+    val permissions: List<String>,
+) {
+    fun json() =
+        JSONObject()
+            .put("summary", summary)
+            .put("description", description)
+            .put("category", category)
+            .put("permissions", JSONArray(permissions))
+}
+
 data class CatalogApp(
     val id: String,
     val packageName: String,
@@ -58,6 +72,7 @@ data class CatalogApp(
     val screenshots: List<String>,
     val permissions: List<String>,
     val release: Release?,
+    val english: CatalogText? = null,
 ) {
     fun json() =
         JSONObject()
@@ -71,6 +86,17 @@ data class CatalogApp(
             .put("screenshots", JSONArray(screenshots))
             .put("permissions", JSONArray(permissions))
             .put("release", release?.json())
+            .put("locales", english?.let { JSONObject().put("en", it.json()) })
+
+    fun localized(context: Context): CatalogApp =
+        if (context.es() || english == null) this
+        else
+            copy(
+                summary = english.summary,
+                description = english.description,
+                category = english.category,
+                permissions = english.permissions,
+            )
 
     fun compatible() =
         release?.let {
@@ -120,6 +146,15 @@ fun parseApp(value: JSONObject): CatalogApp {
     require(secureUrl(repository) && URI(repository).host == "github.com")
     val screenshots = value.getJSONArray("screenshots").strings()
     require(screenshots.all(::secureUrl))
+    val english =
+        value.optJSONObject("locales")?.optJSONObject("en")?.let {
+            CatalogText(
+                it.getString("summary"),
+                it.getString("description"),
+                it.getString("category"),
+                it.getJSONArray("permissions").strings(),
+            )
+        }
     return CatalogApp(
         value.getString("id"),
         value.getString("packageName"),
@@ -131,12 +166,14 @@ fun parseApp(value: JSONObject): CatalogApp {
         screenshots,
         value.getJSONArray("permissions").strings(),
         release,
+        english,
     )
 }
 
 fun parseCatalog(text: String): List<CatalogApp> {
     val root = JSONObject(text)
     require(root.getInt("schemaVersion") == 1) { "Unsupported catalog version" }
+    require(!root.has("revision") || root.getLong("revision") > 0) { "Invalid catalog revision" }
     val array = root.getJSONArray("apps")
     require(array.length() <= 1000)
     val apps = (0 until array.length()).map { parseApp(array.getJSONObject(it)) }
@@ -151,6 +188,7 @@ fun parseCatalog(text: String): List<CatalogApp> {
 
 class CatalogStore(private val context: Context) {
     companion object {
+        private val cacheLock = Any()
         const val URL =
             "https://raw.githubusercontent.com/WillianChavez/winali/main/catalog/index.json"
     }
@@ -158,22 +196,34 @@ class CatalogStore(private val context: Context) {
     private val file = File(context.filesDir, "catalog.json")
     private val prefs = context.getSharedPreferences("catalog", 0)
 
-    fun cached(): List<CatalogApp> = runCatching {
-        if (file.exists()) parseCatalog(file.readText())
-        else
-            parseCatalog(context.assets.open("catalog.json").bufferedReader().use { it.readText() })
+    private fun cachedText(): String {
+        val bundled = context.assets.open("catalog.json").bufferedReader().use { it.readText() }
+        val saved = runCatching { file.readText().also { parseCatalog(it) } }.getOrNull()
+        return if (
+            saved != null &&
+                JSONObject(saved).optLong("revision", 0) >=
+                    JSONObject(bundled).optLong("revision", 0)
+        )
+            saved
+        else bundled
     }
-        .getOrElse {
-            parseCatalog(context.assets.open("catalog.json").bufferedReader().use { it.readText() })
-        }
 
-    fun refresh(force: Boolean = false): List<CatalogApp> {
+    fun cached(): List<CatalogApp> = parseCatalog(cachedText())
+
+    fun refresh(force: Boolean = false): List<CatalogApp> =
+        synchronized(cacheLock) { refreshLocked(force) }
+
+    private fun refreshLocked(force: Boolean): List<CatalogApp> {
         if (!force && System.currentTimeMillis() - prefs.getLong("lastCheck", 0) < 900_000)
             return cached()
         val connection = URL(URL).openConnection() as HttpURLConnection
         connection.connectTimeout = 15_000
         connection.readTimeout = 20_000
-        prefs.getString("etag", null)?.let { connection.setRequestProperty("If-None-Match", it) }
+        if (file.exists())
+            prefs.getString("etag", null)?.let {
+                connection.setRequestProperty("If-None-Match", it)
+            }
+        if (force || !file.exists()) connection.setRequestProperty("Cache-Control", "no-cache")
         try {
             if (connection.responseCode == 304) {
                 prefs.edit().putLong("lastCheck", System.currentTimeMillis()).apply()
@@ -183,6 +233,11 @@ class CatalogStore(private val context: Context) {
             val data = connection.inputStream.use { it.boundedBytes(2_000_000) }
             val text = data.toString(Charsets.UTF_8)
             val parsed = parseCatalog(text)
+            if (
+                JSONObject(text).optLong("revision", 0) <
+                    JSONObject(cachedText()).optLong("revision", 0)
+            )
+                return cached()
             val temp = File(context.filesDir, "catalog.tmp")
             temp.writeText(text)
             java.nio.file.Files.move(

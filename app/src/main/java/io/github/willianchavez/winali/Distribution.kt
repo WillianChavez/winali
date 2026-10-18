@@ -208,6 +208,7 @@ fun Context.enqueueDownload(app: CatalogApp): Operation {
                                 description = "",
                                 screenshots = emptyList(),
                                 permissions = emptyList(),
+                                english = null,
                                 release = app.release?.copy(changelog = ""),
                             )
                             .json()

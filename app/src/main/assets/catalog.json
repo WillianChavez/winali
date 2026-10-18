@@ -14,7 +14,33 @@
         "Consultar las aplicaciones instaladas",
         "Guardar archivos en la carpeta que elijas"
       ],
-      "release": null
+      "release": {
+        "versionCode": 1000,
+        "versionName": "0.1.0",
+        "minSdk": 26,
+        "architectures": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "url": "https://github.com/WillianChavez/apk/releases/download/v0.1.0/apk.apk",
+        "size": 11872934,
+        "sha256": "1b1f9462306bb2d48b036aca9012b7d815fa4bae60d06fcf818f47fc4a0e041f",
+        "certificateSha256": "1eaecbe9d84ef2571b66bad83e3d1bc1cf13f7215351d5615b7c24d737fffaf5",
+        "changelog": "Primera versión de APK. Aplicación Android local, sin anuncios ni cuentas."
+      },
+      "locales": {
+        "en": {
+          "summary": "Extract, save and share your apps.",
+          "description": "Your apps, in your hands. Find installed apps, inspect their permissions, extract one or several and share them. Split packages are exported with every component. Works offline, without ads or an account.",
+          "category": "Utilities",
+          "permissions": [
+            "Inspect installed applications",
+            "Save files in a folder you choose"
+          ]
+        }
+      }
     },
     {
       "id": "focus",
@@ -29,7 +55,33 @@
         "Notificaciones y recordatorios opcionales",
         "Accesos de concentración solo al activarlos"
       ],
-      "release": null
+      "release": {
+        "versionCode": 1000,
+        "versionName": "0.1.0",
+        "minSdk": 26,
+        "architectures": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "url": "https://github.com/WillianChavez/focus/releases/download/v0.1.0/focus.apk",
+        "size": 12243942,
+        "sha256": "84fd401e16245f227b96fd730fb3afbb017904cb108e1cd740d8cb9bf014207f",
+        "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
+        "changelog": "Primera versión de Focus. Aplicación Android local, sin anuncios ni cuentas."
+      },
+      "locales": {
+        "en": {
+          "summary": "Organize your tasks and find your rhythm.",
+          "description": "A calm place to organize projects, focus and see your progress. Tasks, Pomodoros, breaks, calendar, reports and a forest that grows with you. Your data stays on your device.",
+          "category": "Productivity",
+          "permissions": [
+            "Optional notifications and reminders",
+            "Concentration access only when you enable it"
+          ]
+        }
+      }
     },
     {
       "id": "winali",
@@ -46,7 +98,21 @@
         "Consultar versiones instaladas",
         "Notificaciones opcionales"
       ],
-      "release": null
+      "release": null,
+      "locales": {
+        "en": {
+          "summary": "Your simple app store.",
+          "description": "Discover, install and update apps published on GitHub. No account or ads.",
+          "category": "Store",
+          "permissions": [
+            "Internet for catalog and downloads",
+            "Install apps with your confirmation",
+            "Inspect installed versions",
+            "Optional notifications"
+          ]
+        }
+      }
     }
-  ]
+  ],
+  "revision": 1
 }

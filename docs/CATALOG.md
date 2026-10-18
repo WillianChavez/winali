@@ -4,7 +4,11 @@
 
 The machine-readable definition is `catalog/schema.json` (JSON Schema 2020-12). The validator also checks uniqueness across entries and certificate/version continuity, which cannot be expressed by this schema alone.
 
+The publisher maintains a positive `revision`, increasing it whenever the catalog content changes. Clients prefer the newest valid embedded/cached document and reject an older network revision, so a stale CDN response cannot replace a newer catalog. `bundle` and `sync` maintain this value automatically; repeated bundling without content changes keeps the revision stable.
+
 Each app entry has `id`, Android `packageName`, `name`, `summary`, `description`, `category`, public GitHub `repository`, HTTPS `screenshots`, human-readable `permissions`, and `release` (null only before publication). Repository ownership is unrestricted. Adding apps is a file change, never an in-app upload flow.
+
+Optional `locales.en` supplies English `summary`, `description`, `category`, and `permissions`; the base text remains the fallback. Release notes retain the publisher's language.
 
 A release has positive integer `versionCode`, display `versionName`, integer `minSdk`, `architectures` (`universal` or ABI names), immutable HTTPS APK `url`, byte `size`, lowercase SHA-256 `sha256`, lowercase signing certificate SHA-256 `certificateSha256`, and `changelog`. URLs must reference APK assets, not a GitHub source archive or HTML page.
 

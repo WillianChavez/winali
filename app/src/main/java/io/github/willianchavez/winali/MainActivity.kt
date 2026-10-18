@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity() {
         val scope = rememberCoroutineScope()
         val snackbar = remember { SnackbarHostState() }
         val catalog = remember { CatalogStore(this) }
-        var apps by remember { mutableStateOf(catalog.cached()) }
+        var apps by remember { mutableStateOf(catalog.cached().map { it.localized(this) }) }
         var tab by remember {
             mutableIntStateOf(if (intent.getBooleanExtra("updates", false)) 1 else 0)
         }
@@ -83,7 +83,10 @@ class MainActivity : ComponentActivity() {
         suspend fun refresh(force: Boolean) {
             refreshing = true
             try {
-                apps = withContext(Dispatchers.IO) { catalog.refresh(force) }
+                apps =
+                    withContext(Dispatchers.IO) {
+                        catalog.refresh(force).map { it.localized(this@MainActivity) }
+                    }
             } catch (e: Exception) {
                 snackbar.showSnackbar(
                     words(

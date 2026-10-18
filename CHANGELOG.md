@@ -1,1 +1,1 @@
-Primera versión de Winali: catálogo de aplicaciones, búsqueda, fichas, cola de descargas, verificación de APK y actualizaciones con confirmación de Android.
+Primera versión de Winali: catálogo con APK y Focus, búsqueda, fichas, cola de descargas independiente por app, verificación de APK y actualizaciones con confirmación de Android. Temas claro/oscuro, español/inglés y catálogo local protegido frente a respuestas antiguas de la red.

@@ -17,6 +17,7 @@ export function validateRelease(release) {
 }
 export function validateCatalog(catalog) {
   assert(catalog.schemaVersion===1,'Unsupported schemaVersion');
+  if(catalog.revision!==undefined)assert(Number.isSafeInteger(catalog.revision) && catalog.revision>0,'Invalid catalog revision');
   assert(Array.isArray(catalog.apps) && catalog.apps.length<=1000,'Invalid apps');
   const ids=new Set(), packages=new Set();
   for(const app of catalog.apps){
@@ -27,6 +28,10 @@ export function validateCatalog(catalog) {
     assert(https(app.repository) && new URL(app.repository).hostname==='github.com' && /^\/[^/]+\/[^/]+\/?$/.test(new URL(app.repository).pathname),'Invalid GitHub repository');
     assert(Array.isArray(app.screenshots) && app.screenshots.every(https),'Invalid screenshots');
     assert(Array.isArray(app.permissions) && app.permissions.every(p=>typeof p==='string'),'Invalid permissions');
+    if(app.locales?.en){
+      for(const field of ['summary','description','category'])assert(typeof app.locales.en[field]==='string' && app.locales.en[field].trim().length>0,`Missing English ${field}`);
+      assert(Array.isArray(app.locales.en.permissions) && app.locales.en.permissions.every(p=>typeof p==='string'),'Invalid English permissions');
+    }
     if(app.release!==null)validateRelease(app.release);
   }
   return catalog;
@@ -42,9 +47,15 @@ export function mergeRelease(app, manifest){
   return {...app,release:manifest.release};
 }
 export function saveCatalog(catalog,root=process.cwd()){
-  validateCatalog(catalog);const text=JSON.stringify(catalog,null,2)+'\n';
+  validateCatalog(catalog);
+  const assets=path.join(root,'app/src/main/assets');
+  let previous;try{previous=JSON.parse(fs.readFileSync(path.join(assets,'catalog.json'),'utf8'));}catch{}
+  const payload=value=>JSON.stringify({...value,revision:undefined});
+  const revision=Math.max(catalog.revision??0,previous?.revision??0);
+  catalog.revision=previous && payload(previous)===payload(catalog)?Math.max(1,revision):revision+1;
+  const text=JSON.stringify(catalog,null,2)+'\n';
   fs.writeFileSync(path.join(root,'catalog/index.json'),text);
-  const assets=path.join(root,'app/src/main/assets');fs.mkdirSync(assets,{recursive:true});fs.writeFileSync(path.join(assets,'catalog.json'),text);
+  fs.mkdirSync(assets,{recursive:true});fs.writeFileSync(path.join(assets,'catalog.json'),text);
 }
 async function main(){
   const mode=process.argv[2] ?? 'validate';
