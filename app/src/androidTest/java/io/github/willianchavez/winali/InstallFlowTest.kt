@@ -208,11 +208,11 @@ class InstallFlowTest {
         waitUntil(30_000, "awaiting confirmation") {
             InstallLog.phase(context, pkg) == InstallPhase.AwaitingConfirmation
         }
-        val active = context.getSystemService(NotificationManager::class.java).activeNotifications
-        assertTrue(
-            "expected the confirmation notification, saw ${active.map { it.id }}",
-            active.any { it.id == notificationId },
-        )
+        // The phase is recorded just before the notification is posted, and posting is asynchronous.
+        val manager = context.getSystemService(NotificationManager::class.java)
+        waitUntil(10_000, "confirmation notification ${manager.activeNotifications.map { it.id }}") {
+            manager.activeNotifications.any { it.id == notificationId }
+        }
         context.abandonOwnSessions(pkg)
         waitUntil(10_000, "session cleanup") { InstallLog.phase(context, pkg) == InstallPhase.None }
     }
