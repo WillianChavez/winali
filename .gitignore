@@ -9,3 +9,4 @@ local.properties
 apps/
 .idea/
 captures/
+.kotlin/

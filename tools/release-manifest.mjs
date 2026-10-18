@@ -14,7 +14,7 @@ const badging=execFileSync(path.join(buildTools,executable('aapt2')),['dump','ba
 const packageName=badging.match(/package: name='([^']+)'/)?.[1];
 const versionCode=Number(badging.match(/versionCode='(\d+)'/)?.[1]);
 const versionName=badging.match(/versionName='([^']+)'/)?.[1];
-const minSdk=Number(badging.match(/sdkVersion:'(\d+)'/)?.[1]);
+const minSdk=Number(badging.match(/(?:minSdkVersion|sdkVersion):'(\d+)'/)?.[1]);
 if(!packageName || !versionCode || !versionName || !minSdk)throw new Error('Cannot read APK identity');
 const signatures=execFileSync(java,['-jar',path.join(buildTools,'lib','apksigner.jar'),'verify','--verbose','--print-certs',apk],{encoding:'utf8'});
 const matches=[...signatures.matchAll(/Signer #\d+ certificate SHA-256 digest: ([a-f0-9]{64})/gi)];

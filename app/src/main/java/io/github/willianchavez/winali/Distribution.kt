@@ -17,6 +17,8 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.security.MessageDigest
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
 
@@ -93,69 +95,78 @@ fun Context.verifyDownload(app: CatalogApp, file: File) {
     }
 }
 
+private val downloadMutex = Mutex()
+
 class DownloadWorker(context: Context, params: WorkerParameters) :
     CoroutineWorker(context, params) {
-    override suspend fun doWork(): Result =
-        withContext(Dispatchers.IO) {
-            val app = runCatching {
-                parseApp(JSONObject(inputData.getString("app")!!))
-            }
-                .getOrElse {
-                    return@withContext Result.failure(
-                        workDataOf("error" to "Invalid download request"),
-                    )
+    override suspend fun doWork(): Result {
+        setProgress(workDataOf("queued" to true))
+        return downloadMutex.withLock {
+            withContext(Dispatchers.IO) {
+                val app = runCatching {
+                    parseApp(JSONObject(inputData.getString("app")!!))
                 }
-            val release = app.release ?: return@withContext Result.failure()
-            val output = applicationContext.downloadFile(app)
-            val temp = File(output.parentFile, "${output.name}.part")
-            try {
-                check(app.compatible()) { "Incompatible device" }
-                setForeground(foreground(app.name, 0))
-                val connection = URL(release.url).openConnection() as HttpURLConnection
-                connection.connectTimeout = 20_000
-                connection.readTimeout = 30_000
-                try {
-                    check(connection.responseCode == 200) { "HTTP ${connection.responseCode}" }
-                    require(connection.url.protocol == "https")
-                    require(output.parentFile!!.usableSpace > release.size + 10_000_000) {
-                        applicationContext.words("Espacio insuficiente", "Insufficient storage")
+                    .getOrElse {
+                        return@withContext Result.failure(
+                            workDataOf("error" to "Invalid download request"),
+                        )
                     }
-                    connection.inputStream.use { input ->
-                        temp.outputStream().use { out ->
-                            val buffer = ByteArray(65536)
-                            var bytes = 0L
-                            var last = 0L
-                            while (true) {
-                                if (isStopped) throw kotlinx.coroutines.CancellationException()
-                                val count = input.read(buffer)
-                                if (count < 0) break
-                                bytes += count
-                                require(bytes <= release.size) { "Download exceeds declared size" }
-                                out.write(buffer, 0, count)
-                                val now = System.currentTimeMillis()
-                                if (now - last > 700) {
-                                    val percent = (bytes * 100 / release.size).toInt()
-                                    setProgress(workDataOf("percent" to percent))
-                                    setForeground(foreground(app.name, percent))
-                                    last = now
+                val release = app.release ?: return@withContext Result.failure()
+                val output = applicationContext.downloadFile(app)
+                val temp = File(output.parentFile, "${output.name}.part")
+                try {
+                    check(app.compatible()) { "Incompatible device" }
+                    setProgress(workDataOf("queued" to false, "percent" to 0))
+                    setForeground(foreground(app.name, 0))
+                    val connection = URL(release.url).openConnection() as HttpURLConnection
+                    connection.connectTimeout = 20_000
+                    connection.readTimeout = 30_000
+                    try {
+                        check(connection.responseCode == 200) { "HTTP ${connection.responseCode}" }
+                        require(connection.url.protocol == "https")
+                        require(output.parentFile!!.usableSpace > release.size + 10_000_000) {
+                            applicationContext.words("Espacio insuficiente", "Insufficient storage")
+                        }
+                        connection.inputStream.use { input ->
+                            temp.outputStream().use { out ->
+                                val buffer = ByteArray(65536)
+                                var bytes = 0L
+                                var last = 0L
+                                while (true) {
+                                    if (isStopped) throw kotlinx.coroutines.CancellationException()
+                                    val count = input.read(buffer)
+                                    if (count < 0) break
+                                    bytes += count
+                                    require(bytes <= release.size) {
+                                        "Download exceeds declared size"
+                                    }
+                                    out.write(buffer, 0, count)
+                                    val now = System.currentTimeMillis()
+                                    if (now - last > 700) {
+                                        val percent = (bytes * 100 / release.size).toInt()
+                                        setProgress(workDataOf("percent" to percent))
+                                        setForeground(foreground(app.name, percent))
+                                        last = now
+                                    }
                                 }
                             }
                         }
+                    } finally {
+                        connection.disconnect()
                     }
-                } finally {
-                    connection.disconnect()
+                    applicationContext.verifyDownload(app, temp)
+                    check(temp.renameTo(output)) { "Cannot save APK" }
+                    Result.success(workDataOf("path" to output.absolutePath))
+                } catch (e: kotlinx.coroutines.CancellationException) {
+                    temp.delete()
+                    throw e
+                } catch (e: Exception) {
+                    temp.delete()
+                    Result.failure(workDataOf("error" to (e.message ?: "Download failed")))
                 }
-                applicationContext.verifyDownload(app, temp)
-                check(temp.renameTo(output)) { "Cannot save APK" }
-                Result.success(workDataOf("path" to output.absolutePath))
-            } catch (e: kotlinx.coroutines.CancellationException) {
-                temp.delete()
-                throw e
-            } catch (e: Exception) {
-                temp.delete()
-                Result.failure(workDataOf("error" to (e.message ?: "Download failed")))
             }
         }
+    }
 
     private fun foreground(name: String, percent: Int): ForegroundInfo {
         val manager = applicationContext.getSystemService(NotificationManager::class.java)
@@ -185,18 +196,32 @@ class DownloadWorker(context: Context, params: WorkerParameters) :
     }
 }
 
-fun Context.enqueueDownload(app: CatalogApp) {
+fun Context.enqueueDownload(app: CatalogApp): Operation {
     val manager = WorkManager.getInstance(this)
     val task =
         OneTimeWorkRequestBuilder<DownloadWorker>()
-            .setInputData(workDataOf("app" to app.json().toString()))
+            .setInputData(
+                workDataOf(
+                    "app" to
+                        app.copy(
+                                summary = "",
+                                description = "",
+                                screenshots = emptyList(),
+                                permissions = emptyList(),
+                                release = app.release?.copy(changelog = ""),
+                            )
+                            .json()
+                            .toString(),
+                ),
+            )
             .addTag("download")
             .addTag(app.packageName)
             .setConstraints(
                 Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build(),
             )
             .build()
-    manager.beginUniqueWork("download-queue", ExistingWorkPolicy.APPEND_OR_REPLACE, task).enqueue()
+    // Cancelling one app must not cancel the other requests in the queue.
+    return manager.enqueueUniqueWork("download-${app.packageName}", ExistingWorkPolicy.KEEP, task)
 }
 
 suspend fun Context.install(app: CatalogApp) =

@@ -2,6 +2,8 @@
 
 `catalog/index.json` is the reviewed source of truth. `node tools/catalog.mjs bundle` validates it and refreshes the embedded offline copy. Phones fetch this single static public document, not the GitHub REST API.
 
+The machine-readable definition is `catalog/schema.json` (JSON Schema 2020-12). The validator also checks uniqueness across entries and certificate/version continuity, which cannot be expressed by this schema alone.
+
 Each app entry has `id`, Android `packageName`, `name`, `summary`, `description`, `category`, public GitHub `repository`, HTTPS `screenshots`, human-readable `permissions`, and `release` (null only before publication). Repository ownership is unrestricted. Adding apps is a file change, never an in-app upload flow.
 
 A release has positive integer `versionCode`, display `versionName`, integer `minSdk`, `architectures` (`universal` or ABI names), immutable HTTPS APK `url`, byte `size`, lowercase SHA-256 `sha256`, lowercase signing certificate SHA-256 `certificateSha256`, and `changelog`. URLs must reference APK assets, not a GitHub source archive or HTML page.

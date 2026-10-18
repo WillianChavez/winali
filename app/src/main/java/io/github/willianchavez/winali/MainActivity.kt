@@ -161,7 +161,10 @@ class MainActivity : ComponentActivity() {
                     release == null -> words("Próximamente", "Coming soon")
                     !app.compatible() -> words("No compatible", "Incompatible")
                     work != null ->
-                        if (work.state == WorkInfo.State.RUNNING)
+                        if (
+                            work.state == WorkInfo.State.RUNNING &&
+                                !work.progress.getBoolean("queued", false)
+                        )
                             "${work.progress.getInt("percent",0)}% · " + words("Cancelar", "Cancel")
                         else words("En cola · Cancelar", "Queued · Cancel")
                     installed != null && installed >= release.versionCode -> words("Abrir", "Open")
