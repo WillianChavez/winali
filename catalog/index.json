@@ -98,7 +98,22 @@
         "Consultar versiones instaladas",
         "Notificaciones opcionales"
       ],
-      "release": null,
+      "release": {
+        "versionCode": 1000,
+        "versionName": "0.1.0",
+        "minSdk": 26,
+        "architectures": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "url": "https://github.com/WillianChavez/winali/releases/download/v0.1.0/winali.apk",
+        "size": 12256676,
+        "sha256": "2c228e18e1574d65cf4f4ad246f10b48200d67a6e6db5f529d49edfad828cc0f",
+        "certificateSha256": "9f497c6ba4e2838e0a472a9b9c99ffc12692777b221c84209f2e2c367b45072d",
+        "changelog": "Primera versión de Winali: catálogo con APK y Focus, búsqueda, fichas, cola de descargas independiente por app, verificación de APK y actualizaciones con confirmación de Android. Temas claro/oscuro, español/inglés y catálogo local protegido frente a respuestas antiguas de la red."
+      },
       "locales": {
         "en": {
           "summary": "Your simple app store.",
@@ -114,5 +129,5 @@
       }
     }
   ],
-  "revision": 1
+  "revision": 2
 }
