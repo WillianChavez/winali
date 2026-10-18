@@ -6,10 +6,13 @@
       "packageName": "io.github.willianchavez.apk",
       "name": "APK",
       "summary": "Extrae, guarda y comparte tus aplicaciones.",
-      "description": "Tus aplicaciones, en tus manos. Busca apps instaladas, consulta sus permisos, extrae una o varias y compártelas. Los paquetes divididos se exportan con todos sus componentes. Funciona sin conexión, anuncios ni cuenta.",
+      "description": "Busca apps instaladas, consulta sus permisos, extrae una o varias y compártelas. Los paquetes divididos se exportan con todos sus componentes.",
       "category": "Utilidades",
       "repository": "https://github.com/WillianChavez/apk",
-      "screenshots": [],
+      "screenshots": [
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/apk-1.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/apk-2.png"
+      ],
       "permissions": [
         "Consultar las aplicaciones instaladas",
         "Guardar archivos en la carpeta que elijas"
@@ -33,7 +36,7 @@
       "locales": {
         "en": {
           "summary": "Extract, save and share your apps.",
-          "description": "Your apps, in your hands. Find installed apps, inspect their permissions, extract one or several and share them. Split packages are exported with every component. Works offline, without ads or an account.",
+          "description": "Search installed apps, inspect their permissions, extract one or several and share them. Split packages are exported with every component.",
           "category": "Utilities",
           "permissions": [
             "Inspect installed applications",
@@ -47,10 +50,15 @@
       "packageName": "io.github.willianchavez.focus",
       "name": "Focus",
       "summary": "Organiza tus tareas y encuentra tu ritmo.",
-      "description": "Un lugar tranquilo para organizar tus proyectos, concentrarte y ver tu progreso. Tareas, Pomodoros, descansos, calendario, estadísticas y un bosque que crece contigo. Tus datos permanecen en tu dispositivo.",
+      "description": "Tareas, subtareas, proyectos, etiquetas, Pomodoros, descansos, calendario, reportes y un bosque que crece con tu progreso. Los datos se guardan solo en tu dispositivo.",
       "category": "Productividad",
       "repository": "https://github.com/WillianChavez/focus",
-      "screenshots": [],
+      "screenshots": [
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/focus-1.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/focus-2.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/focus-3.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/focus-4.png"
+      ],
       "permissions": [
         "Notificaciones y recordatorios opcionales",
         "Accesos de concentración solo al activarlos"
@@ -74,7 +82,7 @@
       "locales": {
         "en": {
           "summary": "Organize your tasks and find your rhythm.",
-          "description": "A calm place to organize projects, focus and see your progress. Tasks, Pomodoros, breaks, calendar, reports and a forest that grows with you. Your data stays on your device.",
+          "description": "Tasks, subtasks, projects, tags, Pomodoros, breaks, calendar, reports and a forest that grows with your progress. Data is stored only on your device.",
           "category": "Productivity",
           "permissions": [
             "Optional notifications and reminders",
@@ -88,10 +96,14 @@
       "packageName": "io.github.willianchavez.winali",
       "name": "Winali",
       "summary": "Tu tienda de aplicaciones sencilla.",
-      "description": "Descubre, instala y actualiza aplicaciones publicadas en GitHub. Sin cuenta ni anuncios.",
+      "description": "Descubre, instala y actualiza aplicaciones publicadas en GitHub.",
       "category": "Tienda",
       "repository": "https://github.com/WillianChavez/winali",
-      "screenshots": [],
+      "screenshots": [
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/winali-1.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/winali-2.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/winali-4.png"
+      ],
       "permissions": [
         "Internet para catálogo y descargas",
         "Instalar aplicaciones con tu confirmación",
@@ -117,7 +129,7 @@
       "locales": {
         "en": {
           "summary": "Your simple app store.",
-          "description": "Discover, install and update apps published on GitHub. No account or ads.",
+          "description": "Discover, install and update apps published on GitHub.",
           "category": "Store",
           "permissions": [
             "Internet for catalog and downloads",
@@ -129,5 +141,5 @@
       }
     }
   ],
-  "revision": 2
+  "revision": 3
 }

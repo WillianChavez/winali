@@ -234,6 +234,9 @@ suspend fun Context.install(app: CatalogApp) =
             PackageInstaller.SessionParams(PackageInstaller.SessionParams.MODE_FULL_INSTALL).apply {
                 setAppPackageName(app.packageName)
                 setSize(file.length())
+                // Declare an app-store origin and a user-initiated install; this is the honest signal Play Protect uses.
+                if (Build.VERSION.SDK_INT >= 33) setPackageSource(PackageInstaller.PACKAGE_SOURCE_STORE)
+                if (Build.VERSION.SDK_INT >= 34) setInstallerPackageName(packageName)
                 if (Build.VERSION.SDK_INT >= 31)
                     setRequireUserAction(PackageInstaller.SessionParams.USER_ACTION_REQUIRED)
             }

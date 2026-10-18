@@ -387,25 +387,10 @@ class MainActivity : ComponentActivity() {
                 ) {
                     item {
                         Text(
-                            if (tab == 0) words("Descubre algo útil.", "Find something useful.")
-                            else words("Todo al día.", "Stay up to date."),
+                            if (tab == 0) words("Explorar", "Explore")
+                            else words("Actualizaciones", "Updates"),
                             style = MaterialTheme.typography.headlineLarge,
                             fontWeight = FontWeight.Bold,
-                        )
-                    }
-                    item {
-                        Text(
-                            if (tab == 0)
-                                words(
-                                    "Apps cuidadas. Sin cuentas ni complicaciones.",
-                                    "Thoughtful apps. No accounts or complications.",
-                                )
-                            else
-                                words(
-                                    "Tus aplicaciones, con sus últimas mejoras.",
-                                    "Your apps, with their latest improvements.",
-                                ),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
                     if (tab == 0) {
@@ -439,40 +424,6 @@ class MainActivity : ComponentActivity() {
                                     }
                             }
                         }
-                        if (query.isBlank() && category.isBlank())
-                            item {
-                                Card(
-                                    colors =
-                                        CardDefaults.cardColors(containerColor = Color(0xFF125DEC)),
-                                    shape = RoundedCornerShape(26.dp),
-                                ) {
-                                    Column(Modifier.fillMaxWidth().padding(24.dp)) {
-                                        Text(
-                                            words("HECHAS PARA TI", "MADE FOR YOU"),
-                                            color = Color(0xFFCEE1FF),
-                                            style = MaterialTheme.typography.labelMedium,
-                                        )
-                                        Spacer(Modifier.height(12.dp))
-                                        Text(
-                                            words(
-                                                "Menos ruido.\nMás posibilidades.",
-                                                "Less noise.\nMore possibility.",
-                                            ),
-                                            color = Color.White,
-                                            style = MaterialTheme.typography.headlineMedium,
-                                            fontWeight = FontWeight.Bold,
-                                        )
-                                        Spacer(Modifier.height(12.dp))
-                                        Text(
-                                            words(
-                                                "Descarga directamente de sus creadores.",
-                                                "Download directly from their creators.",
-                                            ),
-                                            color = Color.White,
-                                        )
-                                    }
-                                }
-                            }
                     }
                     val list =
                         if (tab == 1) updates
@@ -610,11 +561,7 @@ class MainActivity : ComponentActivity() {
                 Text(words("Eliminar APK descargados", "Remove downloaded APKs"))
             }
             Text(
-                "Winali ${BuildConfig.VERSION_NAME}\n" +
-                    words(
-                        "Código abierto · Sin anuncios · Sin cuenta",
-                        "Open source · No ads · No account",
-                    ),
+                "Winali ${BuildConfig.VERSION_NAME}",
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             TextButton(
