@@ -109,7 +109,22 @@
       "permissions": [
         "Archivos y carpetas que tú elijas"
       ],
-      "release": null,
+      "release": {
+        "versionCode": 1000,
+        "versionName": "0.1.0",
+        "minSdk": 26,
+        "architectures": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "url": "https://github.com/WillianChavez/read/releases/download/v0.1.0/read.apk",
+        "size": 8122893,
+        "sha256": "9d560de0817edce28edf2103a34fab068d2a71372f88bd4c8551d9cc77ef8668",
+        "certificateSha256": "dd6ee4514740d45beab6a092b117c57d5f3e51cde311dcc0c92ac71cb6d78b99",
+        "changelog": "Primera versión de Read.\n\n- Visor de PDF (renderizador del sistema), Word (.docx), Excel (.xlsx, CSV), PowerPoint (.pptx), texto, RTF e imágenes; búsqueda dentro del documento, zoom, modo nocturno y contraseña de PDF.\n- Explorador de carpetas con acceso concedido por el usuario, búsqueda por nombre, recientes, favoritos y papelera de 30 días.\n- PDF: anotar (lápiz, resaltador, texto), firmar, editar el esquema, unir, dividir por rangos o plan, organizar páginas, comprimir, quitar contraseña, imprimir.\n- Conversión: imágenes a PDF, PDF a imágenes, Word, PowerPoint y Excel a PDF, PDF a Word (solo texto), texto a PDF.\n- Escáner con cámara del sistema o imágenes importadas: detección de bordes, recorte, filtros y PDF.\n- Accesos directos, widget de recientes, lector predeterminado y tema claro/oscuro, español/inglés. Sin permisos de Android."
+      },
       "locales": {
         "en": {
           "summary": "Read, edit and convert PDFs and documents.",
@@ -171,5 +186,5 @@
       }
     }
   ],
-  "revision": 5
+  "revision": 6
 }
