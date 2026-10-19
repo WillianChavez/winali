@@ -31,20 +31,21 @@ Ejemplo con Focus pasando a `0.1.3`; vale igual para `apk`, `read` y la propia `
    .\gradlew.bat :app:connectedDebugAndroidTest   # con ANDROID_SERIAL fijado
    ```
    La release usa R8: prueba también el comportamiento afectado con el APK release, no solo el debug. Añade una prueba por cada comportamiento nuevo.
-2. **Versión por defecto** en `app/build.gradle.kts` (`versionCode` y `versionName`), solo para compilaciones locales. En CI la versión sale del tag: `vX.Y.Z` → `versionCode = X*1000000 + Y*1000 + Z` (`v0.1.3` → `1003`). El `versionCode` siempre debe subir.
-3. **`CHANGELOG.md` solo con las notas de esta versión.** El workflow lo usa entero como notas de la Release y como `changelog` del `release.json` que muestra Winali. Texto para el usuario, sin secciones tipo "Sin publicar".
-4. **Commit y push a `main`**, y espera la compilación en verde:
+2. **Versión por defecto** en `app/build.gradle.kts` (`versionCode` y `versionName`). El script local de publicación recibe `X.Y.Z` y calcula `versionCode = X*1000000 + Y*1000 + Z` (`0.1.3` → `1003`). El `versionCode` siempre debe subir.
+3. **`CHANGELOG.md` solo con las notas de esta versión.** Se usa entero como notas de la Release y como `changelog` del `release.json` que muestra Winali. Texto para el usuario, sin secciones tipo "Sin publicar".
+4. **Commit y push a `main`** después de las comprobaciones locales:
    ```sh
    git push origin main
-   gh run list -R WillianChavez/<app> --limit 1
    ```
-5. **Tag** para publicar la Release firmada:
+5. **Compila y firma localmente; después publica la Release.** GitHub Actions está deshabilitado en los cuatro repositorios y no hay workflows. Desde el repositorio de la app:
    ```sh
-   git tag v0.1.3 && git push origin v0.1.3
-   gh run watch <id> -R WillianChavez/<app> --exit-status
+   .\tools\build-release.ps1 -Version 0.1.3 -ExpectedCertificateSha256 <huella-del-catalogo>
+   git tag v0.1.3
+   git push origin v0.1.3
+   gh release create v0.1.3 "$env:LOCALAPPDATA/Winali/releases/focus/0.1.3/focus.apk" "$env:LOCALAPPDATA/Winali/releases/focus/0.1.3/release.json" --title v0.1.3 --notes-file CHANGELOG.md
    gh release view v0.1.3 -R WillianChavez/<app>   # <app>.apk + release.json
    ```
-   El workflow *Signed release* firma con la clave del repositorio (secretos `SIGNING_KEYSTORE_BASE64`, `SIGNING_STORE_PASSWORD`, `SIGNING_KEY_PASSWORD`, alias `release`), genera `release.json` desde el APK real y crea la Release. Nunca cambies de clave: Android rechazaría la actualización.
+   Sustituye `focus` por la app correspondiente. El script ejecuta release, lint y pruebas unitarias, firma con `%LOCALAPPDATA%/Winali/signing/<app>.jks` y lee `<app>.json` (`storePassword`, `keyPassword`, `alias`). Genera `release.json` desde el APK real y comprueba versión y certificado. Los archivos salen a `%LOCALAPPDATA%/Winali/releases/<app>/<versión>`. Las claves y credenciales se guardan fuera de Git, en el directorio privado existente. Nunca cambies de clave: Android rechazaría la actualización. No vuelvas a añadir workflows sin que el usuario lo pida.
 6. **Catálogo** en la raíz de `winali`:
    ```sh
    node tools/catalog.mjs sync <app>        # lee releases/latest/download/release.json
@@ -60,14 +61,14 @@ Ejemplo con Focus pasando a `0.1.3`; vale igual para `apk`, `read` y la propia `
    ```
    Los teléfonos lo verán en su próxima comprobación (al abrir Winali o cada ~12 h). No hace falta recompilar Winali.
 
-Si cambian la descripción, los permisos o las capturas de la ficha, edítalos en `catalog/index.json` (español y `locales.en`). Las capturas van en `docs/screenshots/<app>-N.png` y se enlazan con `https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/...`. Actualiza también la tabla del `README.md` si cambia lo que hace la app.
+Si cambian la descripción, los permisos o las capturas de la ficha, edítalos en `catalog/index.json` (español y `locales.en`). Las capturas van en `docs/screenshots/<app>-N.png` y se enlazan con `https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/...`. El README de Winali muestra solo las capturas de la tienda y no lleva una tabla de apps disponibles; documenta las funciones en el repositorio de cada app.
 
 ## Añadir una app nueva
 
-1. Crea `apps/<app>` como repositorio propio copiando la estructura de `apps/apk` (Gradle, `.github/workflows`, `tools/release-manifest.mjs`, `LICENSE`, `README.md`, `CHANGELOG.md`), con paquete `io.github.willianchavez.<app>`.
-2. Crea el repositorio público con `gh repo create`, genera una clave de firma propia (fuera del repo, con permisos privados) y configura los tres secretos.
-3. Publica `v0.1.0` con el tag.
-4. Añade su ficha a `catalog/index.json` con `"release": null`, ejecuta `node tools/catalog.mjs sync <app>`, actualiza el número de apps esperado en `tools/catalog.test.mjs` y la tabla del `README.md`.
+1. Crea `apps/<app>` como repositorio propio copiando la estructura de `apps/apk` (Gradle, `tools/build-release.ps1`, `tools/release-manifest.mjs`, `LICENSE`, `README.md`, `CHANGELOG.md`), con paquete `io.github.willianchavez.<app>`. No añadas workflows.
+2. Crea el repositorio público con `gh repo create`, genera una clave de firma propia y guarda su JKS y JSON de credenciales en el directorio privado de firma, fuera del repositorio.
+3. Compila y firma localmente `0.1.0` con el script, crea el tag y publica el APK y `release.json` con `gh release create`. La primera versión no tiene huella anterior para `-ExpectedCertificateSha256`; guárdala para las siguientes.
+4. Añade su ficha a `catalog/index.json` con `"release": null`, ejecuta `node tools/catalog.mjs sync <app>` y actualiza el número de apps esperado en `tools/catalog.test.mjs`.
 
 ## Reglas del proyecto
 

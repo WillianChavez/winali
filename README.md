@@ -29,35 +29,12 @@ Play Protect desconfía de apps de desarrolladores independientes que instalan o
 |---|---|---|
 | <img src="docs/screenshots/winali-1.png" width="220"> | <img src="docs/screenshots/winali-2.png" width="220"> | <img src="docs/screenshots/winali-4.png" width="220"> |
 
-| APK | Extracción múltiple |
-|---|---|
-| <img src="docs/screenshots/apk-1.png" width="220"> | <img src="docs/screenshots/apk-2.png" width="220"> |
-
-| Tareas | Temporizador | Reportes | Bosque |
-|---|---|---|---|
-| <img src="docs/screenshots/focus-1.png" width="180"> | <img src="docs/screenshots/focus-2.png" width="180"> | <img src="docs/screenshots/focus-3.png" width="180"> | <img src="docs/screenshots/focus-4.png" width="180"> |
-
-| Read |
-|---|
-| <img src="docs/screenshots/read-1.png" width="180"> <img src="docs/screenshots/read-3.png" width="180"> <img src="docs/screenshots/read-4.png" width="180"> <img src="docs/screenshots/read-5.png" width="180"> |
-
 ## Actualizaciones
 
 - Winali consulta el catálogo al abrir y cada ~12 horas en segundo plano, y puedes actualizarlo a mano.
 - La pestaña **Actualizaciones** muestra las versiones nuevas; nada se descarga sin que lo pidas.
 - **Winali se actualiza a sí misma** con el mismo mecanismo: figura en el catálogo y, cuando hay una versión nueva, aparece como cualquier otra app.
 - Una actualización solo se instala si el paquete coincide, el `versionCode` es mayor y el certificado es el mismo, por lo que nunca se pierden los datos.
-
-## Aplicaciones disponibles
-
-| App | Qué hace | Repositorio | Descarga |
-|---|---|---|---|
-| **Winali** | La tienda | [winali](https://github.com/WillianChavez/winali) | [winali.apk](https://github.com/WillianChavez/winali/releases/latest/download/winali.apk) |
-| **APK** | Extrae, guarda y comparte tus apps (con paquetes divididos), sin Internet | [apk](https://github.com/WillianChavez/apk) | [apk.apk](https://github.com/WillianChavez/apk/releases/latest/download/apk.apk) |
-| **Focus** | Tareas, Pomodoro, calendario, reportes y bosque; datos solo en tu teléfono | [focus](https://github.com/WillianChavez/focus) | [focus.apk](https://github.com/WillianChavez/focus/releases/latest/download/focus.apk) |
-| **Read** | Lector y editor de documentos: PDF, Word, Excel, PowerPoint y OpenDocument; edita texto de PDF, añade imágenes, firma, convierte y escanea; sin Internet | [read](https://github.com/WillianChavez/read) | [read.apk](https://github.com/WillianChavez/read/releases/latest/download/read.apk) |
-
-Identificadores: `io.github.willianchavez.winali`, `.apk`, `.focus`, `.read`. Cada app tiene su propia clave de firma.
 
 ## Cómo funciona
 
@@ -93,7 +70,7 @@ El código de APK y Focus vive en sus propios repositorios (en local, en `apps/a
 
 ### Firma de versiones
 
-Las Releases se firman en GitHub Actions con la clave del repositorio. Configura los secretos `SIGNING_KEYSTORE_BASE64`, `SIGNING_STORE_PASSWORD` y `SIGNING_KEY_PASSWORD` (alias `release`). Guarda una copia privada de la clave: si se pierde, los usuarios no podrán actualizar. Nada de esto se incluye en Git.
+Las Releases se compilan, prueban y firman localmente con `tools/build-release.ps1 -Version X.Y.Z`. El script lee la clave y las credenciales privadas de `%LOCALAPPDATA%/Winali/signing`, y genera el APK y `release.json` en `%LOCALAPPDATA%/Winali/releases`. Pasa `-ExpectedCertificateSha256` con la huella de la versión publicada para comprobar que la firma se conserva. Después se suben los dos archivos con `gh release create`; no hay workflows de GitHub Actions. Conserva una copia privada de las claves: nada de esto se incluye en Git.
 
 ## Estado
 
