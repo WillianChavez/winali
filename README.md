@@ -55,7 +55,7 @@ Play Protect desconfía de apps de desarrolladores independientes que instalan o
 | **Winali** | La tienda | [winali](https://github.com/WillianChavez/winali) | [winali.apk](https://github.com/WillianChavez/winali/releases/latest/download/winali.apk) |
 | **APK** | Extrae, guarda y comparte tus apps (con paquetes divididos), sin Internet | [apk](https://github.com/WillianChavez/apk) | [apk.apk](https://github.com/WillianChavez/apk/releases/latest/download/apk.apk) |
 | **Focus** | Tareas, Pomodoro, calendario, reportes y bosque; datos solo en tu teléfono | [focus](https://github.com/WillianChavez/focus) | [focus.apk](https://github.com/WillianChavez/focus/releases/latest/download/focus.apk) |
-| **Read** | Lee, edita y convierte PDF; visor de Word, Excel y PowerPoint (simplificado), escáner y herramientas de PDF; sin permisos ni Internet | [read](https://github.com/WillianChavez/read) | [read.apk](https://github.com/WillianChavez/read/releases/latest/download/read.apk) |
+| **Read** | Lector y editor de documentos: PDF, Word, Excel, PowerPoint y OpenDocument; edita texto de PDF, añade imágenes, firma, convierte y escanea; sin Internet | [read](https://github.com/WillianChavez/read) | [read.apk](https://github.com/WillianChavez/read/releases/latest/download/read.apk) |
 
 Identificadores: `io.github.willianchavez.winali`, `.apk`, `.focus`, `.read`. Cada app tiene su propia clave de firma.
 
