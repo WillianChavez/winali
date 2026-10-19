@@ -112,8 +112,8 @@
         "Fotos al convertir imágenes"
       ],
       "release": {
-        "versionCode": 1001,
-        "versionName": "0.1.1",
+        "versionCode": 1002,
+        "versionName": "0.1.2",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -121,11 +121,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/read/releases/download/v0.1.1/read.apk",
-        "size": 9270612,
-        "sha256": "6973ab443eff6a33215aca717b654810a1ef5eeecaae35a6dcf549d88fe68bfa",
+        "url": "https://github.com/WillianChavez/read/releases/download/v0.1.2/read.apk",
+        "size": 9298250,
+        "sha256": "8887e5cd92b31249fdf5dafc5727e0f30bed24a33b5aafa32b633953dd9e705d",
         "certificateSha256": "dd6ee4514740d45beab6a092b117c57d5f3e51cde311dcc0c92ac71cb6d78b99",
-        "changelog": "Read 0.1.1\n\n- Diseño fiel a la aplicación de referencia: tres destinos (Inicio, Reciente y Ajustes), categorías con conteos, \"Crear y convertir\" y \"Editar y administrar\" en Inicio, listas con selección múltiple, orden y búsqueda por tipo, Directorios, menú de archivo y visor con opciones de lectura.\n- Acceso a todos los archivos: pantalla de permiso propia en el primer arranque (se puede cerrar) y recorrido de todo el almacenamiento para mostrar los documentos del teléfono, con recientes, búsqueda, papelera y herramientas sobre rutas de archivo. Sin el permiso se conservan las carpetas concedidas y Abrir archivo.\n- Editor de PDF completo: editar el texto existente (contenido, fuente, tamaño, color, alineación), añadir texto e imágenes, anotar (resaltar, subrayar, tachar, lápiz, borrador) y rellenar y firmar (texto, firma, fecha, marca, cruz, punto), con deshacer y rehacer y pantalla de resultado con Abrir y Compartir.\n- Cámara propia (CameraX) con disparo por lotes, flash, cuadrícula y cambio de cámara; ajuste de páginas con filtros, giro y recorte; pregunta del modo de recorte y ajuste \"Recorte del escáner\" como en la referencia.\n- Galería de imágenes propia con álbumes, selección múltiple con orden y vista previa, y pantalla \"Imagen a PDF\" con páginas reordenables.\n- Formatos antiguos y OpenDocument: ahora se abren, se buscan y se convierten a PDF los archivos .doc, .xls y .ppt (97-2003) y .odt, .ods y .odp.\n- Permisos nuevos que se piden al usarlos: cámara y lectura de fotos.\n- Respaldo de renderizado de PDF cuando el sistema rechaza un archivo (Android 8), encabezados, pies y números de página en Word."
+        "changelog": "Read 0.1.2\n\n- Nuevos iconos de Word, PDF, Excel, TXT y PowerPoint en las categorías y listas de documentos.\n- Los iconos conservan sus colores originales y se muestran sobre fondos claros y oscuros."
       },
       "locales": {
         "en": {
@@ -190,5 +190,5 @@
       }
     }
   ],
-  "revision": 8
+  "revision": 9
 }
