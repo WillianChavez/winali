@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 const catalog=()=>JSON.parse(fs.readFileSync(new URL('../catalog/index.json',import.meta.url),'utf8'));
 const release={versionCode:1000,versionName:'0.1.0',minSdk:26,architectures:['universal'],url:'https://github.com/owner/app/releases/download/v0.1.0/app.apk',size:1024,sha256:'a'.repeat(64),certificateSha256:'b'.repeat(64),changelog:'First release'};
-test('accepts the shipped catalog',()=>assert.equal(validateCatalog(catalog()).apps.length,4));
+test('accepts the shipped catalog',()=>assert.equal(validateCatalog(catalog()).apps.length,5));
 test('rejects duplicate identities',()=>{const c=catalog();c.apps.push(c.apps[0]);assert.throws(()=>validateCatalog(c),/Duplicate/);});
 test('rejects unsupported schema',()=>assert.throws(()=>validateCatalog({...catalog(),schemaVersion:2}),/schemaVersion/));
 test('rejects HTTP downloads and malformed hashes',()=>{for(const patch of [{url:'http://example.com/a.apk'},{sha256:'a'},{certificateSha256:''},{size:-1},{versionCode:1.5}]){const c=catalog();c.apps[0].release={...release,...patch};assert.throws(()=>validateCatalog(c));}});

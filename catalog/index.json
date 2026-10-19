@@ -188,7 +188,51 @@
           ]
         }
       }
+    },
+    {
+      "id": "deck",
+      "packageName": "io.github.willianchavez.deck",
+      "name": "Deck",
+      "summary": "Controla tu PC desde el teléfono o tablet.",
+      "description": "Crea perfiles y botones en el servidor de Windows para ejecutar atajos, escribir texto, abrir aplicaciones y controlar multimedia desde Android en la misma red privada. Emparejamiento aprobado en la PC y conexión cifrada, sin cuenta ni servicios externos. Requiere Deck para Windows, disponible en las descargas del mismo repositorio. Primera versión; las integraciones con plugins externos no están disponibles.",
+      "category": "Utilidades",
+      "repository": "https://github.com/WillianChavez/deck",
+      "screenshots": [
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/deck-1.png",
+        "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/deck-2.png"
+      ],
+      "permissions": [
+        "Acceder a la red local para conectar con la PC emparejada",
+        "Consultar el estado de la conexión"
+      ],
+      "release": {
+        "versionCode": 1000,
+        "versionName": "0.1.0",
+        "minSdk": 26,
+        "architectures": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.0/deck.apk",
+        "size": 2832086,
+        "sha256": "77e620eae25f390f15af6e5f02b0a155693771e288bf2343467e70f63164d8d3",
+        "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
+        "changelog": "Deck 0.1.0\r\n\r\n- Control local de Windows desde Android mediante perfiles y botones.\r\n- Emparejamiento aprobado en la PC y conexión cifrada.\r\n- Atajos, texto, controles multimedia, aplicaciones, enlaces y secuencias configurables.\r\n- Logo propio, diseño oscuro renovado y respuesta animada al pulsar botones.\r\n- Enlaces de descarga del servidor Windows desde la app y el README."
+      },
+      "locales": {
+        "en": {
+          "summary": "Control your PC from a phone or tablet.",
+          "description": "Create profiles and buttons in the Windows host to run shortcuts, type text, launch apps and control media from Android on the same private network. PC-approved pairing and encrypted connections, without accounts or external services. Requires Deck for Windows, available in the same repository releases. Initial version; external plugin integrations are not available.",
+          "category": "Utilities",
+          "permissions": [
+            "Access the local network to connect to the paired PC",
+            "Check network connection status"
+          ]
+        }
+      }
     }
   ],
-  "revision": 10
+  "revision": 11
 }

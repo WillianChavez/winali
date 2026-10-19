@@ -110,3 +110,11 @@ REA evidence (`rea` 6.4.0: `decode-android-resources`, `inspect-android-package`
 - The reference apps (`Apk Extractor.apk`, `Focus To-Do.apk`) were not needed to justify these decisions and were not opened.
 
 Not verified: startup improvement on a physical device; the signed production release (see above); the release APK installing over the real 0.1.0 release (different signing key from the debug-signed builds used here).
+
+## Deck 0.1.0 — catálogo revision 11 (2026-10-19)
+
+Deck se añade como quinta app. Android y el servidor/editor Windows se publican juntos en WillianChavez/deck, tag v0.1.0, con deck.apk, release.json y deck-windows-x64.zip. Publicación local firmada y GitHub Actions deshabilitado. Certificado Android inicial revisado: 208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8.
+
+El APK público se descargó y coincide con los 2.832.086 bytes y SHA-256 del manifiesto. La descarga latest del servidor Windows responde correctamente. Las dos capturas son del APK release firmado, en español, y muestran el nuevo logo y la descarga del servidor. Se mantienen fuera del README de Winali; se muestran en la ficha y en el README de Deck.
+
+Verificación: 25 pruebas Rust, 6 unitarias Android, 5 de instrumentación debug y una integración automatizada Android/Windows aprobadas. El release Android con R8 fue probado mediante su interfaz real: importar QR, aprobación local, autenticación y ejecución de un Delay seguro, con una sola ejecución registrada. El release Windows abrió y respondió; no se instaló ni ejecutó el MSI de referencia. La instrumentación directa release no pudo ejecutarse por la dependencia Trace eliminada por R8 del runner; esta limitación está documentada en Deck. OBS real, plugins externos y rendimiento en teléfono físico siguen sin verificar. Las nueve pruebas de catálogo pasan.

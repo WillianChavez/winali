@@ -10,6 +10,7 @@ Guía para agentes que trabajan en Winali y sus apps. Detalles del estándar de 
 | `apps/apk` | `WillianChavez/apk` | `io.github.willianchavez.apk` |
 | `apps/focus` | `WillianChavez/focus` | `io.github.willianchavez.focus` |
 | `apps/read` | `WillianChavez/read` | `io.github.willianchavez.read` |
+| `apps/deck` (Android y servidor Windows) | `WillianChavez/deck` | `io.github.willianchavez.deck` |
 
 Cada carpeta de `apps/` es un repositorio git independiente (ignorado por `winali`): haz commit y push dentro de ella. Los APK de referencia de la raíz y `.local/` nunca se suben.
 
@@ -72,7 +73,7 @@ Si cambian la descripción, los permisos o las capturas de la ficha, edítalos e
 
 ## Reglas del proyecto
 
-- Sin cuentas, anuncios, telemetría ni SDK de terceros. Sin permiso de Internet salvo en Winali.
+- Sin cuentas, anuncios, telemetría ni SDK de terceros. Sin permiso de Internet salvo en Winali y Deck (conexión LAN autorizada por el usuario).
 - Sin textos de relleno ni eslóganes en la interfaz: solo texto funcional, en español e inglés.
 - Release optimizada: R8, reducción de recursos, sin `material-icons-extended`, con Baseline Profile.
 - No marques nada como hecho sin probarlo; anota en `docs/IMPLEMENTATION.md` (o `docs/FEATURES.md` de la app) lo que no se pudo verificar.
