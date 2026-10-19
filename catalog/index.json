@@ -206,8 +206,8 @@
         "Consultar el estado de la conexión"
       ],
       "release": {
-        "versionCode": 1000,
-        "versionName": "0.1.0",
+        "versionCode": 1001,
+        "versionName": "0.1.1",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -215,11 +215,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.0/deck.apk",
-        "size": 2832086,
-        "sha256": "77e620eae25f390f15af6e5f02b0a155693771e288bf2343467e70f63164d8d3",
+        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.1/deck.apk",
+        "size": 2832082,
+        "sha256": "a2a1aae99df921f05e4b0c834e5fd3680e4e4c16d604cda55a01be521a799b3e",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.0\r\n\r\n- Control local de Windows desde Android mediante perfiles y botones.\r\n- Emparejamiento aprobado en la PC y conexión cifrada.\r\n- Atajos, texto, controles multimedia, aplicaciones, enlaces y secuencias configurables.\r\n- Logo propio, diseño oscuro renovado y respuesta animada al pulsar botones.\r\n- Enlaces de descarga del servidor Windows desde la app y el README."
+        "changelog": "Deck 0.1.1\n\n- Descarga directa del servidor Windows como un solo EXE, sin extraer archivos.\n- Nuevos iconos integrados para los botones: atajo, texto, reproducir, volumen, silencio y aplicación.\n- Enlaces actualizados en la app y el README.\n- Avisos de licencia incluidos dentro del ejecutable y accesibles desde Licencias."
       },
       "locales": {
         "en": {
@@ -234,5 +234,5 @@
       }
     }
   ],
-  "revision": 11
+  "revision": 12
 }
