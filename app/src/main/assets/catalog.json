@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1006,
-        "versionName": "0.1.6",
+        "versionCode": 1007,
+        "versionName": "0.1.7",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.6/deck.apk",
-        "size": 3691290,
-        "sha256": "7e2095b5bfa921fa6d08873a9e9261df2fcfe887220dd131e9077d93ebcb4563",
+        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.7/deck.apk",
+        "size": 3691294,
+        "sha256": "ecac1432eeabab5684fc7489c1d141e95eb853af22dd878624c8536d7536fb23",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.6\n\n- Instalador: al ejecutar el archivo descargado se abre el asistente (bienvenida, licencia, carpeta, accesos directos). Si ya hay una copia, la actualiza.\n- Deck sigue en segundo plano al cerrar la ventana, con icono en la bandeja para abrirla o salir.\n- Mantener pulsado repite la acción (subir y bajar volumen por defecto; configurable en cada botón).\n- Borrar una tecla es un cambio sin guardar: Guardar lo confirma y Ctrl+Z lo deshace.\n- Dispositivos: \"Agregar dispositivo\" muestra el QR centrado. La pestaña Conexión se unió a Dispositivos.\n- Android: el selector de perfil está en la cabecera, junto al estado de conexión.\n- Lista de acciones y editor de teclas: textos más cortos, muestras de color e iconos con buscador."
+        "changelog": "Deck 0.1.7\n\n- Actualizar: aparece un único botón «Actualizar» cuando hay una versión nueva; descarga, instala y reabre Deck sin pasos manuales. Se busca al abrir y cada 6 horas.\n- Una sola instancia: abrir Deck otra vez muestra la ventana que ya está abierta.\n- Cerrar el asistente de instalación cierra Deck.\n- Eliminar un perfil con clic derecho sobre el selector de perfil. Se quitó «Usar en el teléfono».\n- Ventanas estrechas: un solo panel lateral a la vez.\n- Barra superior más compacta.\n- Android: mismo código que la 0.1.6."
       },
       "locales": {
         "en": {
@@ -238,5 +238,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/deck.png"
     }
   ],
-  "revision": 19
+  "revision": 20
 }
