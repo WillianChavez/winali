@@ -1,3 +1,7 @@
+## 0.1.3
+
+Catálogo actualizado con Books 0.1.10 y su descarga. La tienda también incluye este catálogo para mostrarlo sin conexión.
+
 ## 0.1.2
 
 Cada app muestra su propio icono en la tienda. Nuevas apps en el catálogo: Read y Deck.
