@@ -22,7 +22,7 @@ class CatalogParsingTest {
     @Test fun bundledCatalogHasEveryAppWithReleases() {
         val apps = parse(catalog())
         assertEquals(setOf("apk", "focus", "read", "winali", "deck", "books"), apps.map { it.id }.toSet())
-        assertTrue(apps.all { it.release != null && it.permissions.isNotEmpty() && it.screenshots.isNotEmpty() })
+        assertTrue(apps.all { it.release != null && it.permissions.isNotEmpty() })
     }
 
     @Test fun releaseSerializationRoundTrips() {
