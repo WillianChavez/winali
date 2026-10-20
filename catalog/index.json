@@ -138,7 +138,8 @@
             "Photos when converting images"
           ]
         }
-      }
+      },
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/read.png"
     },
     {
       "id": "winali",
@@ -233,8 +234,9 @@
             "Camera, only when scanning the QR code"
           ]
         }
-      }
+      },
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/deck.png"
     }
   ],
-  "revision": 14
+  "revision": 15
 }

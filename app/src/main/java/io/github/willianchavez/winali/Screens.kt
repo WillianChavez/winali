@@ -29,7 +29,9 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import java.net.HttpURLConnection
 import java.net.URL
 import kotlinx.coroutines.Dispatchers
@@ -568,18 +570,52 @@ private fun Metric(label: String, value: String) {
 
 @Composable
 fun AppMark(app: CatalogApp, size: Int) {
-    Image(
-        painterResource(
-            when (app.id) {
-                "apk" -> R.drawable.app_icon_apk
-                "focus" -> R.drawable.app_icon_focus
-                else -> R.drawable.app_icon_winali
-            },
-        ),
-        null,
-        Modifier.size(size.dp).clip(RoundedCornerShape((size / 4).dp)),
-    )
+    val shape = Modifier.size(size.dp).clip(RoundedCornerShape((size / 4).dp))
+    val bundled =
+        when (app.id) {
+            "apk" -> R.drawable.app_icon_apk
+            "focus" -> R.drawable.app_icon_focus
+            "winali" -> R.drawable.app_icon_winali
+            else -> null
+        }
+    // Each app's own icon from the catalog; bundled copies keep the first apps available offline.
+    var bitmap by remember(app.icon) { mutableStateOf(app.icon?.let { IconCache.get(it) }) }
+    LaunchedEffect(app.icon) {
+        val url = app.icon ?: return@LaunchedEffect
+        if (bitmap != null) return@LaunchedEffect
+        bitmap =
+            withContext(Dispatchers.IO) {
+                runCatching {
+                    val connection = URL(url).openConnection() as HttpURLConnection
+                    connection.connectTimeout = 10_000
+                    connection.readTimeout = 10_000
+                    try {
+                        val bytes = connection.inputStream.use { it.boundedBytes(1_000_000) }
+                        BitmapFactory.decodeByteArray(bytes, 0, bytes.size)?.also { IconCache.put(url, it) }
+                    } finally {
+                        connection.disconnect()
+                    }
+                }
+                    .getOrNull()
+            }
+    }
+    val loaded = bitmap
+    when {
+        loaded != null -> Image(loaded.asImageBitmap(), null, shape.testTag("icon_${app.id}"), contentScale = ContentScale.Crop)
+        bundled != null -> Image(painterResource(bundled), null, shape)
+        else ->
+            Box(shape.background(MaterialTheme.colorScheme.primaryContainer), contentAlignment = Alignment.Center) {
+                Text(
+                    app.name.take(1).uppercase(),
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = (size * 0.42f).sp,
+                )
+            }
+    }
 }
+
+private object IconCache : android.util.LruCache<String, Bitmap>(64)
 
 private object ScreenshotCache :
     android.util.LruCache<String, Bitmap>((Runtime.getRuntime().maxMemory() / 16).toInt().coerceAtLeast(4_000_000)) {

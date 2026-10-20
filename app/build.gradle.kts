@@ -11,8 +11,8 @@ android {
  applicationId = "io.github.willianchavez.winali"
  minSdk = 26
  targetSdk = 36
- versionCode = (System.getenv("VERSION_CODE") ?: "1001").toInt()
- versionName = System.getenv("VERSION_NAME") ?: "0.1.1"
+ versionCode = (System.getenv("VERSION_CODE") ?: "1002").toInt()
+ versionName = System.getenv("VERSION_NAME") ?: "0.1.2"
  buildConfigField("String", "CATALOG_URL", "\"https://raw.githubusercontent.com/WillianChavez/winali/main/catalog/index.json\"")
  buildConfigField("boolean", "ALLOW_LOOPBACK", "false")
  testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

@@ -1,3 +1,7 @@
+## 0.1.2
+
+Cada app muestra su propio icono en la tienda. Nuevas apps en el catálogo: Read y Deck.
+
 ## 0.1.1
 
 Ficha completa con capturas, permisos, novedades, tamaño y compatibilidad. Cola de descargas con progreso, cancelación, reintento y reanudación tras cerrar la app. Mensajes claros ante firma distinta, poco espacio, descarga dañada o permiso denegado, sin desinstalar nada. Búsqueda de actualizaciones cada 12 horas con aviso, instalación individual y "Actualizar todo". Winali se actualiza a sí misma conservando tus datos.

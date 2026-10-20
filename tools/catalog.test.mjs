@@ -9,6 +9,7 @@ const release={versionCode:1000,versionName:'0.1.0',minSdk:26,architectures:['un
 test('accepts the shipped catalog',()=>assert.equal(validateCatalog(catalog()).apps.length,5));
 test('rejects duplicate identities',()=>{const c=catalog();c.apps.push(c.apps[0]);assert.throws(()=>validateCatalog(c),/Duplicate/);});
 test('rejects unsupported schema',()=>assert.throws(()=>validateCatalog({...catalog(),schemaVersion:2}),/schemaVersion/));
+test('rejects insecure or non-PNG app icons',()=>{for(const icon of ['http://example.com/a.png','https://example.com/a.svg']){const c=catalog();c.apps[0].icon=icon;assert.throws(()=>validateCatalog(c),/icon/);}});
 test('rejects HTTP downloads and malformed hashes',()=>{for(const patch of [{url:'http://example.com/a.apk'},{sha256:'a'},{certificateSha256:''},{size:-1},{versionCode:1.5}]){const c=catalog();c.apps[0].release={...release,...patch};assert.throws(()=>validateCatalog(c));}});
 test('rejects release for another package',()=>assert.throws(()=>mergeRelease(catalog().apps[0],{schemaVersion:1,packageName:'other.app',release}),/mismatch/));
 test('accepts a valid initial release',()=>{const app={...catalog().apps[0],release:null};assert.equal(mergeRelease(app,{schemaVersion:1,packageName:app.packageName,release}).release.versionCode,1000);});

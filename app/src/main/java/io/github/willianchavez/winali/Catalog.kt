@@ -73,6 +73,8 @@ data class CatalogApp(
     val permissions: List<String>,
     val release: Release?,
     val english: CatalogText? = null,
+    /** Optional HTTPS PNG shown in the store; apps without one use a neutral tile. */
+    val icon: String? = null,
 ) {
     fun json() =
         JSONObject()
@@ -87,6 +89,7 @@ data class CatalogApp(
             .put("permissions", JSONArray(permissions))
             .put("release", release?.json())
             .put("locales", english?.let { JSONObject().put("en", it.json()) })
+            .put("icon", icon)
 
     fun localized(context: Context): CatalogApp =
         if (context.es() || english == null) this
@@ -152,6 +155,8 @@ fun parseApp(value: JSONObject, allowLoopback: Boolean = BuildConfig.ALLOW_LOOPB
     require(secureUrl(repository) && URI(repository).host == "github.com")
     val screenshots = value.getJSONArray("screenshots").strings()
     require(screenshots.all(::secureUrl))
+    val icon = value.optString("icon").takeIf { it.isNotEmpty() }
+    require(icon == null || secureUrl(icon))
     val english =
         value.optJSONObject("locales")?.optJSONObject("en")?.let {
             CatalogText(
@@ -173,6 +178,7 @@ fun parseApp(value: JSONObject, allowLoopback: Boolean = BuildConfig.ALLOW_LOOPB
         value.getJSONArray("permissions").strings(),
         release,
         english,
+        icon,
     )
 }
 

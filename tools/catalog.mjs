@@ -27,6 +27,7 @@ export function validateCatalog(catalog) {
     for(const field of ['name','summary','description','category'])assert(typeof app[field]==='string' && app[field].trim().length>0,`Missing ${field}`);
     assert(https(app.repository) && new URL(app.repository).hostname==='github.com' && /^\/[^/]+\/[^/]+\/?$/.test(new URL(app.repository).pathname),'Invalid GitHub repository');
     assert(Array.isArray(app.screenshots) && app.screenshots.every(https),'Invalid screenshots');
+    assert(app.icon===undefined || (https(app.icon) && /\.png$/.test(app.icon)),'Invalid icon');
     assert(Array.isArray(app.permissions) && app.permissions.every(p=>typeof p==='string'),'Invalid permissions');
     if(app.locales?.en){
       for(const field of ['summary','description','category'])assert(typeof app.locales.en[field]==='string' && app.locales.en[field].trim().length>0,`Missing English ${field}`);

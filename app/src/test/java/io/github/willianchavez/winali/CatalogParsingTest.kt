@@ -19,9 +19,9 @@ class CatalogParsingTest {
         } catch (_: Exception) {}
     }
 
-    @Test fun bundledCatalogHasThreeAppsWithReleases() {
+    @Test fun bundledCatalogHasEveryAppWithReleases() {
         val apps = parse(catalog())
-        assertEquals(listOf("apk", "focus", "winali"), apps.map { it.id })
+        assertEquals(setOf("apk", "focus", "read", "winali", "deck"), apps.map { it.id }.toSet())
         assertTrue(apps.all { it.release != null && it.permissions.isNotEmpty() && it.screenshots.isNotEmpty() })
     }
 
@@ -88,5 +88,14 @@ class CatalogParsingTest {
         assertFalse(app(release = release(architectures = listOf("arm64-v8a"))).compatible(30, abis))
         assertTrue(app(release = release(architectures = emptyList())).compatible(30, abis))
         assertTrue(app(release = null).compatible(1, abis))
+    }
+
+    @Test fun appIconIsOptionalButMustBeHttps() {
+        val apps = parse(catalog()).associateBy { it.id }
+        assertEquals("https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/deck.png", apps.getValue("deck").icon)
+        assertNull(apps.getValue("apk").icon)
+        rejected(mutated { it.put("icon", "http://example.com/icon.png") })
+        val again = parseApp(apps.getValue("deck").json(), allowLoopback = false)
+        assertEquals(apps.getValue("deck"), again)
     }
 }
