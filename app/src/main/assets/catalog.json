@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1009,
-        "versionName": "0.1.9",
+        "versionCode": 1010,
+        "versionName": "0.1.10",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.9/books.apk",
+        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.10/books.apk",
         "size": 7728671,
-        "sha256": "a8ea11117dc7e5c2d64e2f6d23f8d7a0ce92c19ea94dc693e9f9ac298298180b",
+        "sha256": "601823bdf7fd509f8bbb1ae679f6dd24f6ce61d55f61fb25f1eaef3796c80a1e",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.9\n\n- Importa EPUB con el selector de archivos de Android. El acceso queda limitado a los archivos que eliges."
+        "changelog": "Books 0.1.10\n\n- Cambia de página con una transición 3D ligera en EPUB y documentos paginados.\n- Mejora los gestos de deslizamiento y evita que compitan con el desplazamiento del texto.\n- Oculta los controles durante la lectura y los muestra al tocar la página.\n- Detiene la lectura en voz alta desde el lector y limpia el servicio cuando termina o falla."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 27
+  "revision": 28
 }
