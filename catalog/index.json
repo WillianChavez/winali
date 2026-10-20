@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1007,
-        "versionName": "0.1.7",
+        "versionCode": 1008,
+        "versionName": "0.1.8",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.7/deck.apk",
+        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.8/deck.apk",
         "size": 3691294,
-        "sha256": "ecac1432eeabab5684fc7489c1d141e95eb853af22dd878624c8536d7536fb23",
+        "sha256": "21f985ed5e140d8c8e6de3297a163db88bd4f83acce76986b0890bcc8898b583",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.7\n\n- Actualizar: aparece un único botón «Actualizar» cuando hay una versión nueva; descarga, instala y reabre Deck sin pasos manuales. Se busca al abrir y cada 6 horas.\n- Una sola instancia: abrir Deck otra vez muestra la ventana que ya está abierta.\n- Cerrar el asistente de instalación cierra Deck.\n- Eliminar un perfil con clic derecho sobre el selector de perfil. Se quitó «Usar en el teléfono».\n- Ventanas estrechas: un solo panel lateral a la vez.\n- Barra superior más compacta.\n- Android: mismo código que la 0.1.6."
+        "changelog": "Deck 0.1.8\n\n- Instalador en una sola ventana pequeña, centrada y de tamaño fijo, con los botones abajo a la derecha.\n- Catálogo de aplicaciones: 279 acciones para las apps que tienes instaladas (Windows, navegadores, VS Code, Office, Git, Docker, GitHub, Node, Python, OBS, Notion, Steam y más). Cada app usa el icono de su propio programa.\n- Acciones nuevas: abrir archivo o carpeta, reproducir y detener sonidos (WAV, MP3), temporizador y estados cíclicos (cada pulsación ejecuta el siguiente).\n- Apagar y reiniciar esperan 30 segundos y tienen su tecla para cancelar.\n- Android: mismo código que la 0.1.7."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 28
+  "revision": 29
 }
