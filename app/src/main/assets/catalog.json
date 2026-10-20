@@ -246,10 +246,12 @@
       "category": "Libros y consulta",
       "repository": "https://github.com/WillianChavez/books",
       "screenshots": [],
-      "permissions": [],
+      "permissions": [
+        "Acceso de lectura a los libros que selecciones al importarlos"
+      ],
       "release": {
-        "versionCode": 1008,
-        "versionName": "0.1.8",
+        "versionCode": 1009,
+        "versionName": "0.1.9",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -257,22 +259,24 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.8/books.apk",
+        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.9/books.apk",
         "size": 7728671,
-        "sha256": "8d566cb53186924f057020f83075dbd50c6d60d05fcc1edd562fd32af868b4f8",
+        "sha256": "a8ea11117dc7e5c2d64e2f6d23f8d7a0ce92c19ea94dc693e9f9ac298298180b",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.8\n\n- Nuevo icono de Books, con colores a juego con Deck."
+        "changelog": "Books 0.1.9\n\n- Importa EPUB con el selector de archivos de Android. El acceso queda limitado a los archivos que eliges."
       },
       "locales": {
         "en": {
           "summary": "Read your books on phone or tablet.",
           "description": "An offline personal library. Open EPUB, FB2, PDF, comics, documents, text and images. Customize reading, save bookmarks and highlight passages.",
           "category": "Books and reference",
-          "permissions": []
+          "permissions": [
+            "Read access to books you select when importing"
+          ]
         }
       },
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 24
+  "revision": 27
 }
