@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1005,
-        "versionName": "0.1.5",
+        "versionCode": 1006,
+        "versionName": "0.1.6",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.5/deck.apk",
-        "size": 3691294,
-        "sha256": "1026d6aab71228090edf11dae88a1e5d7e4fc1a43016a7d6cd3b8587dd601907",
+        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.6/deck.apk",
+        "size": 3691290,
+        "sha256": "7e2095b5bfa921fa6d08873a9e9261df2fcfe887220dd131e9077d93ebcb4563",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.5\n\n- Instalador: asistente con licencia, carpeta de instalación, acceso directo en el escritorio y en el menú Inicio, y abrir Deck al terminar.\n- Aviso al abrir Deck cuando hay una versión nueva, con su botón de descarga.\n- Editor de teclas: panel de configuración con vista previa, lápiz para cambiar el icono y colores en muestras.\n- Lista de acciones con grupos, búsqueda, descripción al pasar el ratón y 19 acciones nuevas de uso diario.\n- Arrastrar teclas ya puestas, menú con clic derecho, deshacer (Ctrl+Z), guardar (Ctrl+S) y borrar con Supr.\n- Buscador de iconos con imágenes (Tabler Icons, licencia MIT).\n- Android: la versión 0.1.5 contiene el mismo código de la 0.1.4."
+        "changelog": "Deck 0.1.6\n\n- Instalador: al ejecutar el archivo descargado se abre el asistente (bienvenida, licencia, carpeta, accesos directos). Si ya hay una copia, la actualiza.\n- Deck sigue en segundo plano al cerrar la ventana, con icono en la bandeja para abrirla o salir.\n- Mantener pulsado repite la acción (subir y bajar volumen por defecto; configurable en cada botón).\n- Borrar una tecla es un cambio sin guardar: Guardar lo confirma y Ctrl+Z lo deshace.\n- Dispositivos: \"Agregar dispositivo\" muestra el QR centrado. La pestaña Conexión se unió a Dispositivos.\n- Android: el selector de perfil está en la cabecera, junto al estado de conexión.\n- Lista de acciones y editor de teclas: textos más cortos, muestras de color e iconos con buscador."
       },
       "locales": {
         "en": {
@@ -238,5 +238,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/deck.png"
     }
   ],
-  "revision": 18
+  "revision": 19
 }
