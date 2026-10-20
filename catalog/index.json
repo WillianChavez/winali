@@ -161,8 +161,8 @@
         "Notificaciones opcionales"
       ],
       "release": {
-        "versionCode": 1001,
-        "versionName": "0.1.1",
+        "versionCode": 1002,
+        "versionName": "0.1.2",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -170,11 +170,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/v0.1.1/winali.apk",
-        "size": 1410110,
-        "sha256": "1c40572c050eec6f94937d21e3e6018f1866f26a1aaf47e92e6463cf21d40f39",
+        "url": "https://github.com/WillianChavez/winali/releases/download/v0.1.2/winali.apk",
+        "size": 1428854,
+        "sha256": "6bf663a499014916164ee3e76dfbd2b338676e32f8e7e1287183f62bf1c39351",
         "certificateSha256": "9f497c6ba4e2838e0a472a9b9c99ffc12692777b221c84209f2e2c367b45072d",
-        "changelog": "Ficha completa con capturas, permisos, novedades, tamaño y compatibilidad. Cola de descargas con progreso, cancelación, reintento y reanudación tras cerrar la app. Mensajes claros ante firma distinta, poco espacio, descarga dañada o permiso denegado, sin desinstalar nada. Búsqueda de actualizaciones cada 12 horas con aviso, instalación individual y \"Actualizar todo\". Winali se actualiza a sí misma conservando tus datos."
+        "changelog": "Cada app muestra su propio icono en la tienda. Nuevas apps en el catálogo: Read y Deck."
       },
       "locales": {
         "en": {
@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1002,
-        "versionName": "0.1.2",
+        "versionCode": 1003,
+        "versionName": "0.1.3",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.2/deck.apk",
+        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.3/deck.apk",
         "size": 3691290,
-        "sha256": "1feeef61e22f1aa91f809b7aaf919829af3956a91cd72c104228dca564581d5a",
+        "sha256": "5141fcd98074d42d17783fc73efb6a692c987426c6f714f51a00c8cf0f306c8e",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.2\r\n\r\n- Conexión en dos pasos: abre Deck en la PC y toca tu PC en la lista del teléfono o escanea su código QR con la cámara; luego aprueba en la PC.\r\n- El servidor de Windows arranca solo, elige la red privada correcta y renueva el código QR automáticamente.\r\n- Código de verificación calculado en ambos equipos para conexiones encontradas en la red.\r\n- Perfiles preseleccionados y botón Aprobar en la PC.\r\n- Las instalaciones nuevas incluyen un perfil con botones multimedia."
+        "changelog": "Deck 0.1.3\r\n\r\n- El servidor de Windows muestra el logo de Deck en el archivo, la barra de tareas y los accesos directos."
       },
       "locales": {
         "en": {
@@ -238,5 +238,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/deck.png"
     }
   ],
-  "revision": 15
+  "revision": 16
 }
