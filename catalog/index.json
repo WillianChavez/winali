@@ -194,7 +194,7 @@
       "packageName": "io.github.willianchavez.deck",
       "name": "Deck",
       "summary": "Controla tu PC desde el teléfono o tablet.",
-      "description": "Crea perfiles y botones en el servidor de Windows para ejecutar atajos, escribir texto, abrir aplicaciones y controlar multimedia desde Android en la misma red privada. Emparejamiento aprobado en la PC y conexión cifrada, sin cuenta ni servicios externos. Requiere Deck para Windows, disponible en las descargas del mismo repositorio. Primera versión; las integraciones con plugins externos no están disponibles.",
+      "description": "Crea perfiles y botones en el servidor de Windows para ejecutar atajos, escribir texto, abrir aplicaciones y controlar multimedia desde Android en la misma red privada. Emparejamiento aprobado en la PC y conexión cifrada, sin cuenta ni servicios externos. Requiere Deck para Windows, disponible en las descargas del mismo repositorio. Las integraciones con plugins externos no están disponibles.",
       "category": "Utilidades",
       "repository": "https://github.com/WillianChavez/deck",
       "screenshots": [
@@ -202,12 +202,13 @@
         "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/deck-2.png"
       ],
       "permissions": [
-        "Acceder a la red local para conectar con la PC emparejada",
-        "Consultar el estado de la conexión"
+        "Acceder a la red local para encontrar y conectar con tu PC",
+        "Consultar el estado de la conexión",
+        "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1001,
-        "versionName": "0.1.1",
+        "versionCode": 1002,
+        "versionName": "0.1.2",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -215,11 +216,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.1/deck.apk",
-        "size": 2832082,
-        "sha256": "a2a1aae99df921f05e4b0c834e5fd3680e4e4c16d604cda55a01be521a799b3e",
+        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.2/deck.apk",
+        "size": 3691290,
+        "sha256": "1feeef61e22f1aa91f809b7aaf919829af3956a91cd72c104228dca564581d5a",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.1\n\n- Descarga directa del servidor Windows como un solo EXE, sin extraer archivos.\n- Nuevos iconos integrados para los botones: atajo, texto, reproducir, volumen, silencio y aplicación.\n- Enlaces actualizados en la app y el README.\n- Avisos de licencia incluidos dentro del ejecutable y accesibles desde Licencias."
+        "changelog": "Deck 0.1.2\r\n\r\n- Conexión en dos pasos: abre Deck en la PC y toca tu PC en la lista del teléfono o escanea su código QR con la cámara; luego aprueba en la PC.\r\n- El servidor de Windows arranca solo, elige la red privada correcta y renueva el código QR automáticamente.\r\n- Código de verificación calculado en ambos equipos para conexiones encontradas en la red.\r\n- Perfiles preseleccionados y botón Aprobar en la PC.\r\n- Las instalaciones nuevas incluyen un perfil con botones multimedia."
       },
       "locales": {
         "en": {
@@ -227,12 +228,13 @@
           "description": "Create profiles and buttons in the Windows host to run shortcuts, type text, launch apps and control media from Android on the same private network. PC-approved pairing and encrypted connections, without accounts or external services. Requires Deck for Windows, available in the same repository releases. Initial version; external plugin integrations are not available.",
           "category": "Utilities",
           "permissions": [
-            "Access the local network to connect to the paired PC",
-            "Check network connection status"
+            "Access the local network to find and connect to your PC",
+            "Check network connection status",
+            "Camera, only when scanning the QR code"
           ]
         }
       }
     }
   ],
-  "revision": 12
+  "revision": 14
 }
