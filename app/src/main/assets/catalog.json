@@ -236,7 +236,42 @@
         }
       },
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/deck.png"
+    },
+    {
+      "id": "books",
+      "packageName": "io.github.willianchavez.books",
+      "name": "Books",
+      "summary": "Lee tus libros, en el teléfono o la tablet.",
+      "description": "Biblioteca personal sin conexión. Abre EPUB, FB2, PDF, cómics, documentos, texto e imágenes. Ajusta la lectura, guarda marcadores y resalta pasajes.",
+      "category": "Libros y consulta",
+      "repository": "https://github.com/WillianChavez/books",
+      "screenshots": [],
+      "permissions": [],
+      "release": {
+        "versionCode": 1007,
+        "versionName": "0.1.7",
+        "minSdk": 26,
+        "architectures": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "x86",
+          "x86_64"
+        ],
+        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.7/books.apk",
+        "size": 7728643,
+        "sha256": "8546d0f18a54f208e828ea4b7f5b17eff3c8e613285f778e598607cb4e78ea33",
+        "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
+        "changelog": "Books 0.1.7\r\n\r\n- Cambia el tamaño del texto al pellizcar en EPUB y otros libros de texto, manteniendo el texto bajo los dedos en su lugar."
+      },
+      "locales": {
+        "en": {
+          "summary": "Read your books on phone or tablet.",
+          "description": "An offline personal library. Open EPUB, FB2, PDF, comics, documents, text and images. Customize reading, save bookmarks and highlight passages.",
+          "category": "Books and reference",
+          "permissions": []
+        }
+      }
     }
   ],
-  "revision": 20
+  "revision": 22
 }
