@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1008,
-        "versionName": "0.1.8",
+        "versionCode": 1009,
+        "versionName": "0.1.9",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.8/deck.apk",
+        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.9/deck.apk",
         "size": 3691294,
-        "sha256": "21f985ed5e140d8c8e6de3297a163db88bd4f83acce76986b0890bcc8898b583",
+        "sha256": "b2dc1efe71c3fba1e9f2c2171e8755621ba33d1d642c7a733478d5ab972ea325",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.8\n\n- Instalador en una sola ventana pequeña, centrada y de tamaño fijo, con los botones abajo a la derecha.\n- Catálogo de aplicaciones: 279 acciones para las apps que tienes instaladas (Windows, navegadores, VS Code, Office, Git, Docker, GitHub, Node, Python, OBS, Notion, Steam y más). Cada app usa el icono de su propio programa.\n- Acciones nuevas: abrir archivo o carpeta, reproducir y detener sonidos (WAV, MP3), temporizador y estados cíclicos (cada pulsación ejecuta el siguiente).\n- Apagar y reiniciar esperan 30 segundos y tienen su tecla para cancelar.\n- Android: mismo código que la 0.1.7."
+        "changelog": "Deck 0.1.9\n\n- Arrastrar y soltar funciona con las teclas ya puestas y con las acciones de aplicaciones. La tecla agarrada se ve bajo el puntero y la casilla donde caerá se resalta.\n- Error «Only one usage of each socket address» al actualizar: si una copia anterior de Deck sigue abierta en la bandeja y tiene el puerto, la versión nueva la cierra y toma el relevo. Solo cierra una copia con la misma identidad de Deck, nunca otro programa. Si el puerto sigue ocupado, reintenta 15 segundos y explica qué hacer.\n- Barras de desplazamiento finas que flotan sobre el contenido.\n- Iconos de aplicaciones: Git usa el de Git y SSH el de PuTTY; carpeta propia de iconos en ☰ → Iconos de apps para elegir el de cualquier app.\n- Android: mismo código que la 0.1.8."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 29
+  "revision": 30
 }
