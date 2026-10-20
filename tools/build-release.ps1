@@ -4,7 +4,7 @@ param(
     [string]$Version,
     [ValidatePattern('^[a-fA-F0-9]{64}$')]
     [string]$ExpectedCertificateSha256,
-    [string]$SigningDirectory = (Join-Path $env:LOCALAPPDATA 'Winali/signing'),
+    [string]$SigningDirectory = (Join-Path ([Environment]::GetFolderPath('MyDocuments')) 'Winali-private/signing'),
     [string]$JavaHome = $env:JAVA_HOME
 )
 
@@ -26,7 +26,7 @@ $credentials = Get-Content -LiteralPath $credentialsPath -Raw | ConvertFrom-Json
 if (!$credentials.storePassword -or !$credentials.keyPassword -or !$credentials.alias) { throw 'Incomplete signing credentials.' }
 if (!$JavaHome) { $JavaHome = Join-Path $env:LOCALAPPDATA 'Programs/REA/java/jdk-21.0.12.1+1' }
 if (!(Test-Path -LiteralPath (Join-Path $JavaHome 'bin/java.exe'))) { throw 'Set JAVA_HOME or pass -JavaHome with a JDK 21 installation.' }
-$output = Join-Path $env:LOCALAPPDATA "Winali/releases/$app/$Version"
+$output = Join-Path $projectRoot ".local/releases/$app/$Version"
 New-Item -ItemType Directory -Force -Path $output | Out-Null
 $variables = @('JAVA_HOME','ANDROID_HOME','VERSION_NAME','VERSION_CODE','SIGNING_KEYSTORE','SIGNING_STORE_PASSWORD','SIGNING_KEY_PASSWORD','SIGNING_KEY_ALIAS')
 $previous = @{}

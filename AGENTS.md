@@ -11,6 +11,7 @@ Guía para agentes que trabajan en Winali y sus apps. Detalles del estándar de 
 | `apps/focus` | `WillianChavez/focus` | `io.github.willianchavez.focus` |
 | `apps/read` | `WillianChavez/read` | `io.github.willianchavez.read` |
 | `apps/deck` (Android y servidor Windows) | `WillianChavez/deck` | `io.github.willianchavez.deck` |
+| `apps/books` (lector de libros independiente) | `WillianChavez/books` | `io.github.willianchavez.books` |
 
 Cada carpeta de `apps/` es un repositorio git independiente (ignorado por `winali`): haz commit y push dentro de ella. Los APK de referencia de la raíz y `.local/` nunca se suben.
 
@@ -20,7 +21,7 @@ Cada carpeta de `apps/` es un repositorio git independiente (ignorado por `winal
 - `ANDROID_HOME=%LOCALAPPDATA%/Android/Sdk` (plataforma 36, Build Tools 36.0.0)
 - Desde PowerShell: `.\gradlew.bat …`; desde Git Bash: `cmd //c "gradlew.bat …"` y `export MSYS_NO_PATHCONV=1` antes de usar rutas de `adb` como `/data/local/tmp`.
 - Emuladores: siempre `-gpu host` (usa la RTX 4060), uno por app (`winali36`, `apk36`, `focus36`, `read36`), RAM 2 GB, y ciérralos al terminar con `adb -s <serial> emu kill`. Fija `ANDROID_SERIAL` antes de pruebas de dispositivo. No lances dos Gradle a la vez.
-- REA (`rea` en `C:/Users/willi/AppData/Local/Programs/REA`, con apktool) para inspeccionar APK propios y de referencia. Las referencias se analizan; nunca se copia su código, iconos, imágenes ni textos.
+- REA (con apktool) para inspeccionar APK propios y de referencia.
 
 ## Actualizar una app
 
@@ -43,10 +44,10 @@ Ejemplo con Focus pasando a `0.1.3`; vale igual para `apk`, `read` y la propia `
    .\tools\build-release.ps1 -Version 0.1.3 -ExpectedCertificateSha256 <huella-del-catalogo>
    git tag v0.1.3
    git push origin v0.1.3
-   gh release create v0.1.3 "$env:LOCALAPPDATA/Winali/releases/focus/0.1.3/focus.apk" "$env:LOCALAPPDATA/Winali/releases/focus/0.1.3/release.json" --title v0.1.3 --notes-file CHANGELOG.md
+   gh release create v0.1.3 ".local/releases/focus/0.1.3/focus.apk" ".local/releases/focus/0.1.3/release.json" --title v0.1.3 --notes-file CHANGELOG.md
    gh release view v0.1.3 -R WillianChavez/<app>   # <app>.apk + release.json
    ```
-   Sustituye `focus` por la app correspondiente. El script ejecuta release, lint y pruebas unitarias, firma con `%LOCALAPPDATA%/Winali/signing/<app>.jks` y lee `<app>.json` (`storePassword`, `keyPassword`, `alias`). Genera `release.json` desde el APK real y comprueba versión y certificado. Los archivos salen a `%LOCALAPPDATA%/Winali/releases/<app>/<versión>`. Las claves y credenciales se guardan fuera de Git, en el directorio privado existente. Nunca cambies de clave: Android rechazaría la actualización. No vuelvas a añadir workflows sin que el usuario lo pida.
+   Sustituye `focus` por la app correspondiente. El script ejecuta release, lint y pruebas unitarias, firma con `Documents/Winali-private/signing/<app>.jks` y lee `<app>.json` (`storePassword`, `keyPassword`, `alias`). Genera `release.json` desde el APK real y comprueba versión y certificado. Los archivos salen a `apps/<app>/.local/releases/<app>/<versión>` (en la propia tienda, a `.local/releases/winali/<versión>`). Las claves y credenciales se guardan fuera de Git, en `Documents/Winali-private/signing`; nunca las guardes dentro de Codex ni en el repositorio. Nunca cambies de clave: Android rechazaría la actualización. No vuelvas a añadir workflows sin que el usuario lo pida.
 6. **Catálogo** en la raíz de `winali`:
    ```sh
    node tools/catalog.mjs sync <app>        # lee releases/latest/download/release.json
@@ -76,4 +77,3 @@ Si cambian la descripción, los permisos o las capturas de la ficha, edítalos e
 - Sin cuentas, anuncios, telemetría ni SDK de terceros. Sin permiso de Internet salvo en Winali y Deck (conexión LAN autorizada por el usuario).
 - Sin textos de relleno ni eslóganes en la interfaz: solo texto funcional, en español e inglés.
 - Release optimizada: R8, reducción de recursos, sin `material-icons-extended`, con Baseline Profile.
-- No marques nada como hecho sin probarlo; anota en `docs/IMPLEMENTATION.md` (o `docs/FEATURES.md` de la app) lo que no se pudo verificar.
