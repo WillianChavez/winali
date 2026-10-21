@@ -8,7 +8,7 @@
       "summary": "Extrae, guarda y comparte tus aplicaciones.",
       "description": "Busca apps instaladas, consulta sus permisos, extrae una o varias y compártelas. Los paquetes divididos se exportan con todos sus componentes.",
       "category": "Utilidades",
-      "repository": "https://github.com/WillianChavez/apk",
+      "repository": "https://github.com/WillianChavez/winali",
       "screenshots": [
         "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/apk-1.png",
         "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/apk-2.png"
@@ -27,7 +27,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/apk/releases/download/v0.1.1/apk.apk",
+        "url": "https://github.com/WillianChavez/winali/releases/download/apk-v0.1.1/apk.apk",
         "size": 1360227,
         "sha256": "238cb6a7f12297e6847fe9d42180f5b6a47a0e89308bd32924c974cee483bb3b",
         "certificateSha256": "1eaecbe9d84ef2571b66bad83e3d1bc1cf13f7215351d5615b7c24d737fffaf5",
@@ -52,7 +52,7 @@
       "summary": "Organiza tus tareas y encuentra tu ritmo.",
       "description": "Tareas, subtareas, proyectos, etiquetas, Pomodoros, descansos, calendario, reportes y un bosque que crece con tu progreso. Los datos se guardan solo en tu dispositivo.",
       "category": "Productividad",
-      "repository": "https://github.com/WillianChavez/focus",
+      "repository": "https://github.com/WillianChavez/winali",
       "screenshots": [
         "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/focus-1.png",
         "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/focus-2.png",
@@ -73,7 +73,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/focus/releases/download/v0.1.2/focus.apk",
+        "url": "https://github.com/WillianChavez/winali/releases/download/focus-v0.1.2/focus.apk",
         "size": 1530237,
         "sha256": "1d420e4fb63bed6ccefa5469daf8559bc509fca46449fb141f354994d30e66a5",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
@@ -98,7 +98,7 @@
       "summary": "Lee, edita y convierte PDF y documentos.",
       "description": "Abre PDF, Word, Excel, PowerPoint, OpenDocument, texto e imágenes, incluidos .doc, .xls y .ppt. Edita el texto de un PDF, añade texto e imágenes, anota y firma; une, divide, organiza, comprime y convierte. Escanea documentos con la cámara.",
       "category": "Productividad",
-      "repository": "https://github.com/WillianChavez/read",
+      "repository": "https://github.com/WillianChavez/winali",
       "screenshots": [
         "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/read-1.png",
         "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/read-2.png",
@@ -121,7 +121,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/read/releases/download/v0.1.3/read.apk",
+        "url": "https://github.com/WillianChavez/winali/releases/download/read-v0.1.3/read.apk",
         "size": 9298254,
         "sha256": "282f0ad9dc572b3c74e80e4f70a0d7d65ee831cfb38338e601c92c786aa58f18",
         "certificateSha256": "dd6ee4514740d45beab6a092b117c57d5f3e51cde311dcc0c92ac71cb6d78b99",
@@ -197,7 +197,7 @@
       "summary": "Controla tu PC desde el teléfono o tablet.",
       "description": "Crea perfiles y botones en el servidor de Windows para ejecutar atajos, escribir texto, abrir aplicaciones y controlar multimedia desde Android en la misma red privada. Emparejamiento aprobado en la PC y conexión cifrada, sin cuenta ni servicios externos. Requiere Deck para Windows, disponible en las descargas del mismo repositorio. Las integraciones con plugins externos no están disponibles.",
       "category": "Utilidades",
-      "repository": "https://github.com/WillianChavez/deck",
+      "repository": "https://github.com/WillianChavez/winali",
       "screenshots": [
         "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/deck-1.png",
         "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/deck-2.png"
@@ -217,7 +217,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.13/deck.apk",
+        "url": "https://github.com/WillianChavez/winali/releases/download/deck-v0.1.13/deck.apk",
         "size": 3691290,
         "sha256": "008657675cab06ea990f4a46c4046ae965b3fcaf561090d2166b9f5d72472ec7",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
@@ -244,7 +244,7 @@
       "summary": "Lee tus libros, en el teléfono o la tablet.",
       "description": "Biblioteca personal sin conexión. Abre EPUB, FB2, PDF, cómics, documentos, texto e imágenes. Ajusta la lectura, guarda marcadores y resalta pasajes.",
       "category": "Libros y consulta",
-      "repository": "https://github.com/WillianChavez/books",
+      "repository": "https://github.com/WillianChavez/winali",
       "screenshots": [],
       "permissions": [
         "Acceso de lectura a los libros que selecciones al importarlos"
@@ -259,7 +259,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.19/books.apk",
+        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.19/books.apk",
         "size": 7766413,
         "sha256": "9ab6aa49ab89f9bd1874bdb1bea8beab438a6e9779ece5c4674cd51f77a7a251",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 46
+  "revision": 48
 }

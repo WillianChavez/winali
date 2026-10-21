@@ -46,10 +46,10 @@ Play Protect desconfía de apps de desarrolladores independientes que instalan o
 
 ## Añadir o publicar una app
 
-Cada app vive en su repositorio (de cualquier propietario) y publica una GitHub Release con su APK firmado y un `release.json` generado desde el APK real.
+El código de las apps no es público. Cada app se compila y firma en local desde su repositorio privado y publica su APK firmado y un `release.json` generado desde el APK real en una Release de este repositorio, con el tag `<id>-vX.Y.Z`.
 
 1. Compila y firma el APK con una clave propia y estable.
-2. Crea la Release con `app.apk` y `release.json`.
+2. Crea la Release `<id>-vX.Y.Z` en este repositorio con `<id>.apk` y `release.json`.
 3. En este repositorio, añade la ficha en `catalog/index.json` (primera vez) y ejecuta `node tools/catalog.mjs sync <id>`.
 4. Revisa el cambio y haz commit. No hace falta recompilar la tienda: los teléfonos ven la novedad en su próxima comprobación.
 
@@ -66,7 +66,7 @@ node --test tools/catalog.test.mjs
 node tools/catalog.mjs validate
 ```
 
-El código de APK y Focus vive en sus propios repositorios (en local, en `apps/apk` y `apps/focus`, ignorados por este repositorio).
+Este repositorio contiene solo la tienda, el catálogo y sus herramientas. El código de las apps vive en repositorios privados (en local, en `apps/`, ignorado por este repositorio).
 
 ### Firma de versiones
 

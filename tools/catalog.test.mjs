@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { validateCatalog, mergeRelease, saveCatalog } from './catalog.mjs';
+import { validateCatalog, mergeRelease, saveCatalog, releaseTag } from './catalog.mjs';
 import os from 'node:os';
 import path from 'node:path';
 const catalog=()=>JSON.parse(fs.readFileSync(new URL('../catalog/index.json',import.meta.url),'utf8'));
@@ -28,3 +28,10 @@ test('validates optional English text and rejects invalid revisions',()=>{
   for(const revision of [0,-1,1.5])assert.throws(()=>validateCatalog({...catalog(),revision}),/revision/);
 });
 test('rejects regression, key substitution and replacement of published bytes',()=>{const app={...catalog().apps[0],release};for(const patch of [{versionCode:999},{versionCode:1001,certificateSha256:'c'.repeat(64)},{sha256:'c'.repeat(64)}])assert.throws(()=>mergeRelease(app,{schemaVersion:1,packageName:app.packageName,release:{...release,...patch}}));});
+test('picks the highest published release for each app tag prefix',()=>{
+  const releases=['v0.1.3','focus-v0.1.9','focus-v0.1.10','apk-v0.2.0','focusx-v9.9.9'].map(tag_name=>({tag_name}));
+  releases.push({tag_name:'focus-v0.1.11',draft:true},{tag_name:'focus-v0.1.12',prerelease:true});
+  assert.equal(releaseTag({id:'focus'},releases),'focus-v0.1.10');
+  assert.equal(releaseTag({id:'winali'},releases),'v0.1.3');
+  assert.throws(()=>releaseTag({id:'read'},releases),/no published release/);
+});
