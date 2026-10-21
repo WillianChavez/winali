@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1011,
-        "versionName": "0.1.11",
+        "versionCode": 1013,
+        "versionName": "0.1.13",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.11/books.apk",
-        "size": 7728675,
-        "sha256": "48b258df9187fa0b8f4dfd04cde5597fbf8c8a52dba859b7edcb4e6ff17126c8",
+        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.13/books.apk",
+        "size": 7745059,
+        "sha256": "5bc320e661b5aaf59a1fcedf51662d290dac9b874450036215172ee8212cc5fa",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.11\n\n- Muestra dos páginas en horizontal y conserva una página amplia en vertical.\n- Mantiene diagramas, ilustraciones SVG y ecuaciones al importar EPUB.\n- Muestra los controles con el primer toque y cambia de página con un deslizamiento breve y claro."
+        "changelog": "Books 0.1.13\n\n- Permite elegir una ilustración del libro como portada de la biblioteca y conserva la selección en los datos y respaldos.\n- Omite el índice del EPUB cuando está incluido en la secuencia de lectura para evitar abrir una página vacía.\n- Sustituye la barra inferior de progreso por controles compactos para pasar de página."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 32
+  "revision": 33
 }
