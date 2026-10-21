@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1016,
-        "versionName": "0.1.16",
+        "versionCode": 1017,
+        "versionName": "0.1.17",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.16/books.apk",
-        "size": 7749781,
-        "sha256": "4769a4e186663d2434ae12f75945f7af59af48a56da9c34433583823cf5402d5",
+        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.17/books.apk",
+        "size": 7766205,
+        "sha256": "e318b76b92db81846601bbbbc6dd323c67956aee79bd36495dac430302908d38",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.16\n\n- Corrige el reajuste de páginas al pasar de página en horizontal: la hoja ya no usa una captura de la página nueva, así que no aparece a medio pintar ni salta al terminar.\n- La animación espera a que la página nueva esté dibujada antes de empezar, también en vertical.\n- Mantiene el reconocimiento de títulos, números de página, imágenes y libros escaneados de la versión 0.1.15."
+        "changelog": "Books 0.1.17\n\n- Al seleccionar texto puedes subrayar en amarillo, celeste, rosado o verde.\n- Tras subrayar, quitar un subrayado o cambiarle el color aparece «Deshacer» durante unos segundos.\n- Toca un subrayado para cambiar su color, editar su nota, copiarlo o quitarlo. La lista de notas muestra el color de cada subrayado.\n- El texto de los subrayados se lee bien también en los temas oscuros.\n- Corrige el salto de tamaño del texto al empezar a pasar de página: la imagen de la página que sale ahora coincide exactamente con la que se estaba leyendo."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 42
+  "revision": 43
 }
