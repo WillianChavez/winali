@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1011,
-        "versionName": "0.1.11",
+        "versionCode": 1012,
+        "versionName": "0.1.12",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.11/deck.apk",
+        "url": "https://github.com/WillianChavez/deck/releases/download/v0.1.12/deck.apk",
         "size": 3691290,
-        "sha256": "d5d9231df56be01fdab38526ebcb4dde3b55aa992f6f89efdbd5282c62aad9f0",
+        "sha256": "ffe4404e18a38597b09e9b257e00762ed687ea5eaecda78d9706db0a114f3d63",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.11\n\n- Catálogo ampliado con 50 funciones nuevas: JetBrains IntelliJ/WebStorm/PyCharm, Figma, Gmail web, Notepad++, Audacity y Obsidian, más la limpieza de temporales de Windows.\n- Botones que copian al portapapeles muestran una confirmación \"Copiado\" al pulsarlos y vuelven a su icono.\n- Iconos propios para cada botón de escritorio y navegador (copiar, pegar, cortar, guardar, buscar, capturar…) en lugar de uno genérico repetido; icono único por sección en la lista.\n- Efecto de pulsado más visible en el teléfono y repetición de volumen más ágil.\n- Las entradas nuevas muestran una nota de configuración y valores editables al colocarlas.\n- Cobertura del catálogo de investigación: 351 funciones en 40 apps."
+        "changelog": "Deck 0.1.12\n\n- Compatibilidad con plugins de Stream Deck instalados en el equipo: al pulsar un botón de plugin, Deck abre el ejecutable del propio plugin y le envía la pulsación por el protocolo del SDK, como lo haría la aplicación de Elgato. Probado con el plugin real de Google Meet.\n- Solo se admiten plugins con ejecutable de Windows; los de HTML o Node se avisan con un mensaje claro y no se ejecutan. Los plugins del Marketplace que Elgato entrega con manifest cifrado no se pueden leer todavía.\n- El proceso del plugin queda aislado y se cierra siempre que Deck se cierra, incluso si Deck se corta de golpe.\n- Nuevas acciones de plugin editables desde el editor de escritorio, con la misma validación y límites que el resto."
       },
       "locales": {
         "en": {
@@ -276,45 +276,7 @@
         }
       },
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
-    },
-    {
-      "id": "airecron",
-      "packageName": "io.github.willianchavez.airecron",
-      "name": "AireCron",
-      "summary": "Encendido automático de aire acondicionado por IR",
-      "description": "Enciende y apaga tu aire acondicionado por infrarrojos de forma programada. Emite desde el emisor IR del Xiaomi 14T Pro. Compatible con ComfortStar CFU12CD (control 66T, código 22013-007744). Programa horarios de encendido con temperatura y duración, y apagado automático.",
-      "category": "Utilidades",
-      "repository": "https://github.com/WillianChavez/airecron",
-      "screenshots": [],
-      "permissions": [
-        "Emitir señales infrarrojas",
-        "Alarmas exactas para encendido y apagado programados"
-      ],
-      "release": {
-        "versionCode": 1000,
-        "versionName": "0.1.0",
-        "minSdk": 26,
-        "architectures": [
-          "universal"
-        ],
-        "url": "https://github.com/WillianChavez/airecron/releases/download/v0.1.0/airecron.apk",
-        "size": 1511608,
-        "sha256": "24d21161ff454136189ecdcc623825bbb79ec4f8b7e5fb945f97ab4a081cf71d",
-        "certificateSha256": "a486da9af88847341cdcbc006b4934676848d414ee92f17b5855410a7f516e65",
-        "changelog": "# AireCron 0.1.0\n\nPrimera versión de AireCron, app ligera para encender y apagar tu aire acondicionado por infrarrojos de forma programada.\n\n- Emite señales IR desde el emisor del Xiaomi 14T Pro.\n- Compatible con ComfortStar CFU12CD (control 66T, código 22013-007744).\n- Programa encendidos a la hora que elijas, con temperatura y duración propias.\n- Apagado automático tras la duración configurada.\n- Días de la semana seleccionables (todos, laborables, fin de semana o días sueltos).\n- Todo configurable desde la app; sin cuentas, sin anuncios, sin telemetría.\n\nAntes de usarla, captura los pulsos IR reales de tu control ComfortStar 66T y configúralos en `IrCodes.kt`."
-      },
-      "locales": {
-        "en": {
-          "summary": "Automatic air conditioner on/off via IR",
-          "description": "Turn your air conditioner on and off via infrared on a schedule. Emits from the Xiaima 14T Pro IR emitter. Compatible with ComfortStar CFU12CD (remote 66T). Schedule on/off with temperature and duration, plus automatic shutdown.",
-          "category": "Utilities",
-          "permissions": [
-            "Emitir señales infrarrojas",
-            "Alarmas exactas para encendido y apagado programados"
-          ]
-        }
-      }
     }
   ],
-  "revision": 37
+  "revision": 40
 }
