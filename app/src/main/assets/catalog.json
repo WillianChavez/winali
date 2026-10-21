@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1017,
-        "versionName": "0.1.17",
+        "versionCode": 1018,
+        "versionName": "0.1.18",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.17/books.apk",
-        "size": 7766205,
-        "sha256": "e318b76b92db81846601bbbbc6dd323c67956aee79bd36495dac430302908d38",
+        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.18/books.apk",
+        "size": 7766413,
+        "sha256": "a0c87f4a897f5858fbd4b4ae18198f3e7692345be68a1831a1b8f106c5a1c5e6",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.17\n\n- Al seleccionar texto puedes subrayar en amarillo, celeste, rosado o verde.\n- Tras subrayar, quitar un subrayado o cambiarle el color aparece «Deshacer» durante unos segundos.\n- Toca un subrayado para cambiar su color, editar su nota, copiarlo o quitarlo. La lista de notas muestra el color de cada subrayado.\n- El texto de los subrayados se lee bien también en los temas oscuros.\n- Corrige el salto de tamaño del texto al empezar a pasar de página: la imagen de la página que sale ahora coincide exactamente con la que se estaba leyendo."
+        "changelog": "Books 0.1.18\n\n- Las zonas laterales para cambiar de página son más estrechas por defecto (20 % a cada lado) y puedes ajustarlas en Ajustes > Controles > «Ajustar zonas de toque en pantalla»: se muestran sobre la lectura en cajas azules y arrastras sus bordes.\n- Al seleccionar texto aparecen dos asas azules para ampliar o reducir la selección arrastrándolas, también entre líneas y páginas.\n- «Elegir portada» pasa de la barra de lectura a Ajustes > Pantalla."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 44
+  "revision": 45
 }
