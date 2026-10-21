@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1015,
-        "versionName": "0.1.15",
+        "versionCode": 1016,
+        "versionName": "0.1.16",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.15/books.apk",
-        "size": 7749785,
-        "sha256": "b3cc5e0d7c8a109fb9f170deaba021078f5214f4f058eb3f92bf97b9ef2dedef",
+        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.16/books.apk",
+        "size": 7749781,
+        "sha256": "4769a4e186663d2434ae12f75945f7af59af48a56da9c34433583823cf5402d5",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.15\n\n- Los libros de capítulos separan y centran el número y el título del capítulo, y reconocen títulos como Prefacio o Prólogo aunque no tengan formato.\n- Oculta los números de página impresos del libro original; el pie sigue mostrando la numeración de Books.\n- Distingue portadas y láminas (a página completa y centradas), ilustraciones con su pie de foto, adornos e iconos en línea.\n- En libros escaneados con texto OCR, oculta la imagen escaneada de cada página, separa el título pegado al texto usando el índice del libro y aparta el número de página final.\n- En pantallas verticales, la página se desliza hacia arriba junto con la siguiente; en horizontal, la página gira como una hoja desde el lomo."
+        "changelog": "Books 0.1.16\n\n- Corrige el reajuste de páginas al pasar de página en horizontal: la hoja ya no usa una captura de la página nueva, así que no aparece a medio pintar ni salta al terminar.\n- La animación espera a que la página nueva esté dibujada antes de empezar, también en vertical.\n- Mantiene el reconocimiento de títulos, números de página, imágenes y libros escaneados de la versión 0.1.15."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 41
+  "revision": 42
 }
