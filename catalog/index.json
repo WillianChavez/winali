@@ -276,7 +276,45 @@
         }
       },
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
+    },
+    {
+      "id": "airecron",
+      "packageName": "io.github.willianchavez.airecron",
+      "name": "AireCron",
+      "summary": "Encendido automático de aire acondicionado por IR",
+      "description": "Enciende y apaga tu aire acondicionado por infrarrojos de forma programada. Emite desde el emisor IR del Xiaomi 14T Pro. Compatible con ComfortStar CFU12CD (control 66T, código 22013-007744). Programa horarios de encendido con temperatura y duración, y apagado automático.",
+      "category": "Utilidades",
+      "repository": "https://github.com/WillianChavez/airecron",
+      "screenshots": [],
+      "permissions": [
+        "Emitir señales infrarrojas",
+        "Alarmas exactas para encendido y apagado programados"
+      ],
+      "release": {
+        "versionCode": 1000,
+        "versionName": "0.1.0",
+        "minSdk": 26,
+        "architectures": [
+          "universal"
+        ],
+        "url": "https://github.com/WillianChavez/airecron/releases/download/v0.1.0/airecron.apk",
+        "size": 1511608,
+        "sha256": "24d21161ff454136189ecdcc623825bbb79ec4f8b7e5fb945f97ab4a081cf71d",
+        "certificateSha256": "a486da9af88847341cdcbc006b4934676848d414ee92f17b5855410a7f516e65",
+        "changelog": "# AireCron 0.1.0\n\nPrimera versión de AireCron, app ligera para encender y apagar tu aire acondicionado por infrarrojos de forma programada.\n\n- Emite señales IR desde el emisor del Xiaomi 14T Pro.\n- Compatible con ComfortStar CFU12CD (control 66T, código 22013-007744).\n- Programa encendidos a la hora que elijas, con temperatura y duración propias.\n- Apagado automático tras la duración configurada.\n- Días de la semana seleccionables (todos, laborables, fin de semana o días sueltos).\n- Todo configurable desde la app; sin cuentas, sin anuncios, sin telemetría.\n\nAntes de usarla, captura los pulsos IR reales de tu control ComfortStar 66T y configúralos en `IrCodes.kt`."
+      },
+      "locales": {
+        "en": {
+          "summary": "Automatic air conditioner on/off via IR",
+          "description": "Turn your air conditioner on and off via infrared on a schedule. Emits from the Xiaima 14T Pro IR emitter. Compatible with ComfortStar CFU12CD (remote 66T). Schedule on/off with temperature and duration, plus automatic shutdown.",
+          "category": "Utilities",
+          "permissions": [
+            "Emitir señales infrarrojas",
+            "Alarmas exactas para encendido y apagado programados"
+          ]
+        }
+      }
     }
   ],
-  "revision": 35
+  "revision": 37
 }
