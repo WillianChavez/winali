@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1019,
-        "versionName": "0.1.19",
+        "versionCode": 1020,
+        "versionName": "0.1.20",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.19/books.apk",
-        "size": 7766413,
-        "sha256": "9ab6aa49ab89f9bd1874bdb1bea8beab438a6e9779ece5c4674cd51f77a7a251",
+        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.20/books.apk",
+        "size": 7766681,
+        "sha256": "0992168b86754fedf54bf24636630eb778cf96be3439cfd2d66d8a23f097a959",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.19\n\n- Con texto seleccionado, un toque en cualquier otro sitio limpia la selección, sus asas y su menú, sin pasar de página ni mostrar controles. El siguiente toque vuelve a funcionar como siempre."
+        "changelog": "Books 0.1.20\r\n\r\n- Mantén pulsada una palabra y, sin soltar, arrastra el dedo para seguir seleccionando: la selección crece mientras mueves el dedo. Al soltar aparecen las asas y el menú de colores.\r\n- Mientras arrastras, el gesto no pasa de página."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 48
+  "revision": 49
 }
