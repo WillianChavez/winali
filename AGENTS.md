@@ -84,6 +84,7 @@ Si cambian la descripción, los permisos o las capturas de la ficha, edítalos e
 
 ## Reglas del proyecto
 
+- Licencias: `winali` (tienda) es MIT. Las apps son software propietario, todos los derechos reservados (`LICENSE` en cada repo): no añadas licencias de código abierto a una app ni copies un `LICENSE` MIT de `winali` al crear una app nueva (copia el de `apps/apk`).
 - El código de las apps es privado: no lo copies, ni siquiera parcialmente, a `winali` ni a ningún repositorio público, y no publiques APK de depuración ni fuentes en las Releases de `winali`. En `winali` solo van la tienda, el catálogo, las capturas e iconos de las fichas y los APK firmados de release.
 - Sin cuentas, anuncios, telemetría ni SDK de terceros. Sin permiso de Internet salvo en Winali y Deck (conexión LAN autorizada por el usuario).
 - Sin textos de relleno ni eslóganes en la interfaz: solo texto funcional, en español e inglés.
