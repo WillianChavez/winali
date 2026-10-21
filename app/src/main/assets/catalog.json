@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1018,
-        "versionName": "0.1.18",
+        "versionCode": 1019,
+        "versionName": "0.1.19",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.18/books.apk",
+        "url": "https://github.com/WillianChavez/books/releases/download/v0.1.19/books.apk",
         "size": 7766413,
-        "sha256": "a0c87f4a897f5858fbd4b4ae18198f3e7692345be68a1831a1b8f106c5a1c5e6",
+        "sha256": "9ab6aa49ab89f9bd1874bdb1bea8beab438a6e9779ece5c4674cd51f77a7a251",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.18\n\n- Las zonas laterales para cambiar de página son más estrechas por defecto (20 % a cada lado) y puedes ajustarlas en Ajustes > Controles > «Ajustar zonas de toque en pantalla»: se muestran sobre la lectura en cajas azules y arrastras sus bordes.\n- Al seleccionar texto aparecen dos asas azules para ampliar o reducir la selección arrastrándolas, también entre líneas y páginas.\n- «Elegir portada» pasa de la barra de lectura a Ajustes > Pantalla."
+        "changelog": "Books 0.1.19\n\n- Con texto seleccionado, un toque en cualquier otro sitio limpia la selección, sus asas y su menú, sin pasar de página ni mostrar controles. El siguiente toque vuelve a funcionar como siempre."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 45
+  "revision": 46
 }
