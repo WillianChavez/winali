@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1013,
-        "versionName": "0.1.13",
+        "versionCode": 1014,
+        "versionName": "0.1.14",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/deck-v0.1.13/deck.apk",
-        "size": 3691290,
-        "sha256": "008657675cab06ea990f4a46c4046ae965b3fcaf561090d2166b9f5d72472ec7",
+        "url": "https://github.com/WillianChavez/winali/releases/download/deck-v0.1.14/deck.apk",
+        "size": 3724058,
+        "sha256": "a7e10d22c28ece431c0dd543f484061b4c2ae6cb1854562dded78b8718c09bab",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.13\n\n- Iniciar con Windows: en ☰ activa «Iniciar con Windows» para que Deck se abra al encender la PC, oculto en la bandeja. Se quita desmarcando la misma casilla.\n- Conectar con IA: nueva opción en ☰ que prepara una skill para que un agente de IA configure Deck desde esta PC. La skill se guarda en tu carpeta de Winali y el botón copia las instrucciones para pegarlas en el agente.\n- El agente usa un canal local que solo puede abrir tu usuario de Windows. Puede gestionar perfiles, teclas y carpetas, plantillas, catálogo, plugins, dispositivos, descubrimiento en la red y OBS. Emparejar un teléfono sigue siendo cosa tuya, desde la ventana de Deck.\n- Si un agente cambia un perfil mientras lo editas, Deck muestra la versión nueva cuando no tienes cambios pendientes. Si los tienes, no los reemplaza y te avisa.\n- Android: mismo código que la 0.1.12."
+        "changelog": "Deck 0.1.14\n\n- Gestos en las teclas: cada tecla puede tener una acción al mantenerla pulsada y otra al pulsarla dos veces, además de la normal. Se configuran en el editor; no se pueden combinar con teclas que se repiten, de alternar o de ciclo, ni con carpetas.\n- Iconos nuevos: cada acción del catálogo tiene su propio icono, hecho para Deck, y la búsqueda de iconos funciona en español e inglés. Los logos de las aplicaciones se leen de los programas instalados en tu PC.\n- El volumen se anima en el teléfono: la tecla muestra el nivel mientras subes o bajas, y las teclas de alternar o ciclo hacen un pequeño rebote al cambiar.\n- Catálogo ampliado: más acciones de OBS (buffer de repetición, silenciar entradas, transiciones, mostrar u ocultar elementos de la escena), de sistema y de programas. Deck detecta qué programas tienes instalados y solo ofrece lo que puedes usar.\n- Android: desliza el dedo a izquierda o derecha para cambiar de página; las flechas de abajo siguen funcionando.\n- Conectar con IA: el agente puede buscar iconos por nombre, ponerlos a las teclas o usar una imagen de tu PC, crear teclas con gestos y aplicar plantillas y catálogo con sus iconos. Si una tecla no es válida, no se guarda nada.\n- Actualizaciones: Deck busca ahora las versiones en el repositorio público de Winali. Esta versión hay que instalarla a mano la primera vez; después «Buscar actualizaciones» vuelve a funcionar. La descarga se sigue verificando con su huella SHA-256.\n- «Instalar en este equipo» solo aparece cuando Deck se ejecuta desde fuera de su carpeta de instalación.\n- Se corrigieron varios fallos de validación de perfiles, atajos de copiar y registro de auditoría encontrados en la revisión."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 49
+  "revision": 50
 }
