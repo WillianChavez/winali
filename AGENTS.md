@@ -15,6 +15,16 @@ Guía para agentes que trabajan en Winali y sus apps. Detalles del estándar de 
 
 Cada carpeta de `apps/` es un repositorio git independiente (ignorado por `winali`): haz commit y push dentro de ella. Los APK de referencia de la raíz y `.local/` nunca se suben.
 
+## Ramas y protección
+
+Aplica a los seis repositorios (`winali`, `apk`, `focus`, `read`, `deck`, `books`):
+
+- `main` es la rama estable y la que lee el catálogo; `dev` es la rama de integración. Trabaja en `dev` o en ramas `feature/…`, `fix/…` que salen de `dev`, y abre un PR hacia `dev`; cuando esté probado, PR de `dev` a `main`.
+- Rulesets activos: `main` exige PR con 1 aprobación y revisión del code owner (`.github/CODEOWNERS` → `@WillianChavez`), conversaciones resueltas y bloquea force-push y borrado; `dev` bloquea force-push y borrado; los tags `v*` no se pueden mover ni borrar.
+- Solo el propietario (rol admin) puede saltarse la regla, por eso los pasos de publicación (push de `main` y tag `vX.Y.Z`) siguen funcionando. Para un cambio normal usa PR en lugar de empujar a `main`.
+- Fusión: merge commit para `dev` → `main` (conserva el historial), squash para ramas de trabajo → `dev`. Rebase deshabilitado; las ramas fusionadas se borran solas (excepto `dev`).
+- Los commits de los pasos 4 y 6 de abajo (`git push origin main`) se pueden hacer vía `dev` + PR; el push directo queda como atajo del propietario.
+
 ## Entorno (Windows)
 
 - `JAVA_HOME=C:/Users/willi/AppData/Local/Programs/REA/java/jdk-21.0.12.1+1`
