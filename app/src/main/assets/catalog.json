@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1020,
-        "versionName": "0.1.20",
+        "versionCode": 1021,
+        "versionName": "0.1.21",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.20/books.apk",
-        "size": 7766681,
-        "sha256": "0992168b86754fedf54bf24636630eb778cf96be3439cfd2d66d8a23f097a959",
+        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.21/books.apk",
+        "size": 7799737,
+        "sha256": "6b8bbf8011cbd59b3f9deef70e821b550857a352695346f4f0c0832c62b939d3",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.20\r\n\r\n- Mantén pulsada una palabra y, sin soltar, arrastra el dedo para seguir seleccionando: la selección crece mientras mueves el dedo. Al soltar aparecen las asas y el menú de colores.\r\n- Mientras arrastras, el gesto no pasa de página."
+        "changelog": "Books 0.1.21\r\n\r\n- La hoja sigue tu dedo: en horizontal arrastras la página y la hoja gira con él. Si la sueltas pronto, vuelve a su sitio; si la sueltas lejos o con un empujón, termina el giro.\r\n- Las zonas laterales para pasar de página se ajustan por separado en vertical y en horizontal.\r\n- Con tres toques rápidos en la zona central seleccionas un párrafo y con dos, una frase.\r\n- Al arrastrar una selección hasta el borde de la pantalla, el libro pasa de página para que sigas seleccionando.\r\n- En PDF, la selección tiene asas azules para ampliarla, se ve marcada y al tocar un subrayado se abre su menú. Tocar al lado de una palabra elige la palabra más cercana.\r\n- La lista de notas se filtra por color y las notas exportadas se agrupan por color."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 50
+  "revision": 51
 }
