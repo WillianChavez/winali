@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1020,
-        "versionName": "0.1.20",
+        "versionCode": 1021,
+        "versionName": "0.1.21",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.20/deck.apk",
-        "size": 3724062,
-        "sha256": "522a0bbd9d7ba0aa1f04a47ea862d3d4447f4380d0d3d3f44524936372d814bd",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.21/deck.apk",
+        "size": 3843478,
+        "sha256": "692e6dcfd66326bd61648df7cae9718db0452959839eefdff06192294c0a51f4",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.20\n\n- Pestaña web mucho más rápida: la dirección de la lista ya no se escribe letra por letra en la barra de Opera, se pega de una vez y se ve cambiar la pestaña sin que la barra se vaya rellenando. Cambiar de lista pasa de unos 8 segundos a unos 2,5.\n- Deck devuelve al portapapeles el texto que tenías copiado después de pegar la dirección. Si tenías una imagen o archivos copiados, no toca el portapapeles y escribe la dirección como antes.\n- La pregunta «¿Salir del sitio?» de YouTube Music se contesta en cuanto el navegador la acepta, sin esperas de más.\n- Android: mismo código que la 0.1.19."
+        "changelog": "Deck 0.1.21\r\n\r\n- Registros locales de diagnóstico para investigar desconexiones entre la tablet y la PC.\r\n- Android: exporta los registros desde Ajustes para compartirlos cuando haya un fallo.\r\n- Windows: abre la carpeta de registros desde Actividad.\r\n- Los registros conservan las últimas 24 horas y se limpian automáticamente mientras Deck está abierto y al volver a abrirlo. No incluyen claves, códigos de emparejamiento ni contenido de las teclas."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 61
+  "revision": 62
 }
