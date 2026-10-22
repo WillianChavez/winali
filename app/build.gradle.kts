@@ -13,7 +13,7 @@ android {
  targetSdk = 36
  versionCode = (System.getenv("VERSION_CODE") ?: "1003").toInt()
  versionName = System.getenv("VERSION_NAME") ?: "0.1.3"
- buildConfigField("String", "CATALOG_URL", "\"https://raw.githubusercontent.com/WillianChavez/winali/main/catalog/index.json\"")
+ buildConfigField("String", "CATALOG_URL", "\"https://willianchavez.github.io/winali-downloads/catalog.json\"")
  buildConfigField("boolean", "ALLOW_LOOPBACK", "false")
  testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
  }
