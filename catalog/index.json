@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1023,
-        "versionName": "0.1.23",
+        "versionCode": 1024,
+        "versionName": "0.1.24",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.23/books.apk",
-        "size": 10521839,
-        "sha256": "b321146964cebcf59ce5936931e78db8d7ca7ad63cc1394e45b1be539ec32779",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.24/books.apk",
+        "size": 10538219,
+        "sha256": "d7a6bd8e5a3032066ee8a55990343789e97a49359aace02857ba8c19b04cb989",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.23\r\n\r\n- Seis fuentes de lectura incluidas en la app, de licencia libre y sin necesidad de conexión: Literata, Source Serif 4, Lora, Crimson Pro, Atkinson Hyperlegible y Lexend. Se eligen en Ajustes > Texto > Tipografía.\r\n- Cuatro temas nuevos: Calma, Enfoque, Silencio y Negrita.\r\n- Letra capital opcional al inicio de cada capítulo (Ajustes > Texto).\r\n- La lectura en voz alta resalta la frase que se lee si el motor de voz lo permite, empieza por la página que tienes delante y el menú de la selección tiene «Leer desde aquí».\r\n- Los bordes del editor de zonas de toque tienen etiqueta, valor y acciones para ensanchar o estrechar con TalkBack."
+        "changelog": "Books 0.1.24\r\n\r\n- La barra de controles ya es opaca: el texto de la página no se transparenta detrás de ella ni bajo la zona de gestos del sistema.\r\n- Los paneles de Ajustes, Índice y notas ya no tiemblan al desplazar su lista hasta el final y volver; la hoja mantiene una altura fija y no se arrastra por error.\r\n- El corazón es un marcador de verdad: se rellena de rojo, hace una pequeña animación, muestra una cinta roja en la esquina de la página marcada y se vuelve a pulsar para quitarlo. Ambas acciones se pueden deshacer.\r\n- Los controles no se ocultan mientras aparece el aviso de deshacer."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 56
+  "revision": 57
 }

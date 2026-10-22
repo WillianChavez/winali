@@ -24,7 +24,7 @@ $versionDirectory = Join-Path $downloadsRepo "apps\$App\$Version"
 $latestDirectory = Join-Path $downloadsRepo "apps\$App\latest"
 
 if (!(Test-Path -LiteralPath $apk) -or !(Test-Path -LiteralPath $sourceManifest)) { throw "Missing release artifacts in $artifactDirectory" }
-$manifest = Get-Content -LiteralPath $sourceManifest -Raw | ConvertFrom-Json
+$manifest = Get-Content -LiteralPath $sourceManifest -Raw -Encoding UTF8 | ConvertFrom-Json
 if ($manifest.release.versionName -ne $Version) { throw 'The release manifest version does not match -Version.' }
 $manifest.release.url = "https://willianchavez.github.io/winali-downloads/apps/$App/$Version/$App.apk"
 $manifestText = $manifest | ConvertTo-Json -Depth 20
