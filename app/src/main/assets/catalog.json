@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1018,
-        "versionName": "0.1.18",
+        "versionCode": 1019,
+        "versionName": "0.1.19",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.18/deck.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.19/deck.apk",
         "size": 3724062,
-        "sha256": "499fd2ca03964a9dd3a37394c24172422d8b28b30e68abf2277c5c3b85d37384",
+        "sha256": "8bc66a055195ea62ba4a81504651a94366dbc2c44e787ed835d91ea467dc0130",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.18\n\n- Pestaña web: la repetición de YouTube Music también se ajusta cuando la página está en inglés (YouTube Music cambia de idioma según la sesión). Antes, en inglés, la tecla esperaba hasta 12 segundos buscando un botón que no reconocía; ahora cambia de lista en unos 8 segundos.\n- Android: mismo código que la 0.1.17."
+        "changelog": "Deck 0.1.19\n\n- La tecla Reproducir/pausar cambia de icono según lo que suena: muestra pausa mientras hay música y reproducir cuando está en pausa. Deck sigue el estado real de Windows, así que también cambia si pausas desde el teclado o desde el navegador. Una imagen que tú hayas puesto a esa tecla no se sustituye.\n- Para ver el cambio en el teléfono hay que actualizar Deck en la PC y en el teléfono."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 58
+  "revision": 59
 }
