@@ -13,14 +13,21 @@ Guía para agentes que trabajan en Winali y sus apps. Detalles del estándar de 
 | `apps/deck` (Android y servidor Windows) | `WillianChavez/deck` | `io.github.willianchavez.deck` |
 | `apps/books` (lector de libros independiente) | `WillianChavez/books` | `io.github.willianchavez.books` |
 
-Cada carpeta de `apps/` es un repositorio git independiente (ignorado por `winali`): haz commit y push dentro de ella. Los APK de referencia de la raíz y `.local/` nunca se suben.
+Cada carpeta de `apps/` es un repositorio git independiente y **privado** (ignorado por `winali`): haz commit y push dentro de ella. `winali` contiene la tienda y el catálogo; `WillianChavez/winali-downloads` es el repositorio público separado de distribución binaria. El código de las apps no se publica ni se copia a ningún repositorio público, y nunca hagas público un repositorio de una app. Los APK firmados y, para Deck, el servidor Windows firmado, se publican como archivos estáticos de `winali-downloads` (paso 5). Los APK de referencia de la raíz y `.local/` nunca se suben.
+
+## Privacidad de Releases
+
+- Las Releases públicas nunca deben incluir código fuente, repositorios exportados, zips de fuentes, APKs de depuración, archivos `mapping`, logs, claves, contraseñas, credenciales ni ningún otro archivo privado. Para las apps solo se publican el APK firmado y su `release.json`.
+- El código fuente de cada app permanece exclusivamente en su repositorio privado; no se copia ni se publica en `winali` ni en ningún otro repositorio público.
+- GitHub añade automáticamente a toda Release pública los enlaces `Source code (zip)` y `Source code (tar.gz)` del repositorio y su tag. Esos enlaces no son assets subidos por el agente y GitHub no permite quitarlos individualmente de una Release. Si se exige que no aparezcan, no se debe publicar la Release en un repositorio público hasta definir un destino de distribución que cumpla ese requisito; hacer una Release pública solo con APK y `release.json` no elimina esos enlaces automáticos.
 
 ## Ramas y protección
 
 Aplica a los seis repositorios (`winali`, `apk`, `focus`, `read`, `deck`, `books`):
 
 - `main` es la rama estable y la que lee el catálogo; `dev` es la rama de integración. Trabaja en `dev` o en ramas `feature/…`, `fix/…` que salen de `dev`, y abre un PR hacia `dev`; cuando esté probado, PR de `dev` a `main`.
-- Rulesets activos: `main` exige PR con 1 aprobación y revisión del code owner (`.github/CODEOWNERS` → `@WillianChavez`), conversaciones resueltas y bloquea force-push y borrado; `dev` bloquea force-push y borrado; los tags `v*` no se pueden mover ni borrar.
+- Rulesets activos: `main` exige PR con 1 aprobación y revisión del code owner (`.github/CODEOWNERS` → `@WillianChavez`), conversaciones resueltas y bloquea force-push y borrado; `dev` bloquea force-push y borrado; los tags `v*` y `<app>-v*` no se pueden mover ni borrar.
+- Los rulesets solo se aplican en `winali` (público). En los repos de las apps, que son privados, el plan gratuito de GitHub no los aplica (se configuraron pero quedan inactivos): ahí la protección es que nadie más tiene acceso. Si se añade un colaborador a un repo de app, hay que pasar a GitHub Pro o proteger `main` de otra forma antes.
 - Solo el propietario (rol admin) puede saltarse la regla, por eso los pasos de publicación (push de `main` y tag `vX.Y.Z`) siguen funcionando. Para un cambio normal usa PR en lugar de empujar a `main`.
 - Fusión: merge commit para `dev` → `main` (conserva el historial), squash para ramas de trabajo → `dev`. Rebase deshabilitado; las ramas fusionadas se borran solas (excepto `dev`).
 - Los commits de los pasos 4 y 6 de abajo (`git push origin main`) se pueden hacer vía `dev` + PR; el push directo queda como atajo del propietario.
@@ -35,7 +42,7 @@ Aplica a los seis repositorios (`winali`, `apk`, `focus`, `read`, `deck`, `books
 
 ## Actualizar una app
 
-Ejemplo con Focus pasando a `0.1.3`; vale igual para `apk`, `read` y la propia `winali` (en ese caso la carpeta es la raíz).
+Ejemplo con Focus pasando a `0.1.3`; vale igual para `apk`, `read`, `deck` y `books`. Resumen: el código y el tag `vX.Y.Z` se quedan en el repo privado de la app; el APK firmado y su `release.json` se publican como Release `<app>-vX.Y.Z` del repo público `winali`; después se sincroniza el catálogo de `winali`. Para la propia tienda (la carpeta es la raíz) la Release es `vX.Y.Z` en `winali` y sí es la "latest": crea el tag con `gh release create vX.Y.Z … -R WillianChavez/winali` sin `--latest=false` y sincroniza con `node tools/catalog.mjs sync winali`.
 
 1. **Cambios y pruebas** en `apps/<app>`:
    ```sh
@@ -49,24 +56,23 @@ Ejemplo con Focus pasando a `0.1.3`; vale igual para `apk`, `read` y la propia `
    ```sh
    git push origin main
    ```
-5. **Compila y firma localmente; después publica la Release.** GitHub Actions está deshabilitado en los cuatro repositorios y no hay workflows. Desde el repositorio de la app:
+5. **Compila y firma localmente; después publica el binario estático.** GitHub Actions está deshabilitado en los seis repositorios y no hay workflows. Desde el repositorio de la app:
    ```sh
    .\tools\build-release.ps1 -Version 0.1.3 -ExpectedCertificateSha256 <huella-del-catalogo>
-   git tag v0.1.3
-   git push origin v0.1.3
-   gh release create v0.1.3 ".local/releases/focus/0.1.3/focus.apk" ".local/releases/focus/0.1.3/release.json" --title v0.1.3 --notes-file CHANGELOG.md
-   gh release view v0.1.3 -R WillianChavez/<app>   # <app>.apk + release.json
+   git tag v0.1.3 && git push origin v0.1.3      # tag de código en el repo privado de la app
+   cd ..\..
+   .\tools\publish-download.ps1 -App focus -Version 0.1.3 -Push
    ```
-   Sustituye `focus` por la app correspondiente. El script ejecuta release, lint y pruebas unitarias, firma con `Documents/Winali-private/signing/<app>.jks` y lee `<app>.json` (`storePassword`, `keyPassword`, `alias`). Genera `release.json` desde el APK real y comprueba versión y certificado. Los archivos salen a `apps/<app>/.local/releases/<app>/<versión>` (en la propia tienda, a `.local/releases/winali/<versión>`). Las claves y credenciales se guardan fuera de Git, en `Documents/Winali-private/signing`; nunca las guardes dentro de Codex ni en el repositorio. Nunca cambies de clave: Android rechazaría la actualización. No vuelvas a añadir workflows sin que el usuario lo pida.
+   Sustituye `focus` por la app correspondiente. `publish-download.ps1` copia solo el APK firmado y `release.json` a `WillianChavez/winali-downloads/apps/<app>/<versión>` y `latest`, actualiza el catálogo y puede hacer push. El `release.json` apunta a la URL estática de GitHub Pages. Para Deck Windows, publica también `deck-windows-x64.exe` y `windows-release.json` en las mismas carpetas. El script ejecuta release, lint y pruebas unitarias, firma con `Documents/Winali-private/signing/<app>.jks` y lee `<app>.json` (`storePassword`, `keyPassword`, `alias`). Genera `release.json` desde el APK real y comprueba versión y certificado. Los archivos salen a `apps/<app>/.local/releases/<app>/<versión>` (en la propia tienda, a `.local/releases/winali/<versión>`). Las claves y credenciales se guardan fuera de Git, en `Documents/Winali-private/signing`; nunca las guardes dentro de Codex ni en el repositorio. Nunca cambies de clave: Android rechazaría la actualización. No vuelvas a añadir workflows sin que el usuario lo pida.
 6. **Catálogo** en la raíz de `winali`:
    ```sh
-   node tools/catalog.mjs sync <app>        # lee releases/latest/download/release.json
+   node tools/catalog.mjs sync <app>        # lee apps/<app>/latest/release.json de winali-downloads
    node tools/catalog.mjs validate
    node --test tools/catalog.test.mjs
    git diff catalog/index.json               # revisa versión, tamaño, hash, certificado y notas
    git commit -am "Publish <App> 0.1.3 in the catalog" && git push origin main
    ```
-   `sync` también actualiza la copia embebida (`app/src/main/assets/catalog.json`) y sube `revision`. El certificado debe coincidir con el anterior; si `sync` lo rechaza, no lo fuerces.
+   Sincroniza solo la app que acabas de publicar: `sync` sin ids o con otros ids adelantaría también versiones ya publicadas que aún no quieras lanzar. `sync` consulta la API pública de GitHub (no necesita token; con `GITHUB_TOKEN` evita el límite de peticiones) y no hace falta que el repo de la app sea accesible. `sync` también actualiza la copia embebida (`app/src/main/assets/catalog.json`) y sube `revision`. El certificado debe coincidir con el anterior; si `sync` lo rechaza, no lo fuerces.
 7. **Comprueba el catálogo publicado:**
    ```sh
    curl -s https://raw.githubusercontent.com/WillianChavez/winali/main/catalog/index.json
@@ -78,12 +84,14 @@ Si cambian la descripción, los permisos o las capturas de la ficha, edítalos e
 ## Añadir una app nueva
 
 1. Crea `apps/<app>` como repositorio propio copiando la estructura de `apps/apk` (Gradle, `tools/build-release.ps1`, `tools/release-manifest.mjs`, `LICENSE`, `README.md`, `CHANGELOG.md`), con paquete `io.github.willianchavez.<app>`. No añadas workflows.
-2. Crea el repositorio público con `gh repo create`, genera una clave de firma propia y guarda su JKS y JSON de credenciales en el directorio privado de firma, fuera del repositorio.
-3. Compila y firma localmente `0.1.0` con el script, crea el tag y publica el APK y `release.json` con `gh release create`. La primera versión no tiene huella anterior para `-ExpectedCertificateSha256`; guárdala para las siguientes.
+2. Crea el repositorio **privado** con `gh repo create --private`, genera una clave de firma propia y guarda su JKS y JSON de credenciales en el directorio privado de firma, fuera del repositorio.
+3. Compila y firma localmente `0.1.0` con el script, crea el tag y publica el APK y `release.json` como Release `<app>-v0.1.0` de `winali` con `gh release create` (paso 5). La primera versión no tiene huella anterior para `-ExpectedCertificateSha256`; guárdala para las siguientes.
 4. Añade su ficha a `catalog/index.json` con `"release": null`, ejecuta `node tools/catalog.mjs sync <app>` y actualiza el número de apps esperado en `tools/catalog.test.mjs`.
 
 ## Reglas del proyecto
 
+- Licencias: `winali` (tienda) es MIT. Las apps son software propietario, todos los derechos reservados (`LICENSE` en cada repo): no añadas licencias de código abierto a una app ni copies un `LICENSE` MIT de `winali` al crear una app nueva (copia el de `apps/apk`).
+- El código de las apps es privado: no lo copies, ni siquiera parcialmente, a `winali` ni a ningún repositorio público, y no publiques APK de depuración ni fuentes en las Releases de `winali`. En `winali` solo van la tienda, el catálogo, las capturas e iconos de las fichas y los APK firmados de release.
 - Sin cuentas, anuncios, telemetría ni SDK de terceros. Sin permiso de Internet salvo en Winali y Deck (conexión LAN autorizada por el usuario).
 - Sin textos de relleno ni eslóganes en la interfaz: solo texto funcional, en español e inglés.
 - Release optimizada: R8, reducción de recursos, sin `material-icons-extended`, con Baseline Profile.

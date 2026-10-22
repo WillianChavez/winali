@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+export const STORE_REPOSITORY='https://github.com/WillianChavez/winali';
+export const DOWNLOADS_BASE_URL='https://willianchavez.github.io/winali-downloads';
 export function assert(condition, message) { if (!condition) throw new Error(message); }
 export function https(value) { try {const url=new URL(value);return url.protocol==='https:' && !url.username && !url.password;}catch{return false;} }
 export function validateRelease(release) {
@@ -47,6 +49,14 @@ export function mergeRelease(app, manifest){
   }
   return {...app,release:manifest.release};
 }
+// Kept for validating and comparing legacy GitHub tags. New binaries are served from the static downloads repository.
+export function releaseTag(app,releases){
+  const prefix=app.id==='winali'?'v':`${app.id}-v`;
+  const version=tag=>tag.slice(prefix.length).split('.').map(Number);
+  const candidates=releases.filter(r=>!r.draft && !r.prerelease && typeof r.tag_name==='string' && r.tag_name.startsWith(prefix) && /^\d+\.\d+\.\d+$/.test(r.tag_name.slice(prefix.length)));
+  assert(candidates.length>0,`${app.id}: no published release with tag ${prefix}X.Y.Z`);
+  return candidates.map(r=>r.tag_name).sort((a,b)=>{const x=version(a),y=version(b);return x[0]-y[0]||x[1]-y[1]||x[2]-y[2];}).at(-1);
+}
 export function saveCatalog(catalog,root=process.cwd()){
   validateCatalog(catalog);
   const assets=path.join(root,'app/src/main/assets');
@@ -65,7 +75,7 @@ async function main(){
     const ids=process.argv.slice(3);
     for(let i=0;i<catalog.apps.length;i++){
       const app=catalog.apps[i];if(ids.length && !ids.includes(app.id))continue;
-      const url=`${app.repository}/releases/latest/download/release.json`;
+      const url=`${DOWNLOADS_BASE_URL}/apps/${app.id}/latest/release.json`;
       const response=await fetch(url,{signal:AbortSignal.timeout(30000)});
       assert(response.ok,`${app.id}: release manifest returned HTTP ${response.status}`);
       const text=await response.text();assert(text.length<=64000,'Release manifest too large');
