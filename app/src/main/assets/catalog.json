@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1021,
-        "versionName": "0.1.21",
+        "versionCode": 1022,
+        "versionName": "0.1.22",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.21/books.apk",
-        "size": 7799737,
-        "sha256": "6b8bbf8011cbd59b3f9deef70e821b550857a352695346f4f0c0832c62b939d3",
+        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.22/books.apk",
+        "size": 7833225,
+        "sha256": "8529b1432db83232b8e5df31d9e65590c094339c1317a0c2b2ca6eb4dcfe0aa4",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.21\r\n\r\n- La hoja sigue tu dedo: en horizontal arrastras la página y la hoja gira con él. Si la sueltas pronto, vuelve a su sitio; si la sueltas lejos o con un empujón, termina el giro.\r\n- Las zonas laterales para pasar de página se ajustan por separado en vertical y en horizontal.\r\n- Con tres toques rápidos en la zona central seleccionas un párrafo y con dos, una frase.\r\n- Al arrastrar una selección hasta el borde de la pantalla, el libro pasa de página para que sigas seleccionando.\r\n- En PDF, la selección tiene asas azules para ampliarla, se ve marcada y al tocar un subrayado se abre su menú. Tocar al lado de una palabra elige la palabra más cercana.\r\n- La lista de notas se filtra por color y las notas exportadas se agrupan por color."
+        "changelog": "Books 0.1.22\r\n\r\n- Los libros escaneados se leen como libros: el texto de cada página se parte en párrafos, las líneas de diálogo y los subtítulos intermedios quedan aparte, y el número de página al final de la página se oculta aunque el texto se corte a mitad de frase.\r\n- Los libros cuyo índice solo dice «Page 5» tienen un índice real, construido con los títulos que se reconocen en el texto. La barra de lectura muestra también el título del capítulo.\r\n- Ajustes > Pantalla > «Mostrar la página original escaneada» (solo aparece en libros escaneados) cambia el texto por la imagen de cada página.\r\n- Barra de posición en los controles: arrastra para saltar por el libro y mira la página y el porcentaje.\r\n- Buscar en todo el libro: lista los resultados con su capítulo y las palabras de alrededor; al tocar uno se va a ese punto.\r\n- El índice tiene una vista de miniaturas: páginas reales en los PDF y tarjetas por capítulo en los demás libros."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 51
+  "revision": 52
 }
