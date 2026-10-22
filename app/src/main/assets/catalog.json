@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1022,
-        "versionName": "0.1.22",
+        "versionCode": 1023,
+        "versionName": "0.1.23",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.22/books.apk",
-        "size": 7833225,
-        "sha256": "8529b1432db83232b8e5df31d9e65590c094339c1317a0c2b2ca6eb4dcfe0aa4",
+        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.23/books.apk",
+        "size": 10521839,
+        "sha256": "b321146964cebcf59ce5936931e78db8d7ca7ad63cc1394e45b1be539ec32779",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.22\r\n\r\n- Los libros escaneados se leen como libros: el texto de cada página se parte en párrafos, las líneas de diálogo y los subtítulos intermedios quedan aparte, y el número de página al final de la página se oculta aunque el texto se corte a mitad de frase.\r\n- Los libros cuyo índice solo dice «Page 5» tienen un índice real, construido con los títulos que se reconocen en el texto. La barra de lectura muestra también el título del capítulo.\r\n- Ajustes > Pantalla > «Mostrar la página original escaneada» (solo aparece en libros escaneados) cambia el texto por la imagen de cada página.\r\n- Barra de posición en los controles: arrastra para saltar por el libro y mira la página y el porcentaje.\r\n- Buscar en todo el libro: lista los resultados con su capítulo y las palabras de alrededor; al tocar uno se va a ese punto.\r\n- El índice tiene una vista de miniaturas: páginas reales en los PDF y tarjetas por capítulo en los demás libros."
+        "changelog": "Books 0.1.23\r\n\r\n- Seis fuentes de lectura incluidas en la app, de licencia libre y sin necesidad de conexión: Literata, Source Serif 4, Lora, Crimson Pro, Atkinson Hyperlegible y Lexend. Se eligen en Ajustes > Texto > Tipografía.\r\n- Cuatro temas nuevos: Calma, Enfoque, Silencio y Negrita.\r\n- Letra capital opcional al inicio de cada capítulo (Ajustes > Texto).\r\n- La lectura en voz alta resalta la frase que se lee si el motor de voz lo permite, empieza por la página que tienes delante y el menú de la selección tiene «Leer desde aquí».\r\n- Los bordes del editor de zonas de toque tienen etiqueta, valor y acciones para ensanchar o estrechar con TalkBack."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 52
+  "revision": 53
 }
