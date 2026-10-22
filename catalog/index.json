@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1015,
-        "versionName": "0.1.15",
+        "versionCode": 1016,
+        "versionName": "0.1.16",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.15/deck.apk",
-        "size": 3724062,
-        "sha256": "c09697b0797eae1234e1ef863a73e3a2b9877f70fcccc1701952dd0aa0faf389",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.16/deck.apk",
+        "size": 3724058,
+        "sha256": "7c761c6aca0d78ed41a6b0dd441e9dfab1a044b35592e87147927b314641928f",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.15\n\n- Pestaña web: nueva acción para que una tecla cambie lo que reproduce la pestaña que ya está abierta en lugar de abrir otra cada vez. Usa la primera pestaña del navegador (Opera, Chrome o Edge) cuyo título contiene el texto que elijas; si el navegador está cerrado lo abre y busca esa pestaña entre las que restaura, y si no hay ninguna abre una nueva. Contesta solo la pregunta «¿Salir del sitio?» y puede dejar YouTube Music repitiendo toda la lista (interfaz en español). También puede solo mostrar la pestaña sin cambiar lo que suena.\n- Editor de Windows: arrastra una tecla, o una acción de la lista, hasta el borde de la cuadrícula o hasta una flecha de página y espera un momento: la página cambia con una animación y puedes soltarla en otra página. Al final de la última página se ofrece una página nueva.\n- Editor de Windows: desliza sobre las teclas vacías, o con dos dedos en el panel táctil, para cambiar de página.\n- Editor de Windows: copia una tecla con «Copiar» o Ctrl+C y pégala con «Pegar» o Ctrl+V. La copia es una tecla nueva en el primer hueco libre de la página, o en el hueco vacío que elijas.\n- Android: al pulsar una tecla se hunde y se ilumina de forma visible, y una tecla con acción al mantener muestra un anillo que se llena hasta que cuenta la pulsación larga.\n- La dirección de una pestaña web admite hasta 1024 caracteres."
+        "changelog": "Deck 0.1.16\n\n- Iconos de volumen nuevos: un altavoz limpio con una onda para bajar y dos para subir. Las teclas que ya tenían los iconos anteriores los cambian solas. En el teléfono las ondas se animan mientras mantienes pulsado.\n- Solo iconos: en el ajuste del perfil (⚙) marca «Solo iconos en el teléfono» y las teclas con imagen se muestran más grandes y sin nombre. Una tecla sin imagen conserva su nombre.\n- Android: cuando una pulsación falla, el mensaje flota sobre la pantalla en lugar de encoger todas las teclas.\n- Windows: clic derecho en un perfil de la lista para eliminarlo, o el botón «Eliminar perfil» en el ajuste del perfil; en los dos casos pide confirmación.\n- Windows: se quita «Iconos de apps» del menú ☰.\n- Windows: Deck busca una versión nueva al arrancar, aunque empiece oculto en la bandeja, así el botón «Actualizar» ya está al abrir la ventana.\n- Las descargas de Deck se publican ahora en el sitio de descargas estático de Winali, no en una Release de GitHub."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 54
+  "revision": 55
 }
