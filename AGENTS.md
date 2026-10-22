@@ -60,7 +60,7 @@ Ejemplo con Focus pasando a `0.1.3`; vale igual para `apk`, `read`, `deck` y `bo
    ```sh
    .\tools\build-release.ps1 -Version 0.1.3 -ExpectedCertificateSha256 <huella-del-catalogo>
    git tag v0.1.3 && git push origin v0.1.3      # tag de código en el repo privado de la app
-   cd ..\winali
+   cd ..\..
    .\tools\publish-download.ps1 -App focus -Version 0.1.3 -Push
    ```
    Sustituye `focus` por la app correspondiente. `publish-download.ps1` copia solo el APK firmado y `release.json` a `WillianChavez/winali-downloads/apps/<app>/<versión>` y `latest`, actualiza el catálogo y puede hacer push. El `release.json` apunta a la URL estática de GitHub Pages. Para Deck Windows, publica también `deck-windows-x64.exe` y `windows-release.json` en las mismas carpetas. El script ejecuta release, lint y pruebas unitarias, firma con `Documents/Winali-private/signing/<app>.jks` y lee `<app>.json` (`storePassword`, `keyPassword`, `alias`). Genera `release.json` desde el APK real y comprueba versión y certificado. Los archivos salen a `apps/<app>/.local/releases/<app>/<versión>` (en la propia tienda, a `.local/releases/winali/<versión>`). Las claves y credenciales se guardan fuera de Git, en `Documents/Winali-private/signing`; nunca las guardes dentro de Codex ni en el repositorio. Nunca cambies de clave: Android rechazaría la actualización. No vuelvas a añadir workflows sin que el usuario lo pida.
