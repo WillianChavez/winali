@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1014,
-        "versionName": "0.1.14",
+        "versionCode": 1015,
+        "versionName": "0.1.15",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/deck-v0.1.14/deck.apk",
-        "size": 3724058,
-        "sha256": "a7e10d22c28ece431c0dd543f484061b4c2ae6cb1854562dded78b8718c09bab",
+        "url": "https://github.com/WillianChavez/winali/releases/download/deck-v0.1.15/deck.apk",
+        "size": 3724062,
+        "sha256": "c09697b0797eae1234e1ef863a73e3a2b9877f70fcccc1701952dd0aa0faf389",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.14\n\n- Gestos en las teclas: cada tecla puede tener una acción al mantenerla pulsada y otra al pulsarla dos veces, además de la normal. Se configuran en el editor; no se pueden combinar con teclas que se repiten, de alternar o de ciclo, ni con carpetas.\n- Iconos nuevos: cada acción del catálogo tiene su propio icono, hecho para Deck, y la búsqueda de iconos funciona en español e inglés. Los logos de las aplicaciones se leen de los programas instalados en tu PC.\n- El volumen se anima en el teléfono: la tecla muestra el nivel mientras subes o bajas, y las teclas de alternar o ciclo hacen un pequeño rebote al cambiar.\n- Catálogo ampliado: más acciones de OBS (buffer de repetición, silenciar entradas, transiciones, mostrar u ocultar elementos de la escena), de sistema y de programas. Deck detecta qué programas tienes instalados y solo ofrece lo que puedes usar.\n- Android: desliza el dedo a izquierda o derecha para cambiar de página; las flechas de abajo siguen funcionando.\n- Conectar con IA: el agente puede buscar iconos por nombre, ponerlos a las teclas o usar una imagen de tu PC, crear teclas con gestos y aplicar plantillas y catálogo con sus iconos. Si una tecla no es válida, no se guarda nada.\n- Actualizaciones: Deck busca ahora las versiones en el repositorio público de Winali. Esta versión hay que instalarla a mano la primera vez; después «Buscar actualizaciones» vuelve a funcionar. La descarga se sigue verificando con su huella SHA-256.\n- «Instalar en este equipo» solo aparece cuando Deck se ejecuta desde fuera de su carpeta de instalación.\n- Se corrigieron varios fallos de validación de perfiles, atajos de copiar y registro de auditoría encontrados en la revisión."
+        "changelog": "Deck 0.1.15\n\n- Pestaña web: nueva acción para que una tecla cambie lo que reproduce la pestaña que ya está abierta en lugar de abrir otra cada vez. Usa la primera pestaña del navegador (Opera, Chrome o Edge) cuyo título contiene el texto que elijas; si el navegador está cerrado lo abre y busca esa pestaña entre las que restaura, y si no hay ninguna abre una nueva. Contesta solo la pregunta «¿Salir del sitio?» y puede dejar YouTube Music repitiendo toda la lista (interfaz en español). También puede solo mostrar la pestaña sin cambiar lo que suena.\n- Editor de Windows: arrastra una tecla, o una acción de la lista, hasta el borde de la cuadrícula o hasta una flecha de página y espera un momento: la página cambia con una animación y puedes soltarla en otra página. Al final de la última página se ofrece una página nueva.\n- Editor de Windows: desliza sobre las teclas vacías, o con dos dedos en el panel táctil, para cambiar de página.\n- Editor de Windows: copia una tecla con «Copiar» o Ctrl+C y pégala con «Pegar» o Ctrl+V. La copia es una tecla nueva en el primer hueco libre de la página, o en el hueco vacío que elijas.\n- Android: al pulsar una tecla se hunde y se ilumina de forma visible, y una tecla con acción al mantener muestra un anillo que se llena hasta que cuenta la pulsación larga.\n- La dirección de una pestaña web admite hasta 1024 caracteres."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 53
+  "revision": 54
 }
