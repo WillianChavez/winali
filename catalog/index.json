@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1024,
-        "versionName": "0.1.24",
+        "versionCode": 1025,
+        "versionName": "0.1.25",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.24/books.apk",
-        "size": 10538219,
-        "sha256": "d7a6bd8e5a3032066ee8a55990343789e97a49359aace02857ba8c19b04cb989",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.25/books.apk",
+        "size": 10538223,
+        "sha256": "1a695c9199c0ae7077e64f4b9ec20fe79ef68890288bf2215138c123bf2211c8",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.24\r\n\r\n- La barra de controles ya es opaca: el texto de la página no se transparenta detrás de ella ni bajo la zona de gestos del sistema.\r\n- Los paneles de Ajustes, Índice y notas ya no tiemblan al desplazar su lista hasta el final y volver; la hoja mantiene una altura fija y no se arrastra por error.\r\n- El corazón es un marcador de verdad: se rellena de rojo, hace una pequeña animación, muestra una cinta roja en la esquina de la página marcada y se vuelve a pulsar para quitarlo. Ambas acciones se pueden deshacer.\r\n- Los controles no se ocultan mientras aparece el aviso de deshacer."
+        "changelog": "Books 0.1.25\r\n\r\n- El aviso «Deshacer» (marcadores, subrayados y colores) se muestra completo por encima de la barra de controles; antes quedaba parcialmente tapado por ella."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 60
+  "revision": 61
 }
