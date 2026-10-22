@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1017,
-        "versionName": "0.1.17",
+        "versionCode": 1018,
+        "versionName": "0.1.18",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.17/deck.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.18/deck.apk",
         "size": 3724062,
-        "sha256": "0ff711f9fcce140533d4332367b433fd00ed3d52f49f848cf249bb2ea3ad96a6",
+        "sha256": "499fd2ca03964a9dd3a37394c24172422d8b28b30e68abf2277c5c3b85d37384",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.17\n\n- Windows: ninguna aplicación de la lista de acciones se queda sin icono. Deck lee el logo de las apps de la Tienda (WhatsApp, Microsoft Teams, ChatGPT y otras) desde la propia app instalada, y usa el icono de los accesos directos del menú Inicio cuando el programa no está en la lista de programas instalados.\n- Windows: si el icono de una aplicación no se puede leer, se muestra una imagen original según para qué sirve (mensajería, música, diseño, desarrollo, juegos…), en lugar de dejar el hueco vacío.\n- Android: mismo código que la 0.1.16."
+        "changelog": "Deck 0.1.18\n\n- Pestaña web: la repetición de YouTube Music también se ajusta cuando la página está en inglés (YouTube Music cambia de idioma según la sesión). Antes, en inglés, la tecla esperaba hasta 12 segundos buscando un botón que no reconocía; ahora cambia de lista en unos 8 segundos.\n- Android: mismo código que la 0.1.17."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 57
+  "revision": 58
 }
