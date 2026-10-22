@@ -27,7 +27,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/apk-v0.1.1/apk.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/apk/0.1.1/apk.apk",
         "size": 1360227,
         "sha256": "238cb6a7f12297e6847fe9d42180f5b6a47a0e89308bd32924c974cee483bb3b",
         "certificateSha256": "1eaecbe9d84ef2571b66bad83e3d1bc1cf13f7215351d5615b7c24d737fffaf5",
@@ -73,7 +73,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/focus-v0.1.2/focus.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.2/focus.apk",
         "size": 1530237,
         "sha256": "1d420e4fb63bed6ccefa5469daf8559bc509fca46449fb141f354994d30e66a5",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
@@ -121,7 +121,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/read-v0.1.3/read.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/read/0.1.3/read.apk",
         "size": 9298254,
         "sha256": "282f0ad9dc572b3c74e80e4f70a0d7d65ee831cfb38338e601c92c786aa58f18",
         "certificateSha256": "dd6ee4514740d45beab6a092b117c57d5f3e51cde311dcc0c92ac71cb6d78b99",
@@ -170,7 +170,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/v0.1.2/winali.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/winali/0.1.2/winali.apk",
         "size": 1428854,
         "sha256": "6bf663a499014916164ee3e76dfbd2b338676e32f8e7e1287183f62bf1c39351",
         "certificateSha256": "9f497c6ba4e2838e0a472a9b9c99ffc12692777b221c84209f2e2c367b45072d",
@@ -217,7 +217,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/deck-v0.1.15/deck.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.15/deck.apk",
         "size": 3724062,
         "sha256": "c09697b0797eae1234e1ef863a73e3a2b9877f70fcccc1701952dd0aa0faf389",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
@@ -259,7 +259,7 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://github.com/WillianChavez/winali/releases/download/books-v0.1.23/books.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.23/books.apk",
         "size": 10521839,
         "sha256": "b321146964cebcf59ce5936931e78db8d7ca7ad63cc1394e45b1be539ec32779",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
