@@ -18,8 +18,8 @@
         "Guardar archivos en la carpeta que elijas"
       ],
       "release": {
-        "versionCode": 1001,
-        "versionName": "0.1.1",
+        "versionCode": 1002,
+        "versionName": "0.1.2",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -27,11 +27,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/apk/0.1.1/apk.apk",
-        "size": 1360227,
-        "sha256": "238cb6a7f12297e6847fe9d42180f5b6a47a0e89308bd32924c974cee483bb3b",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/apk/0.1.2/apk.apk",
+        "size": 1360263,
+        "sha256": "ab3c8c01f5788bf6166d9fc0f23a5789a13198e282f9080aa8398b8da44041ce",
         "certificateSha256": "1eaecbe9d84ef2571b66bad83e3d1bc1cf13f7215351d5615b7c24d737fffaf5",
-        "changelog": "Optimización: R8 y reducción de recursos en release (APK firmado de 11,9 MB a 1,3 MB), iconos propios en lugar de la biblioteca extendida, Baseline Profile, UID y botón para abrir la app en el detalle.\n\nNovedades: pantalla de detalle completa (origen de instalación, SDK mínimo y objetivo, permisos concedidos), orden por nombre, tamaño, fecha de instalación y de actualización, extracción por lote con progreso y cancelación, exportación de iconos a carpeta o por compartir, vista previa del formato de nombre, nombres únicos dentro de un lote, ajustes en pantalla propia, idioma por defecto según el sistema.\n\nMejoras de exportación: conserva la extensión .apks, admite nombres largos con caracteres internacionales y evita que dos apps compartidas con el mismo nombre sobrescriban sus archivos."
+        "changelog": "# APK 0.1.2\r\n\r\n- Nuevo icono de la aplicación, con mejor lectura en launcher, tema monocromo y ficha de la tienda."
       },
       "locales": {
         "en": {
@@ -43,7 +43,8 @@
             "Save files in a folder you choose"
           ]
         }
-      }
+      },
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/apk.png"
     },
     {
       "id": "focus",
@@ -64,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1003,
-        "versionName": "0.1.3",
+        "versionCode": 1004,
+        "versionName": "0.1.4",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -73,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.3/focus.apk",
-        "size": 1546617,
-        "sha256": "cfef3f0770c9cba3553dd6380ae22b5d466034a5793797136c1394b3016e0f1f",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.4/focus.apk",
+        "size": 1546633,
+        "sha256": "b35623c68ac38f4b6aaf1d265d523f12599a721fbdd907f62e9ba143bda84580",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.3\n\n- Notas rápidas temporales: se completan al marcarse o al terminar el tiempo y no se guardan como historial.\n- Las notas rápidas pueden repetirse y reaparecen según el intervalo configurado.\n- Nuevo onboarding guiado para explicar Focus y activar las notas rápidas desde el primer uso.\n- Reportes ahora están dentro de Ajustes; se eliminó Bosque de la navegación principal.\n- Se puede elegir el día en que empieza la semana, con lunes como opción predeterminada."
+        "changelog": "# Focus 0.1.4\n\n- Nuevo icono de la aplicación, con mejor lectura en launcher, tema monocromo y ficha de la tienda."
       },
       "locales": {
         "en": {
@@ -89,7 +90,8 @@
             "Concentration access only when you enable it"
           ]
         }
-      }
+      },
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/focus.png"
     },
     {
       "id": "read",
@@ -112,8 +114,8 @@
         "Fotos al convertir imágenes"
       ],
       "release": {
-        "versionCode": 1003,
-        "versionName": "0.1.3",
+        "versionCode": 1004,
+        "versionName": "0.1.4",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -121,11 +123,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/read/0.1.3/read.apk",
-        "size": 9298254,
-        "sha256": "282f0ad9dc572b3c74e80e4f70a0d7d65ee831cfb38338e601c92c786aa58f18",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/read/0.1.4/read.apk",
+        "size": 9298286,
+        "sha256": "4afe07c3df40ef0dacd944008af4ca6fe3afd1c655925769c7e25c44cfe977d5",
         "certificateSha256": "dd6ee4514740d45beab6a092b117c57d5f3e51cde311dcc0c92ac71cb6d78b99",
-        "changelog": "Read 0.1.3\n\n- Cabecera de lectura más compacta, sin el espacio adicional bajo la barra de estado.\n- El zoom con dos dedos conserva el punto señalado y permite mover el documento mientras lo amplías.\n- Doble toque para ampliar una zona y volver al ancho de página.\n- Las páginas conservan su imagen durante el gesto y recuperan nitidez al terminar de ampliar.\n- Zoom de imágenes centrado en los dedos y desplazamiento limitado a sus bordes."
+        "changelog": "# Read 0.1.4\n\n- Nuevo icono de la aplicación, con mejor lectura en launcher, tema monocromo y ficha de la tienda."
       },
       "locales": {
         "en": {
@@ -161,8 +163,8 @@
         "Notificaciones opcionales"
       ],
       "release": {
-        "versionCode": 1002,
-        "versionName": "0.1.2",
+        "versionCode": 1003,
+        "versionName": "0.1.3",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -170,11 +172,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/winali/0.1.2/winali.apk",
-        "size": 1428854,
-        "sha256": "6bf663a499014916164ee3e76dfbd2b338676e32f8e7e1287183f62bf1c39351",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/winali/0.1.3/winali.apk",
+        "size": 1429414,
+        "sha256": "f5c397da07417272f5864afa491a0b702e8cf0a1096af595e448878859091c19",
         "certificateSha256": "9f497c6ba4e2838e0a472a9b9c99ffc12692777b221c84209f2e2c367b45072d",
-        "changelog": "Cada app muestra su propio icono en la tienda. Nuevas apps en el catálogo: Read y Deck."
+        "changelog": "Nuevos iconos para Winali y las aplicaciones del catálogo, con mejor lectura en launcher, tema monocromo y fichas visuales coherentes."
       },
       "locales": {
         "en": {
@@ -188,7 +190,8 @@
             "Optional notifications"
           ]
         }
-      }
+      },
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/winali.png"
     },
     {
       "id": "deck",
@@ -278,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 69
+  "revision": 71
 }
