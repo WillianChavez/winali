@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1021,
-        "versionName": "0.1.21",
+        "versionCode": 1022,
+        "versionName": "0.1.22",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.21/deck.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.22/deck.apk",
         "size": 3843478,
-        "sha256": "692e6dcfd66326bd61648df7cae9718db0452959839eefdff06192294c0a51f4",
+        "sha256": "2bf730dee77e5db4eb79508649c15b41b9468b3a654ad2d9fa9398c006a5b28e",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.21\r\n\r\n- Registros locales de diagnóstico para investigar desconexiones entre la tablet y la PC.\r\n- Android: exporta los registros desde Ajustes para compartirlos cuando haya un fallo.\r\n- Windows: abre la carpeta de registros desde Actividad.\r\n- Los registros conservan las últimas 24 horas y se limpian automáticamente mientras Deck está abierto y al volver a abrirlo. No incluyen claves, códigos de emparejamiento ni contenido de las teclas."
+        "changelog": "Deck 0.1.22\n\n- Extensión de Opera para YouTube Music (opcional): con ella, las teclas de lista cambian de lista en tu pestaña de Opera, con tu sesión y tus extensiones, en unos 3 segundos y sin escribir la dirección, sin pegar nada, sin preguntas de salir y sin traer Opera al frente. Deja la lista en aleatorio y con la repetición activada, y solo responde cuando la música ya suena. Solo puede tocar music.youtube.com y solo habla con Deck en esta PC.\n- Para instalarla: ☰ → «Extensión de Opera» abre su carpeta; en opera://extensions activa el modo de desarrollador y carga esa carpeta. Hace falta una sola vez. Mientras no esté instalada, o con Opera cerrado, las teclas funcionan como antes.\n- Android: mismo código que la 0.1.21."
       },
       "locales": {
         "en": {
@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1025,
-        "versionName": "0.1.25",
+        "versionCode": 1026,
+        "versionName": "0.1.26",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.25/books.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.26/books.apk",
         "size": 10538223,
-        "sha256": "1a695c9199c0ae7077e64f4b9ec20fe79ef68890288bf2215138c123bf2211c8",
+        "sha256": "e40602578bdaf51b9deef7f90eabbc2bb7d871b8d27a718f8b98220cf9117e27",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.25\r\n\r\n- El aviso «Deshacer» (marcadores, subrayados y colores) se muestra completo por encima de la barra de controles; antes quedaba parcialmente tapado por ella."
+        "changelog": "Books 0.1.26\r\n\r\n- El botón ↕ ahora pasa las páginas solo, con la animación normal de página. Una línea muy tenue en el borde inferior confirma que está activo unos segundos al empezar y avisa en los últimos 3 segundos antes de cada cambio; el resto del tiempo no se ve. Antes avanzaba tan despacio que parecía no hacer nada. Se detiene al tocar la pantalla, al llegar al final del libro o al salir de la app; también funciona en PDF.\r\n- La velocidad se ajusta en Ajustes > Controles como «Segundos por página» (de 4 a 160 s)."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 62
+  "revision": 64
 }
