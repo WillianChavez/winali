@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1023,
-        "versionName": "0.1.23",
+        "versionCode": 1024,
+        "versionName": "0.1.24",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.23/deck.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.24/deck.apk",
         "size": 3843478,
-        "sha256": "c838d6ddd2b28baae3c10b3f5214a035cb01c961cec02235ea1a28197f855d31",
+        "sha256": "66a45cfef81bf6387559258520b732e78e8b02018cef4cddba51d1e6bac8f6a0",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.23\n\n- Varias teclas pueden ejecutarse a la vez: ya no aparece «Otra acción sigue en curso en la PC» al pulsar volumen, pausa u otra tecla mientras se cambia de lista. Como máximo corren 8 acciones juntas.\n- Las teclas de teclado, texto y multimedia se envían de una en una para que no se mezclen. Si pulsas varias listas seguidas, solo se abre la última.\n- Android: mismo código que la 0.1.22."
+        "changelog": "Deck 0.1.24\r\n\r\n- Windows: Deck sigue el tema claro u oscuro de Windows. En ☰ → Tema puedes elegir Sistema, Claro u Oscuro. Los menús ya no llevan emojis y el botón de guardar dice «Guardar perfil».\r\n- Windows: las imágenes de las teclas se guardan como archivos junto a los ajustes. Guardar un perfil es más rápido y las imágenes que ya no usa ninguna tecla se borran solas. Los ajustes de versiones anteriores se abren sin cambios.\r\n- Windows: guardar los ajustes ya no hace esperar al teléfono ni al editor.\r\n- Android: el perfil de arranque se actualizó para las pantallas nuevas de conexión, ajustes y emparejamiento."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 66
+  "revision": 67
 }
