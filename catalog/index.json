@@ -208,8 +208,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1022,
-        "versionName": "0.1.22",
+        "versionCode": 1023,
+        "versionName": "0.1.23",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +217,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.22/deck.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.23/deck.apk",
         "size": 3843478,
-        "sha256": "2bf730dee77e5db4eb79508649c15b41b9468b3a654ad2d9fa9398c006a5b28e",
+        "sha256": "c838d6ddd2b28baae3c10b3f5214a035cb01c961cec02235ea1a28197f855d31",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.22\n\n- Extensión de Opera para YouTube Music (opcional): con ella, las teclas de lista cambian de lista en tu pestaña de Opera, con tu sesión y tus extensiones, en unos 3 segundos y sin escribir la dirección, sin pegar nada, sin preguntas de salir y sin traer Opera al frente. Deja la lista en aleatorio y con la repetición activada, y solo responde cuando la música ya suena. Solo puede tocar music.youtube.com y solo habla con Deck en esta PC.\n- Para instalarla: ☰ → «Extensión de Opera» abre su carpeta; en opera://extensions activa el modo de desarrollador y carga esa carpeta. Hace falta una sola vez. Mientras no esté instalada, o con Opera cerrado, las teclas funcionan como antes.\n- Android: mismo código que la 0.1.21."
+        "changelog": "Deck 0.1.23\n\n- Varias teclas pueden ejecutarse a la vez: ya no aparece «Otra acción sigue en curso en la PC» al pulsar volumen, pausa u otra tecla mientras se cambia de lista. Como máximo corren 8 acciones juntas.\n- Las teclas de teclado, texto y multimedia se envían de una en una para que no se mezclen. Si pulsas varias listas seguidas, solo se abre la última.\n- Android: mismo código que la 0.1.22."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 64
+  "revision": 65
 }
