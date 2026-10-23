@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1004,
-        "versionName": "0.1.4",
+        "versionCode": 1005,
+        "versionName": "0.1.5",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.4/focus.apk",
-        "size": 1546633,
-        "sha256": "b35623c68ac38f4b6aaf1d265d523f12599a721fbdd907f62e9ba143bda84580",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.5/focus.apk",
+        "size": 1546705,
+        "sha256": "199fc0ea12262e006e439a064e84ae33c3981738115885bcfa17931bb9faafa9",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.4\n\n- Nuevo icono de la aplicación, con mejor lectura en launcher, tema monocromo y ficha de la tienda."
+        "changelog": "# Focus 0.1.5\n\n- Añadida una bandeja de notas rápidas temporal accesible desde los bordes de la pantalla, incluso sobre otras apps.\n- Las notas desaparecen al completarlas o al llegar su hora; las notas recurrentes vuelven según su configuración.\n- La configuración de cada nota rápida se abre desde la propia bandeja y los reportes permanecen dentro de Ajustes.\n- Añadido onboarding guiado para explicar el acceso lateral y el permiso de mostrar sobre otras apps."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 71
+  "revision": 72
 }
