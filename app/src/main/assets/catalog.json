@@ -250,8 +250,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1026,
-        "versionName": "0.1.26",
+        "versionCode": 1027,
+        "versionName": "0.1.27",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +259,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.26/books.apk",
-        "size": 10538223,
-        "sha256": "e40602578bdaf51b9deef7f90eabbc2bb7d871b8d27a718f8b98220cf9117e27",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.27/books.apk",
+        "size": 10538395,
+        "sha256": "c7103e64c2078fd436c48723da8973ee0905bb2e8f9a15729661d6ca9da56e0f",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.26\r\n\r\n- El botón ↕ ahora pasa las páginas solo, con la animación normal de página. Una línea muy tenue en el borde inferior confirma que está activo unos segundos al empezar y avisa en los últimos 3 segundos antes de cada cambio; el resto del tiempo no se ve. Antes avanzaba tan despacio que parecía no hacer nada. Se detiene al tocar la pantalla, al llegar al final del libro o al salir de la app; también funciona en PDF.\r\n- La velocidad se ajusta en Ajustes > Controles como «Segundos por página» (de 4 a 160 s)."
+        "changelog": "Books 0.1.27\r\n\r\n- En libros escaneados con OCR, el índice impreso se muestra con una línea por capítulo, puntos guía y el número de página a la derecha, en lugar de un párrafo corrido.\r\n- Las enumeraciones numeradas dentro del texto («…reglas: 1. Una. 2. Otra. 3. …») se muestran como lista numerada con sangría francesa."
       },
       "locales": {
         "en": {
@@ -278,5 +278,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 65
+  "revision": 66
 }
