@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1010,
-        "versionName": "0.1.10",
+        "versionCode": 1011,
+        "versionName": "0.1.11",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.10/focus.apk",
-        "size": 1794765,
-        "sha256": "42caefa7741eab46b4c61d1125ecbe158d8d9c3f3496adb99ac56d79ecf6c923",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.11/focus.apk",
+        "size": 2027093,
+        "sha256": "71dc7b503149e048f89c622d83ef75e1e2a2a8b0038240ae15706be00587fe2d",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.10\r\n\r\n- Mueve la barra lateral hacia arriba o abajo, directamente o manteniéndola presionada, sin abrir las notas por pequeños movimientos involuntarios.\r\n- Ajusta la transparencia del fondo de Notas en Ajustes.\r\n- El fondo ocupa también las zonas superior e inferior, conservando los controles fuera de las barras del sistema.\r\n- Notas abre directamente el listado, sin introducciones ni un campo de escritura permanente. Usa + para añadir.\r\n- Tarjetas redondeadas, texto con más énfasis y editor sin recuadros de borde. Fondo desenfocado en los dispositivos que lo permiten.\r\n- El gesto Atrás oculta primero el teclado; otro gesto cierra el panel. No se vuelve a abrir el teclado al terminar de guardar."
+        "changelog": "# Focus 0.1.11\r\n\r\n- Nuevo icono 3D azul y cian, con cronómetro y marca de verificación.\r\n- El panel flotante usa solo desenfoque por defecto, sin una capa blanca o negra. Puedes recuperar el fondo del tema con transparencia desde Ajustes.\r\n- La barra lateral es más clara y tiene una zona táctil amplia alrededor, también en Pequeña y Mediana: ya no hace falta acertar sobre la línea para moverla.\r\n- El círculo de añadir es más pequeño. Al guardar una nota se cierran el campo y el teclado.\r\n- Inicia el Pomodoro desde Play en una tarea o nota del panel: Focus se abre con su título y el contador empieza automáticamente.\r\n- Las tareas muestran los Pomodoros completados y previstos, y la duración por sesión. Toca su título para editar; usa la casilla para completar.\r\n- Una sesión ya iniciada no se sustituye por otra sin aviso. Las notas siguen siendo temporales y no se convierten en tareas al iniciar su Pomodoro.\r\n- Las opciones de copiar y convertir siguen disponibles al mantener presionada la nota o desde Más opciones en su editor."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 78
+  "revision": 79
 }
