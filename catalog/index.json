@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1007,
-        "versionName": "0.1.7",
+        "versionCode": 1008,
+        "versionName": "0.1.8",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.7/focus.apk",
-        "size": 1546709,
-        "sha256": "1c1d956358fa09ee8c2c5f6c437cb2a5b998354456bad5e6a8810e324e9ae2f2",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.8/focus.apk",
+        "size": 1546705,
+        "sha256": "4bce9456b9c7aa6acdc3aa05caa7b77400a9ee17bb6f516d80f2ade4ff08df20",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.7\r\n\r\n- Las notas rápidas se abren únicamente deslizando desde la barra pequeña.\r\n- El área táctil coincide con el ancho y alto de la barra: el resto del borde queda libre para Atrás y otros gestos.\r\n- La barra conserva el movimiento vertical, la posición guardada y el cambio de lado."
+        "changelog": "# Focus 0.1.8\r\n\r\n- Las notas rápidas ocupan toda el área disponible, sin márgenes ni bordes de tarjeta y respetando las barras del sistema.\r\n- Desliza la ventana hacia el borde de origen para cerrarla; el contenido sigue el movimiento del dedo.\r\n- Fondo uniforme según el tema Claro, Oscuro o Auto seleccionado en Focus.\r\n- Interfaz más limpia, con los controles agrupados arriba y más espacio para las notas.\r\n- La apertura sigue limitada a la barrita y el gesto de cierre respeta el desplazamiento vertical y la edición de texto."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 74
+  "revision": 75
 }
