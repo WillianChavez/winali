@@ -18,8 +18,8 @@
         "Guardar archivos en la carpeta que elijas"
       ],
       "release": {
-        "versionCode": 1001,
-        "versionName": "0.1.1",
+        "versionCode": 1002,
+        "versionName": "0.1.2",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -27,11 +27,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/apk/0.1.1/apk.apk",
-        "size": 1360227,
-        "sha256": "238cb6a7f12297e6847fe9d42180f5b6a47a0e89308bd32924c974cee483bb3b",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/apk/0.1.2/apk.apk",
+        "size": 1360263,
+        "sha256": "ab3c8c01f5788bf6166d9fc0f23a5789a13198e282f9080aa8398b8da44041ce",
         "certificateSha256": "1eaecbe9d84ef2571b66bad83e3d1bc1cf13f7215351d5615b7c24d737fffaf5",
-        "changelog": "Optimización: R8 y reducción de recursos en release (APK firmado de 11,9 MB a 1,3 MB), iconos propios en lugar de la biblioteca extendida, Baseline Profile, UID y botón para abrir la app en el detalle.\n\nNovedades: pantalla de detalle completa (origen de instalación, SDK mínimo y objetivo, permisos concedidos), orden por nombre, tamaño, fecha de instalación y de actualización, extracción por lote con progreso y cancelación, exportación de iconos a carpeta o por compartir, vista previa del formato de nombre, nombres únicos dentro de un lote, ajustes en pantalla propia, idioma por defecto según el sistema.\n\nMejoras de exportación: conserva la extensión .apks, admite nombres largos con caracteres internacionales y evita que dos apps compartidas con el mismo nombre sobrescriban sus archivos."
+        "changelog": "# APK 0.1.2\r\n\r\n- Nuevo icono de la aplicación, con mejor lectura en launcher, tema monocromo y ficha de la tienda."
       },
       "locales": {
         "en": {
@@ -43,14 +43,15 @@
             "Save files in a folder you choose"
           ]
         }
-      }
+      },
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/apk-3d.png"
     },
     {
       "id": "focus",
       "packageName": "io.github.willianchavez.focus",
       "name": "Focus",
       "summary": "Organiza tus tareas y encuentra tu ritmo.",
-      "description": "Tareas, subtareas, proyectos, etiquetas, Pomodoros, descansos, calendario, reportes y un bosque que crece con tu progreso. Los datos se guardan solo en tu dispositivo.",
+      "description": "Tareas, notas rápidas temporales, subtareas, proyectos, etiquetas, Pomodoros, descansos, calendario y reportes. Los datos se guardan solo en tu dispositivo.",
       "category": "Productividad",
       "repository": "https://github.com/WillianChavez/winali",
       "screenshots": [
@@ -64,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1002,
-        "versionName": "0.1.2",
+        "versionCode": 1010,
+        "versionName": "0.1.10",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -73,23 +74,24 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.2/focus.apk",
-        "size": 1530237,
-        "sha256": "1d420e4fb63bed6ccefa5469daf8559bc509fca46449fb141f354994d30e66a5",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.10/focus.apk",
+        "size": 1794765,
+        "sha256": "42caefa7741eab46b4c61d1125ecbe158d8d9c3f3496adb99ac56d79ecf6c923",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "- Modo boca abajo: durante la concentración, si el teléfono no está boca abajo, Focus muestra «Pon el teléfono boca abajo» y suena un aviso hasta que lo voltees. Hay 10 segundos para dejarlo al empezar. Se puede desactivar en Ajustes.\n- Pantalla del temporizador rediseñada: todo cabe sin desplazarse, también con texto ampliado.\n- Ajustes: el sonido ambiente y el tono de finalización marcan la opción elegida al tocarla."
+        "changelog": "# Focus 0.1.10\r\n\r\n- Mueve la barra lateral hacia arriba o abajo, directamente o manteniéndola presionada, sin abrir las notas por pequeños movimientos involuntarios.\r\n- Ajusta la transparencia del fondo de Notas en Ajustes.\r\n- El fondo ocupa también las zonas superior e inferior, conservando los controles fuera de las barras del sistema.\r\n- Notas abre directamente el listado, sin introducciones ni un campo de escritura permanente. Usa + para añadir.\r\n- Tarjetas redondeadas, texto con más énfasis y editor sin recuadros de borde. Fondo desenfocado en los dispositivos que lo permiten.\r\n- El gesto Atrás oculta primero el teclado; otro gesto cierra el panel. No se vuelve a abrir el teclado al terminar de guardar."
       },
       "locales": {
         "en": {
           "summary": "Organize your tasks and find your rhythm.",
-          "description": "Tasks, subtasks, projects, tags, Pomodoros, breaks, calendar, reports and a forest that grows with your progress. Data is stored only on your device.",
+          "description": "Tasks, temporary quick notes, subtasks, projects, tags, Pomodoros, breaks, calendar and reports. Data is stored only on your device.",
           "category": "Productivity",
           "permissions": [
             "Optional notifications and reminders",
             "Concentration access only when you enable it"
           ]
         }
-      }
+      },
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/focus-3d.png"
     },
     {
       "id": "read",
@@ -112,8 +114,8 @@
         "Fotos al convertir imágenes"
       ],
       "release": {
-        "versionCode": 1003,
-        "versionName": "0.1.3",
+        "versionCode": 1004,
+        "versionName": "0.1.4",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -121,11 +123,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/read/0.1.3/read.apk",
-        "size": 9298254,
-        "sha256": "282f0ad9dc572b3c74e80e4f70a0d7d65ee831cfb38338e601c92c786aa58f18",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/read/0.1.4/read.apk",
+        "size": 9298286,
+        "sha256": "4afe07c3df40ef0dacd944008af4ca6fe3afd1c655925769c7e25c44cfe977d5",
         "certificateSha256": "dd6ee4514740d45beab6a092b117c57d5f3e51cde311dcc0c92ac71cb6d78b99",
-        "changelog": "Read 0.1.3\n\n- Cabecera de lectura más compacta, sin el espacio adicional bajo la barra de estado.\n- El zoom con dos dedos conserva el punto señalado y permite mover el documento mientras lo amplías.\n- Doble toque para ampliar una zona y volver al ancho de página.\n- Las páginas conservan su imagen durante el gesto y recuperan nitidez al terminar de ampliar.\n- Zoom de imágenes centrado en los dedos y desplazamiento limitado a sus bordes."
+        "changelog": "# Read 0.1.4\n\n- Nuevo icono de la aplicación, con mejor lectura en launcher, tema monocromo y ficha de la tienda."
       },
       "locales": {
         "en": {
@@ -139,7 +141,7 @@
           ]
         }
       },
-      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/read.png"
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/read-3d.png"
     },
     {
       "id": "winali",
@@ -161,8 +163,8 @@
         "Notificaciones opcionales"
       ],
       "release": {
-        "versionCode": 1002,
-        "versionName": "0.1.2",
+        "versionCode": 1003,
+        "versionName": "0.1.3",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -170,11 +172,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/winali/0.1.2/winali.apk",
-        "size": 1428854,
-        "sha256": "6bf663a499014916164ee3e76dfbd2b338676e32f8e7e1287183f62bf1c39351",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/winali/0.1.3/winali.apk",
+        "size": 1429414,
+        "sha256": "f5c397da07417272f5864afa491a0b702e8cf0a1096af595e448878859091c19",
         "certificateSha256": "9f497c6ba4e2838e0a472a9b9c99ffc12692777b221c84209f2e2c367b45072d",
-        "changelog": "Cada app muestra su propio icono en la tienda. Nuevas apps en el catálogo: Read y Deck."
+        "changelog": "Nuevos iconos para Winali y las aplicaciones del catálogo, con mejor lectura en launcher, tema monocromo y fichas visuales coherentes."
       },
       "locales": {
         "en": {
@@ -188,7 +190,8 @@
             "Optional notifications"
           ]
         }
-      }
+      },
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/winali-3d.png"
     },
     {
       "id": "deck",
@@ -208,8 +211,8 @@
         "Cámara, solo al escanear el código QR"
       ],
       "release": {
-        "versionCode": 1015,
-        "versionName": "0.1.15",
+        "versionCode": 1024,
+        "versionName": "0.1.24",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -217,11 +220,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.15/deck.apk",
-        "size": 3724062,
-        "sha256": "c09697b0797eae1234e1ef863a73e3a2b9877f70fcccc1701952dd0aa0faf389",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/deck/0.1.24/deck.apk",
+        "size": 3843478,
+        "sha256": "66a45cfef81bf6387559258520b732e78e8b02018cef4cddba51d1e6bac8f6a0",
         "certificateSha256": "208bf7a7a1b7c207bc2a8e0bb483a30fce3b4cdaad488b88c2927f6965a70ca8",
-        "changelog": "Deck 0.1.15\n\n- Pestaña web: nueva acción para que una tecla cambie lo que reproduce la pestaña que ya está abierta en lugar de abrir otra cada vez. Usa la primera pestaña del navegador (Opera, Chrome o Edge) cuyo título contiene el texto que elijas; si el navegador está cerrado lo abre y busca esa pestaña entre las que restaura, y si no hay ninguna abre una nueva. Contesta solo la pregunta «¿Salir del sitio?» y puede dejar YouTube Music repitiendo toda la lista (interfaz en español). También puede solo mostrar la pestaña sin cambiar lo que suena.\n- Editor de Windows: arrastra una tecla, o una acción de la lista, hasta el borde de la cuadrícula o hasta una flecha de página y espera un momento: la página cambia con una animación y puedes soltarla en otra página. Al final de la última página se ofrece una página nueva.\n- Editor de Windows: desliza sobre las teclas vacías, o con dos dedos en el panel táctil, para cambiar de página.\n- Editor de Windows: copia una tecla con «Copiar» o Ctrl+C y pégala con «Pegar» o Ctrl+V. La copia es una tecla nueva en el primer hueco libre de la página, o en el hueco vacío que elijas.\n- Android: al pulsar una tecla se hunde y se ilumina de forma visible, y una tecla con acción al mantener muestra un anillo que se llena hasta que cuenta la pulsación larga.\n- La dirección de una pestaña web admite hasta 1024 caracteres."
+        "changelog": "Deck 0.1.24\r\n\r\n- Windows: Deck sigue el tema claro u oscuro de Windows. En ☰ → Tema puedes elegir Sistema, Claro u Oscuro. Los menús ya no llevan emojis y el botón de guardar dice «Guardar perfil».\r\n- Windows: las imágenes de las teclas se guardan como archivos junto a los ajustes. Guardar un perfil es más rápido y las imágenes que ya no usa ninguna tecla se borran solas. Los ajustes de versiones anteriores se abren sin cambios.\r\n- Windows: guardar los ajustes ya no hace esperar al teléfono ni al editor.\r\n- Android: el perfil de arranque se actualizó para las pantallas nuevas de conexión, ajustes y emparejamiento."
       },
       "locales": {
         "en": {
@@ -250,8 +253,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1023,
-        "versionName": "0.1.23",
+        "versionCode": 1027,
+        "versionName": "0.1.27",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -259,11 +262,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.23/books.apk",
-        "size": 10521839,
-        "sha256": "b321146964cebcf59ce5936931e78db8d7ca7ad63cc1394e45b1be539ec32779",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.27/books.apk",
+        "size": 10538395,
+        "sha256": "c7103e64c2078fd436c48723da8973ee0905bb2e8f9a15729661d6ca9da56e0f",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.23\r\n\r\n- Seis fuentes de lectura incluidas en la app, de licencia libre y sin necesidad de conexión: Literata, Source Serif 4, Lora, Crimson Pro, Atkinson Hyperlegible y Lexend. Se eligen en Ajustes > Texto > Tipografía.\r\n- Cuatro temas nuevos: Calma, Enfoque, Silencio y Negrita.\r\n- Letra capital opcional al inicio de cada capítulo (Ajustes > Texto).\r\n- La lectura en voz alta resalta la frase que se lee si el motor de voz lo permite, empieza por la página que tienes delante y el menú de la selección tiene «Leer desde aquí».\r\n- Los bordes del editor de zonas de toque tienen etiqueta, valor y acciones para ensanchar o estrechar con TalkBack."
+        "changelog": "Books 0.1.27\r\n\r\n- En libros escaneados con OCR, el índice impreso se muestra con una línea por capítulo, puntos guía y el número de página a la derecha, en lugar de un párrafo corrido.\r\n- Las enumeraciones numeradas dentro del texto («…reglas: 1. Una. 2. Otra. 3. …») se muestran como lista numerada con sangría francesa."
       },
       "locales": {
         "en": {
@@ -275,8 +278,8 @@
           ]
         }
       },
-      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 54
+  "revision": 78
 }

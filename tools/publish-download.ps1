@@ -24,7 +24,7 @@ $versionDirectory = Join-Path $downloadsRepo "apps\$App\$Version"
 $latestDirectory = Join-Path $downloadsRepo "apps\$App\latest"
 
 if (!(Test-Path -LiteralPath $apk) -or !(Test-Path -LiteralPath $sourceManifest)) { throw "Missing release artifacts in $artifactDirectory" }
-$manifest = Get-Content -LiteralPath $sourceManifest -Raw | ConvertFrom-Json
+$manifest = Get-Content -LiteralPath $sourceManifest -Raw -Encoding UTF8 | ConvertFrom-Json
 if ($manifest.release.versionName -ne $Version) { throw 'The release manifest version does not match -Version.' }
 $manifest.release.url = "https://willianchavez.github.io/winali-downloads/apps/$App/$Version/$App.apk"
 $manifestText = $manifest | ConvertTo-Json -Depth 20
@@ -42,7 +42,14 @@ try {
     Copy-Item -LiteralPath (Join-Path $projectRoot 'catalog\index.json') -Destination (Join-Path $downloadsRepo 'catalog.json') -Force
 } finally { Pop-Location }
 
-git -C $downloadsRepo add --all
-git -C $downloadsRepo commit -m "Publish $App $Version binary"
-if ($Push) { git -C $downloadsRepo push }
+# Git writes line-ending warnings to stderr; Windows PowerShell 5.1 would turn them into terminating errors, so check exit codes instead.
+function Invoke-Git {
+    $previous = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try { & git -C $downloadsRepo @args 2>&1 | ForEach-Object { "$_" } | Write-Host } finally { $ErrorActionPreference = $previous }
+    if ($LASTEXITCODE -ne 0) { throw "git $($args -join ' ') failed." }
+}
+Invoke-Git add --all
+Invoke-Git commit -m "Publish $App $Version binary"
+if ($Push) { Invoke-Git push }
 Write-Output "Prepared $App $Version in $downloadsRepo. Catalog and embedded catalog were updated locally; root changes still need review and commit."

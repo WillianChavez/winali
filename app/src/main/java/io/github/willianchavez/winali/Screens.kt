@@ -573,12 +573,15 @@ fun AppMark(app: CatalogApp, size: Int) {
     val shape = Modifier.size(size.dp).clip(RoundedCornerShape((size / 4).dp))
     val bundled =
         when (app.id) {
-            "apk" -> R.drawable.app_icon_apk
-            "focus" -> R.drawable.app_icon_focus
-            "winali" -> R.drawable.app_icon_winali
+            "apk" -> R.drawable.catalog_icon_apk
+            "focus" -> R.drawable.catalog_icon_focus
+            "winali" -> R.drawable.catalog_icon_winali
+            "read" -> R.drawable.catalog_icon_read
+            "books" -> R.drawable.catalog_icon_books
+            "deck" -> R.drawable.catalog_icon_deck
             else -> null
         }
-    // Each app's own icon from the catalog; bundled copies keep the first apps available offline.
+    // Bundled copies keep every current catalog app recognizable on first launch offline.
     var bitmap by remember(app.icon) { mutableStateOf(app.icon?.let { IconCache.get(it) }) }
     LaunchedEffect(app.icon) {
         val url = app.icon ?: return@LaunchedEffect
