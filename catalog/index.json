@@ -44,7 +44,7 @@
           ]
         }
       },
-      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/apk.png"
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/apk-3d.png"
     },
     {
       "id": "focus",
@@ -91,7 +91,7 @@
           ]
         }
       },
-      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/focus.png"
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/focus-3d.png"
     },
     {
       "id": "read",
@@ -141,7 +141,7 @@
           ]
         }
       },
-      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/read.png"
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/read-3d.png"
     },
     {
       "id": "winali",
@@ -191,7 +191,7 @@
           ]
         }
       },
-      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/winali.png"
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/winali-3d.png"
     },
     {
       "id": "deck",
@@ -278,8 +278,8 @@
           ]
         }
       },
-      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
+      "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 77
+  "revision": 78
 }

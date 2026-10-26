@@ -93,9 +93,9 @@ class CatalogParsingTest {
     @Test fun appIconIsOptionalButMustBeHttps() {
         val apps = parse(catalog()).associateBy { it.id }
         assertEquals("https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/deck.png", apps.getValue("deck").icon)
-        assertEquals("https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/apk.png", apps.getValue("apk").icon)
-        assertEquals("https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/focus.png", apps.getValue("focus").icon)
-        assertEquals("https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/winali.png", apps.getValue("winali").icon)
+        for (id in listOf("apk", "focus", "winali", "read", "books")) {
+            assertEquals("https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/$id-3d.png", apps.getValue(id).icon)
+        }
         rejected(mutated { it.put("icon", "http://example.com/icon.png") })
         val again = parseApp(apps.getValue("deck").json(), allowLoopback = false)
         assertEquals(apps.getValue("deck"), again)
