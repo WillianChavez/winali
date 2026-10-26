@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1005,
-        "versionName": "0.1.5",
+        "versionCode": 1006,
+        "versionName": "0.1.6",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.5/focus.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.6/focus.apk",
         "size": 1546705,
-        "sha256": "199fc0ea12262e006e439a064e84ae33c3981738115885bcfa17931bb9faafa9",
+        "sha256": "bf48aa1d62632e2f4d8ee0c77fbde123e83795c908634a0f9718fb0f2a66d76c",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.5\n\n- Añadida una bandeja de notas rápidas temporal accesible desde los bordes de la pantalla, incluso sobre otras apps.\n- Las notas desaparecen al completarlas o al llegar su hora; las notas recurrentes vuelven según su configuración.\n- La configuración de cada nota rápida se abre desde la propia bandeja y los reportes permanecen dentro de Ajustes.\n- Añadido onboarding guiado para explicar el acceso lateral y el permiso de mostrar sobre otras apps."
+        "changelog": "# Focus 0.1.6\n\n- Una sola barra de notas rápidas, pequeña, gris y translúcida, a la izquierda por defecto.\n- Arrastra la barra hacia arriba o abajo para recolocarla; su altura queda guardada.\n- Cambia la barra al lado derecho desde la propia bandeja.\n- Abre las notas deslizando hacia dentro a cualquier altura del borde elegido.\n- Panel translúcido con apertura animada y controles más discretos, sin oscurecer toda la pantalla."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 72
+  "revision": 73
 }
