@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1009,
-        "versionName": "0.1.9",
+        "versionCode": 1010,
+        "versionName": "0.1.10",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.9/focus.apk",
-        "size": 1778381,
-        "sha256": "f7e05a91b3020c8d4689f77e87a24dcfd4704bc0de0020735781fd8725c48c68",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.10/focus.apk",
+        "size": 1794765,
+        "sha256": "42caefa7741eab46b4c61d1125ecbe158d8d9c3f3496adb99ac56d79ecf6c923",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.9\r\n\r\n- Toca el texto de una nota para editarla dentro de la misma ventana; usa la casilla para completarla y Deshacer para recuperarla.\r\n- Los borradores se conservan al cerrar o recrear la ventana. La captura permite varias líneas.\r\n- Abre Notas desde Focus sin activar la barra lateral ni conceder permisos adicionales.\r\n- La ventana flotante tiene un fondo translúcido en ambos temas, dejando ver la app de detrás sin atenuar el texto.\r\n- Configura el lado y tamaño visible de la barra en Ajustes. La apertura sigue limitada a la barra, sigue el dedo y puede cancelarse.\r\n- Las fechas explican cuándo se eliminará o renovará la nota; la repetición muestra días e intervalos concretos.\r\n- Copia una nota o conviértela en tarea desde sus acciones. Las tareas del panel aparecen en una sección plegable.\r\n- Iconos unificados, ayudas contextuales, filtros útiles y acceso a reportes desde Concentración."
+        "changelog": "# Focus 0.1.10\r\n\r\n- Mueve la barra lateral hacia arriba o abajo, directamente o manteniéndola presionada, sin abrir las notas por pequeños movimientos involuntarios.\r\n- Ajusta la transparencia del fondo de Notas en Ajustes.\r\n- El fondo ocupa también las zonas superior e inferior, conservando los controles fuera de las barras del sistema.\r\n- Notas abre directamente el listado, sin introducciones ni un campo de escritura permanente. Usa + para añadir.\r\n- Tarjetas redondeadas, texto con más énfasis y editor sin recuadros de borde. Fondo desenfocado en los dispositivos que lo permiten.\r\n- El gesto Atrás oculta primero el teclado; otro gesto cierra el panel. No se vuelve a abrir el teclado al terminar de guardar."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 76
+  "revision": 77
 }
