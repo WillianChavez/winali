@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1008,
-        "versionName": "0.1.8",
+        "versionCode": 1009,
+        "versionName": "0.1.9",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.8/focus.apk",
-        "size": 1546705,
-        "sha256": "4bce9456b9c7aa6acdc3aa05caa7b77400a9ee17bb6f516d80f2ade4ff08df20",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.9/focus.apk",
+        "size": 1778381,
+        "sha256": "f7e05a91b3020c8d4689f77e87a24dcfd4704bc0de0020735781fd8725c48c68",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.8\r\n\r\n- Las notas rápidas ocupan toda el área disponible, sin márgenes ni bordes de tarjeta y respetando las barras del sistema.\r\n- Desliza la ventana hacia el borde de origen para cerrarla; el contenido sigue el movimiento del dedo.\r\n- Fondo uniforme según el tema Claro, Oscuro o Auto seleccionado en Focus.\r\n- Interfaz más limpia, con los controles agrupados arriba y más espacio para las notas.\r\n- La apertura sigue limitada a la barrita y el gesto de cierre respeta el desplazamiento vertical y la edición de texto."
+        "changelog": "# Focus 0.1.9\r\n\r\n- Toca el texto de una nota para editarla dentro de la misma ventana; usa la casilla para completarla y Deshacer para recuperarla.\r\n- Los borradores se conservan al cerrar o recrear la ventana. La captura permite varias líneas.\r\n- Abre Notas desde Focus sin activar la barra lateral ni conceder permisos adicionales.\r\n- La ventana flotante tiene un fondo translúcido en ambos temas, dejando ver la app de detrás sin atenuar el texto.\r\n- Configura el lado y tamaño visible de la barra en Ajustes. La apertura sigue limitada a la barra, sigue el dedo y puede cancelarse.\r\n- Las fechas explican cuándo se eliminará o renovará la nota; la repetición muestra días e intervalos concretos.\r\n- Copia una nota o conviértela en tarea desde sus acciones. Las tareas del panel aparecen en una sección plegable.\r\n- Iconos unificados, ayudas contextuales, filtros útiles y acceso a reportes desde Concentración."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books.png"
     }
   ],
-  "revision": 75
+  "revision": 76
 }
