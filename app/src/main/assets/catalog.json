@@ -163,8 +163,8 @@
         "Notificaciones opcionales"
       ],
       "release": {
-        "versionCode": 1003,
-        "versionName": "0.1.3",
+        "versionCode": 1004,
+        "versionName": "0.1.4",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -172,11 +172,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/winali/0.1.3/winali.apk",
-        "size": 1429414,
-        "sha256": "f5c397da07417272f5864afa491a0b702e8cf0a1096af595e448878859091c19",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/winali/0.1.4/winali.apk",
+        "size": 2013678,
+        "sha256": "f190047a9eb1840cecaf34c6513b0e9a713f36a67b994ffaa8f0769c0cb75f3b",
         "certificateSha256": "9f497c6ba4e2838e0a472a9b9c99ffc12692777b221c84209f2e2c367b45072d",
-        "changelog": "Nuevos iconos para Winali y las aplicaciones del catálogo, con mejor lectura en launcher, tema monocromo y fichas visuales coherentes."
+        "changelog": "- Nuevo icono 3D azul y cian para Winali.\n- Fichas del catálogo con los nuevos iconos de APK, Focus, Read y Books, y copias locales de los seis iconos disponibles sin conexión.\n- Actualizaciones de las apps del catálogo sin reinstalar la tienda."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 80
+  "revision": 81
 }
