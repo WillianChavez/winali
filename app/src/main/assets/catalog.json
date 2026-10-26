@@ -18,8 +18,8 @@
         "Guardar archivos en la carpeta que elijas"
       ],
       "release": {
-        "versionCode": 1002,
-        "versionName": "0.1.2",
+        "versionCode": 1004,
+        "versionName": "0.1.4",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -27,11 +27,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/apk/0.1.2/apk.apk",
-        "size": 1360263,
-        "sha256": "ab3c8c01f5788bf6166d9fc0f23a5789a13198e282f9080aa8398b8da44041ce",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/apk/0.1.4/apk.apk",
+        "size": 1582079,
+        "sha256": "0396195db934f9a52fb7871e0aba06725f55aee4300210d125acb80ccbe7a40d",
         "certificateSha256": "1eaecbe9d84ef2571b66bad83e3d1bc1cf13f7215351d5615b7c24d737fffaf5",
-        "changelog": "# APK 0.1.2\r\n\r\n- Nuevo icono de la aplicación, con mejor lectura en launcher, tema monocromo y ficha de la tienda."
+        "changelog": "# APK 0.1.4\r\n\r\n- Nuevo icono 3D azul y cian, con caja y flecha de extracción.\r\n- Icono adaptativo y versión monocroma para los temas de Android."
       },
       "locales": {
         "en": {
@@ -253,8 +253,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1027,
-        "versionName": "0.1.27",
+        "versionCode": 1028,
+        "versionName": "0.1.28",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -262,11 +262,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.27/books.apk",
-        "size": 10538395,
-        "sha256": "c7103e64c2078fd436c48723da8973ee0905bb2e8f9a15729661d6ca9da56e0f",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.28/books.apk",
+        "size": 10765423,
+        "sha256": "6a91fedd2ad89d503266a02c8d2aa4ec9090a5c3d9ec58aa3549affcd767a05f",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "Books 0.1.27\r\n\r\n- En libros escaneados con OCR, el índice impreso se muestra con una línea por capítulo, puntos guía y el número de página a la derecha, en lugar de un párrafo corrido.\r\n- Las enumeraciones numeradas dentro del texto («…reglas: 1. Una. 2. Otra. 3. …») se muestran como lista numerada con sangría francesa."
+        "changelog": "# Books 0.1.28\r\n\r\n- Nuevo icono 3D azul y cian, con libro abierto, coordinado con las demás apps.\r\n- Conserva el icono monocromo para los temas de Android."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 79
+  "revision": 80
 }
