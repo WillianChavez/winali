@@ -98,7 +98,7 @@
       "packageName": "io.github.willianchavez.read",
       "name": "Read",
       "summary": "Lee, edita y convierte PDF y documentos.",
-      "description": "Abre PDF, Word, Excel, PowerPoint, OpenDocument, texto e imágenes, incluidos .doc, .xls y .ppt. Edita el texto de un PDF, añade texto e imágenes, anota y firma; une, divide, organiza, comprime y convierte. Escanea documentos con la cámara.",
+      "description": "Abre PDF, Word, Excel, PowerPoint, OpenDocument, texto e imágenes, incluidos .doc, .xls y .ppt. Conserva una copia completa de los adjuntos recibidos para guardarlos y compartirlos. Busca documentos desde Inicio, vuelve a los recientes y continúa en la última página. Edita el texto de un PDF, añade texto e imágenes, anota y firma; une, divide, organiza, comprime y convierte. Escanea documentos con la cámara.",
       "category": "Productividad",
       "repository": "https://github.com/WillianChavez/winali",
       "screenshots": [
@@ -114,8 +114,8 @@
         "Fotos al convertir imágenes"
       ],
       "release": {
-        "versionCode": 1004,
-        "versionName": "0.1.4",
+        "versionCode": 1005,
+        "versionName": "0.1.5",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -123,16 +123,16 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/read/0.1.4/read.apk",
-        "size": 9298286,
-        "sha256": "4afe07c3df40ef0dacd944008af4ca6fe3afd1c655925769c7e25c44cfe977d5",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/read/0.1.5/read.apk",
+        "size": 9530102,
+        "sha256": "6dd4fc2d4597dcae8e6354a10ad3af3d4be2e1e4d4990afb5aa14fdb184c6b8b",
         "certificateSha256": "dd6ee4514740d45beab6a092b117c57d5f3e51cde311dcc0c92ac71cb6d78b99",
-        "changelog": "# Read 0.1.4\n\n- Nuevo icono de la aplicación, con mejor lectura en launcher, tema monocromo y ficha de la tienda."
+        "changelog": "# Read 0.1.5\n\n- Los documentos recibidos de otras apps se conservan completos para volver a abrirlos, guardarlos y compartirlos.\n- Se evita guardar o compartir copias vacías y se muestran los errores de transferencia.\n- Inicio con buscador, acceso a escanear y últimos documentos en Continuar.\n- Los documentos paginados recuerdan la última página abierta.\n- Lector con el nombre del archivo visible y las acciones mejor organizadas.\n- Superficies más limpias en claro y oscuro, mejor separación de documentos y cuadrícula adaptada a letras grandes.\n- Nuevo icono azul y cian con volumen, a juego con la familia de apps."
       },
       "locales": {
         "en": {
           "summary": "Read, edit and convert PDFs and documents.",
-          "description": "Open PDF, Word, Excel, PowerPoint, OpenDocument, text and images, including .doc, .xls and .ppt. Edit PDF text, add text and images, annotate and sign; merge, split, organize, compress and convert. Scan documents with the camera.",
+          "description": "Open PDF, Word, Excel, PowerPoint, OpenDocument, text and images, including .doc, .xls and .ppt. Keep a complete copy of received attachments to save and share them. Search documents from Home, reopen recent files and continue on the last page. Edit PDF text, add text and images, annotate and sign; merge, split, organize, compress and convert. Scan documents with the camera.",
           "category": "Productivity",
           "permissions": [
             "All files access (optional) to list your documents",
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 82
+  "revision": 84
 }
