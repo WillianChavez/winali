@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1012,
-        "versionName": "0.1.12",
+        "versionCode": 1013,
+        "versionName": "0.1.13",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.12/focus.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.13/focus.apk",
         "size": 2043481,
-        "sha256": "f01c81a80e1230046fbbbf1f7c30034e345e8179a57e88976cf1b8671f4b7173",
+        "sha256": "cf06deae861be8b17532b26e09881056fe9cda2be99e2aa8e48005c02fabb37d",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.12\r\n\r\n- Al activar las notas desde el onboarding o Ajustes, una guía solicita Mostrar sobre otras apps y las notificaciones. Los permisos concedidos no se vuelven a pedir.\r\n- En Xiaomi, Redmi y POCO, la guía incluye el inicio automático, el bloqueo frente a Cerrar todo y accesos a los ajustes del teléfono. Estos ajustes requieren confirmación del usuario.\r\n- Quienes ya tengan notas activas en Xiaomi verán la guía una vez, sin repetir el onboarding completo.\r\n- Puedes elegir Ahora no o continuar sin notificaciones. La barra solo se activa al terminar la configuración con el permiso de superposición concedido."
+        "changelog": "# Focus 0.1.13\r\n\r\n- Marcar una tarea recurrente en Notas la retira hasta el día que corresponda, también sin Pomodoro.\r\n- Las repeticiones cada cierto número de días vuelven a las 00:00 del día previsto, contando desde el día de completarlas.\r\n- Las tareas muestran su repetición y los toques repetidos no generan duplicados.\r\n- Margen táctil de la barra de notas un poco más reducido, conservando el arrastre vertical."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 84
+  "revision": 85
 }
