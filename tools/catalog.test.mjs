@@ -1,11 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { validateCatalog, mergeRelease, saveCatalog, releaseTag } from './catalog.mjs';
+import { validateCatalog, mergeRelease, saveCatalog, releaseTag, releaseManifestUrl } from './catalog.mjs';
 import os from 'node:os';
 import path from 'node:path';
 const catalog=()=>JSON.parse(fs.readFileSync(new URL('../catalog/index.json',import.meta.url),'utf8'));
 const release={versionCode:1000,versionName:'0.1.0',minSdk:26,architectures:['universal'],url:'https://github.com/owner/app/releases/download/v0.1.0/app.apk',size:1024,sha256:'a'.repeat(64),certificateSha256:'b'.repeat(64),changelog:'First release'};
+test('release manifest sync URL bypasses stale CDN cache',()=>{
+  const url=releaseManifestUrl('focus',123);
+  assert.equal(url.origin,'https://willianchavez.github.io');
+  assert.equal(url.pathname,'/winali-downloads/apps/focus/latest/release.json');
+  assert.equal(url.searchParams.get('catalog_sync'),'123');
+});
 test('accepts the shipped catalog',()=>assert.equal(validateCatalog(catalog()).apps.length,6));
 test('rejects duplicate identities',()=>{const c=catalog();c.apps.push(c.apps[0]);assert.throws(()=>validateCatalog(c),/Duplicate/);});
 test('rejects unsupported schema',()=>assert.throws(()=>validateCatalog({...catalog(),schemaVersion:2}),/schemaVersion/));
