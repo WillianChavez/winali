@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1019,
-        "versionName": "0.1.19",
+        "versionCode": 1020,
+        "versionName": "0.1.20",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.19/focus.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.20/focus.apk",
         "size": 2140537,
-        "sha256": "d2cb6dfbc038018c259969ff79d925005065a5839f6ac83a2849e7a375a9dd9a",
+        "sha256": "eb39fd5cf2b084fc7e352d376a3afe2f2b9bc37d7250567c901d54101245c8e1",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.19\r\n\r\n- Notas rápidas usa filas más limpias; desliza a la derecha para iniciar el Pomodoro y a la izquierda para eliminar con opción de deshacer. La acción respeta el ajuste de vibración.\r\n- «Iniciar» vuelve a ser un botón de texto, sin fondo sólido. Se añadió 1 dp de separación a los controles de tareas."
+        "changelog": "# Focus 0.1.20\r\n\r\n- La barra de notas rápidas acompaña el dedo al abrirse y confirma con vibración al alcanzar el recorrido de apertura.\r\n- Se afinó la barra y se añadió un matiz oscuro suave al fondo desenfocado.\r\n\r\n# Focus 0.1.19\r\n\r\n- Notas rápidas usa filas más limpias; desliza a la derecha para iniciar el Pomodoro y a la izquierda para eliminar con opción de deshacer. La acción respeta el ajuste de vibración.\r\n- «Iniciar» vuelve a ser un botón de texto, sin fondo sólido. Se añadió 1 dp de separación a los controles de tareas."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 90
+  "revision": 91
 }
