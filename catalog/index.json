@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1021,
-        "versionName": "0.1.21",
+        "versionCode": 1022,
+        "versionName": "0.1.22",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.21/focus.apk",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.22/focus.apk",
         "size": 2140537,
-        "sha256": "85bb19b97fa0b0cf7e05983acacfaa383dbe7270791b468f308078e155a93fcc",
+        "sha256": "9234c44ceb9fbdd803f5fc20158950cf9d4db7d34fa5a4428503473ea5027b56",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.21\n\n- Las notas rápidas se abren al deslizar la barra hacia adentro; un toque ya no las abre."
+        "changelog": "# Focus 0.1.22\n\n- La barra de notas rápidas se oculta en horizontal y reaparece al volver a vertical."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 93
+  "revision": 94
 }
