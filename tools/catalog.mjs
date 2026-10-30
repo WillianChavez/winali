@@ -5,6 +5,11 @@ import { fileURLToPath } from 'node:url';
 export const STORE_REPOSITORY='https://github.com/WillianChavez/winali';
 export const DOWNLOADS_BASE_URL='https://willianchavez.github.io/winali-downloads';
 export function assert(condition, message) { if (!condition) throw new Error(message); }
+export function releaseManifestUrl(appId, nonce = Date.now()) {
+  const url=new URL(`${DOWNLOADS_BASE_URL}/apps/${appId}/latest/release.json`);
+  url.searchParams.set('catalog_sync',`${nonce}`);
+  return url;
+}
 export function https(value) { try {const url=new URL(value);return url.protocol==='https:' && !url.username && !url.password;}catch{return false;} }
 export function validateRelease(release) {
   assert(Number.isSafeInteger(release.versionCode) && release.versionCode>0,'Invalid versionCode');
@@ -75,7 +80,7 @@ async function main(){
     const ids=process.argv.slice(3);
     for(let i=0;i<catalog.apps.length;i++){
       const app=catalog.apps[i];if(ids.length && !ids.includes(app.id))continue;
-      const url=`${DOWNLOADS_BASE_URL}/apps/${app.id}/latest/release.json`;
+      const url=releaseManifestUrl(app.id);
       const response=await fetch(url,{signal:AbortSignal.timeout(30000)});
       assert(response.ok,`${app.id}: release manifest returned HTTP ${response.status}`);
       const text=await response.text();assert(text.length<=64000,'Release manifest too large');
