@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1013,
-        "versionName": "0.1.13",
+        "versionCode": 1014,
+        "versionName": "0.1.14",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.13/focus.apk",
-        "size": 2043481,
-        "sha256": "cf06deae861be8b17532b26e09881056fe9cda2be99e2aa8e48005c02fabb37d",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.14/focus.apk",
+        "size": 2140533,
+        "sha256": "7eed9ecaefa34e2f662acb294cd367033ae29a9ec7c11fb3c346019d7388c3e5",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.13\r\n\r\n- Marcar una tarea recurrente en Notas la retira hasta el día que corresponda, también sin Pomodoro.\r\n- Las repeticiones cada cierto número de días vuelven a las 00:00 del día previsto, contando desde el día de completarlas.\r\n- Las tareas muestran su repetición y los toques repetidos no generan duplicados.\r\n- Margen táctil de la barra de notas un poco más reducido, conservando el arrastre vertical."
+        "changelog": "# Focus 0.1.14\n\n- Las notas y tareas usan filas más compactas, títulos con más jerarquía y estados claros del temporizador.\n- Al completar una tarea recurrente, vuelve a aparecer en la fecha prevista; se puede marcar aunque no tenga Pomodoros.\n- El editor de tareas presenta primero lo esencial y agrupa las opciones avanzadas, con selectores de fecha y hora y prioridades con nombre.\n- Los borradores se conservan al cerrar el editor y se pueden recuperar, guardar o descartar al volver.\n- Reportes y Ajustes organizan mejor sus periodos, datos y opciones; los gráficos incluyen descripciones accesibles.\n- Las notas rápidas mantienen su panel translúcido y permiten ajustar el contraste de sus controles sin cambiar el fondo.\n- Se ajustaron fechas, etiquetas y mensajes en español e inglés, y se redujeron duplicados al completar o renovar tareas."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 85
+  "revision": 86
 }
