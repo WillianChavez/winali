@@ -65,8 +65,8 @@
         "Accesos de concentración solo al activarlos"
       ],
       "release": {
-        "versionCode": 1016,
-        "versionName": "0.1.16",
+        "versionCode": 1017,
+        "versionName": "0.1.17",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -74,11 +74,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.16/focus.apk",
-        "size": 2140533,
-        "sha256": "b7fe8f50405ae5f4972a8933dded57bb928d388d9b648f9b44c058501d2b4208",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/focus/0.1.17/focus.apk",
+        "size": 2140537,
+        "sha256": "7caed4cd1638f3f6d1ac5b411627a3fe05fecf2b8df74d5b4316eb6a50e407f8",
         "certificateSha256": "07de6d42b81a25759173f18484cbd800c4b2fe63914a4acd9d7d84ab21f9cadc",
-        "changelog": "# Focus 0.1.16\r\n\r\n- Notas rápidas añade 2 dp de padding a la izquierda del texto «Notas» en el encabezado."
+        "changelog": "# Focus 0.1.17\r\n\r\n- Notas rápidas mejora el contraste del texto y del botón «Iniciar» sobre fondos claros y oscuros, sin quitar el desenfoque."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 88
+  "revision": 89
 }
