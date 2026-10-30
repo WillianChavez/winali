@@ -253,8 +253,8 @@
         "Acceso de lectura a los libros que selecciones al importarlos"
       ],
       "release": {
-        "versionCode": 1028,
-        "versionName": "0.1.28",
+        "versionCode": 1029,
+        "versionName": "0.1.29",
         "minSdk": 26,
         "architectures": [
           "arm64-v8a",
@@ -262,11 +262,11 @@
           "x86",
           "x86_64"
         ],
-        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.28/books.apk",
-        "size": 10765423,
-        "sha256": "6a91fedd2ad89d503266a02c8d2aa4ec9090a5c3d9ec58aa3549affcd767a05f",
+        "url": "https://willianchavez.github.io/winali-downloads/apps/books/0.1.29/books.apk",
+        "size": 10765431,
+        "sha256": "54d5e641b63f4709a25fc233ed39df7a9b361d793f06ffbd02130bad2113c998",
         "certificateSha256": "92bcea11f193fc428fb1d92e80df5ca0d99f3c090fea6ef7e5aa524965e60f7b",
-        "changelog": "# Books 0.1.28\r\n\r\n- Nuevo icono 3D azul y cian, con libro abierto, coordinado con las demás apps.\r\n- Conserva el icono monocromo para los temas de Android."
+        "changelog": "# Books 0.1.29\r\n\r\n- El avance guardado y el porcentaje de la biblioteca ahora representan el progreso del libro completo.\r\n- Al girar la tablet se conservan la sección, la búsqueda, el orden, la selección y el borrador de una nota.\r\n- En pantallas anchas, los ajustes y el índice se muestran junto al libro para comparar los cambios mientras lees.\r\n- El pase automático respeta los segundos configurados aunque Android desactive las animaciones.\r\n- Las teclas de volumen vuelven al sistema cuando está desactivado el cambio de página con esas teclas.\r\n- Los controles de lectura tienen nombres y estados accesibles; el mensaje de importación usa un solo idioma.\r\n- El lector notifica a Android cuando cambia la página visible para actualizar el árbol de accesibilidad."
       },
       "locales": {
         "en": {
@@ -281,5 +281,5 @@
       "icon": "https://raw.githubusercontent.com/WillianChavez/winali/main/docs/icons/books-3d.png"
     }
   ],
-  "revision": 91
+  "revision": 92
 }
