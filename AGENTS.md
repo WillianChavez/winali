@@ -36,8 +36,11 @@ Aplica a los seis repositorios (`winali`, `apk`, `focus`, `read`, `deck`, `books
 
 - `JAVA_HOME=C:/Users/willi/AppData/Local/Programs/REA/java/jdk-21.0.12.1+1`
 - `ANDROID_HOME=%LOCALAPPDATA%/Android/Sdk` (plataforma 36, Build Tools 36.0.0)
+- Node.js 22.12 o posterior y `agent-device` global (`npm install -g agent-device@latest`); el servidor MCP global de Codex se llama `agent-device` y ejecuta `agent-device mcp`.
 - Desde PowerShell: `.\gradlew.bat …`; desde Git Bash: `cmd //c "gradlew.bat …"` y `export MSYS_NO_PATHCONV=1` antes de usar rutas de `adb` como `/data/local/tmp`.
-- Emuladores: siempre `-gpu host` (usa la RTX 4060), uno por app (`winali36`, `apk36`, `focus36`, `read36`), RAM 2 GB, y ciérralos al terminar con `adb -s <serial> emu kill`. Fija `ANDROID_SERIAL` antes de pruebas de dispositivo. No lances dos Gradle a la vez.
+- Emuladores: siempre `-gpu host` (usa la RTX 4060), uno por app (`winali36`, `apk36`, `focus36`, `read36`), RAM 2 GB. Antes de interactuar, usa `agent-device devices --platform android` y reutiliza el emulador encendido. Abre la app por paquete con `agent-device open <paquete> --platform android --device <serial>`; usa `snapshot -i`, `press`/`fill`/`scroll` con refs vigentes y `--settle`, y `screenshot <ruta>` para evidencia. Cierra la sesión con `agent-device close`; detén el AVD al terminar con `adb -s <serial> emu kill` solo si lo iniciaste para esta tarea.
+- Usa agent-device para explorar y validar el flujo visible sin pagar el costo de una suite completa: prueba primero el caso afectado en debug y, tras cambios de UI/lógica, los recorridos de regresión relevantes; guarda capturas solo cuando ayuden a comparar. Usa `adb` para descubrir/arrancar AVD, instalar artefactos, logs, trazas y diagnósticos de bajo nivel. No uses coordenadas si hay refs o selectores accesibles. Si una acción no queda probada en el snapshot, confirma el resultado exacto con `get`/`find` o una captura.
+- Gradle sigue siendo la autoridad para compilar, lint, pruebas unitarias e instrumentadas y release R8; no lo reemplaces por una inspección manual. Ejecuta únicamente la tarea Gradle necesaria para el riesgo que cambió antes de ampliar a la batería; nunca lances dos Gradle a la vez. Fija `ANDROID_SERIAL` para `connectedDebugAndroidTest`.
 - REA (con apktool) para inspeccionar APK propios y de referencia.
 
 ## Actualizar una app
@@ -73,11 +76,14 @@ Ejemplo con Focus pasando a `0.1.3`; vale igual para `apk`, `read`, `deck` y `bo
    git commit -am "Publish <App> 0.1.3 in the catalog" && git push origin main
    ```
    Sincroniza solo la app que acabas de publicar: `sync` sin ids o con otros ids adelantaría también versiones ya publicadas que aún no quieras lanzar. `sync` consulta los manifiestos estáticos de GitHub Pages y no necesita token ni acceso al repo privado de la app. `sync` también actualiza la copia embebida (`app/src/main/assets/catalog.json`) y sube `revision`. El certificado debe coincidir con el anterior; si `sync` lo rechaza, no lo fuerces.
-7. **Comprueba el catálogo publicado:**
+7. **Publica también el catálogo que consume la app.** `app/build.gradle.kts` fija `CATALOG_URL` en `https://willianchavez.github.io/winali-downloads/catalog.json`; publicar solo `catalog/index.json` no actualiza el catálogo de las instalaciones existentes. Después de fusionar la ficha en `winali`, desde `winali-downloads` copia `C:/Users/willi/Documents/projects/winali/catalog/index.json` a `catalog.json`, verifica que la revisión y la app publicada coincidan, y haz commit/push de ese archivo a `main`. No hace falta recompilar Winali.
+8. **Comprueba los catálogos que ya están en producción antes de cerrar:**
    ```sh
    curl -s https://raw.githubusercontent.com/WillianChavez/winali/main/catalog/index.json
+   curl -s https://raw.githubusercontent.com/WillianChavez/winali-downloads/main/catalog.json
+   curl -s https://willianchavez.github.io/winali-downloads/catalog.json
    ```
-   Los teléfonos lo verán en su próxima comprobación (al abrir Winali o cada ~12 h). No hace falta recompilar Winali.
+   Confirma en los tres la misma revisión y, para la app publicada, versión, `versionCode`, URL, tamaño, SHA-256 y certificado. El URL de GitHub Pages es el que consulta Winali. Si Pages aún devuelve una revisión anterior por caché, espera y vuelve a consultar; la publicación no está completa hasta que ese URL muestre la nueva revisión. Los teléfonos lo verán en la siguiente comprobación (al abrir Winali, con Buscar actualizaciones o cada ~12 h).
 
 Si cambian la descripción, los permisos o las capturas de la ficha, edítalos en `catalog/index.json` (español y `locales.en`). Las capturas van en `docs/screenshots/<app>-N.png` y se enlazan con `https://raw.githubusercontent.com/WillianChavez/winali/main/docs/screenshots/...`. El README de Winali muestra solo las capturas de la tienda y no lleva una tabla de apps disponibles; documenta las funciones en el repositorio de cada app.
 
